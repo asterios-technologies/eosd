@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated osd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.kronosafe.osd.oasd.presentation.oasdModelWizardID"
+            name="%_UI_oasdModelWizard_label"
+            class="com.kronosafe.osd.oasd.presentation.oasdModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/oasdModelFile.gif">
+         <description>%_UI_oasdModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated osd -->
+      <editor
+            id="com.kronosafe.osd.oasd.presentation.oasdEditorID"
+            name="%_UI_oasdEditor_label"
+            icon="icons/full/obj16/oasdModelFile.gif"
+            extensions="oasd"
+            class="com.kronosafe.osd.oasd.presentation.oasdEditor"
+            contributorClass="com.kronosafe.osd.oasd.presentation.oasdActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated osd -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.kronosafe.osd.oad.presentation.oadModelWizardID"
+            name="%_UI_oadModelWizard_label"
+            class="com.kronosafe.osd.oad.presentation.oadModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/oadModelFile.gif">
+         <description>%_UI_oadModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated osd -->
+      <editor
+            id="com.kronosafe.osd.oad.presentation.oadEditorID"
+            name="%_UI_oadEditor_label"
+            icon="icons/full/obj16/oadModelFile.gif"
+            extensions="oad"
+            class="com.kronosafe.osd.oad.presentation.oadEditor"
+            contributorClass="com.kronosafe.osd.oad.presentation.oadActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="osd" nsURI="http://www.kronosafe.com/osd" nsPrefix="osd">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="The Open System Description format is the format of the file that provides the system description. It allows describing the architecture of blocks of the system under study. Each block, named BehaviorItem, may have inputs and outputs data that are exchanged via communication channels, named CommunicationItem. A communication channel connects one output data of a block to one input data of a block. These data have types, named TypeItem, and are parts of the global data of the context of the C-functions that implement the given block. The implementation files of the blocks are also described as a list of files."/>
+  </eAnnotations>
+  <eSubpackages name="oasd" nsURI="http://www.kronosafe.com/oasd" nsPrefix="">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The open architecture system description used to describe the system and functional design."/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EDataType" name="IdVal" instanceClassName="java.lang.Integer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The IdVal type corresponds to an identity number. It is an integer comprised between 0 and the maximum number of element in the model minus 1."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="AString" instanceClassName="java.lang.String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The AString type corresponds to an alphanumerical string between 1 and 100 characters."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="OrderVal" instanceClassName="java.lang.Integer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An unsigned integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="BehaviorItemKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A BehaviorItem represents a block in the system."/>
+      </eAnnotations>
+      <eLiterals name="internal">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Internal system block, i.e. which has no interactions with the system environment."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="in" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Input blocks which acquires system environment data (input driver)."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="out" value="2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Output blocks which produces/actuates data/command to the system environment (output driver)."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FunctionKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A FunctionItem represents a specific C-function of a block in the system. It can be the function called during the initialization phase, the function called during the reset phase or the function called during the main cycle phase."/>
+      </eAnnotations>
+      <eLiterals name="init">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A function executed for the initialization of the block."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="cycle" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A function executed each cycle of the block."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="reset" value="2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A function executed for the block reset."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="TimeUnit" instanceClassName="java.lang.Integer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemDescription" eSuperTypes="#//oasd/IdentifiableElementReferencer #//oasd/NamedElement #//oasd/VersionedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+          eType="#//oasd/TypeItem" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned types."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviors" lowerBound="1"
+          upperBound="-1" eType="#//oasd/BehaviorItem" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned behavior items."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="codes" upperBound="-1"
+          eType="#//oasd/Code" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned codes."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeUnit" lowerBound="1"
+          eType="#//oasd/AString" defaultValueLiteral="ast_realtime_us">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The unit used for the timing values in the model."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
+          eType="#//oasd/AString" defaultValueLiteral="realtime">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The name of the application timing source."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeUnitDeclaration"
+          lowerBound="1" eType="#//oasd/AString" defaultValueLiteral="asterios.h">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The file path in in which are declared the timing units."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="communications" upperBound="-1"
+          eType="#//oasd/CommunicationItem" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned communication items."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="functionalChains" upperBound="-1"
+          eType="#//oasd/FunctionalChain" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned functional chains."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="chainSpatialConstraints"
+          upperBound="-1" eType="#//oasd/ChainSpatialConstraint" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned chain spatial constraints."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="blockSpatialConstraints"
+          upperBound="-1" eType="#//oasd/BlockSpatialConstraint" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned block spatial constraints."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comSpatialConstraints"
+          upperBound="-1" eType="#//oasd/ComSpatialConstraint" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The system owned com spatial constraints."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An Input represents an input data of the block under consideration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="inner" eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The port name manipulated by the functional C function."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Global" eSuperTypes="#//oasd/IdentifiableElementReferencer #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Global represents a global data of the block under consideration. It is an element of the context of the C-functions that correspond to the block."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//oasd/TypeItem" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The global variable type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An Output represents an output data of the block under consideration."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="inner" eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The port name manipulated by the functional C function."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="File">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A File is associated to a C-file implementing a behaviorItem. It is defined by a path attribute of type AString that gives the path of the C-file."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1"
+          eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The path of the source file."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Code" eSuperTypes="#//oasd/IdentifiedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This element gives a set of files associated to an implementation of a behaviorItem."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="files" lowerBound="1"
+          upperBound="-1" eType="#//oasd/File" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A set of files either manually written or generated to implement the functional requirements/designs."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BehaviorItem" eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A BehaviorItem represents a block in the system."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1"
+          eType="#//oasd/BehaviorItemKind" defaultValueLiteral="internal" unsettable="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The kind of behaviorItem. A behaviorItem may be internal to a system, produce outputs (out) or acquire inputs (in)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1"
+          eType="#//oasd/OrderVal" defaultValueLiteral="0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The order of the behaviorItem execution in a time interval of a thread.&#x9;"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+          eType="#//oasd/FunctionItem" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The functions of the item."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+          eType="#//oasd/Output" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The output ports of the item."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="globals" upperBound="-1"
+          eType="#//oasd/Global" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The global variables used in the functional code to pass data to functions."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+          eType="#//oasd/Input" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The input ports of the item."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//oasd/Source"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The source element produced by the functional implementation."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionItem" eSuperTypes="#//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A FunctionItem represents a specific C-function of a block in the system. It can be the function called during the initialization phase, the function called during the reset phase or the function called during the main cycle phase. There are 3 FunctionItem per block. One of kind init, one of kind reset and one of kind cycle. The budget attribute is not used. The name attribute is the name of the C-function that will be executed during the corresponding phase (the reset phase is not used, only init and cycle functions are used)."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1"
+          eType="#//oasd/FunctionKind">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The kind of function: initialization, cycle or reset."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="budget" lowerBound="1"
+          eType="#//oasd/NanoSec" defaultValueLiteral="0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The timing budget needed by the function."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="execTWLength" eType="#//oasd/TimeUnit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value=" It is the execution time windows length, i.e. the time windows in which the function shall be executed only once. The end instant of that time windows defines the communication visibility date. It is not the budget of the function, i.e the time to execute the function."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="execTWRhythm" eType="#//oasd/TimeUnit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value=" It is the rhythm on which the execution time windows is activated, i.e. the period of the execution time window start."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeItem" eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A TypeItem represents the type of a data manipulated by a BehaviorItem."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyFunction" eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The function used to copy the element in the functional implementation."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationItem" eSuperTypes="#//oasd/IdentifiedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A CommunicationItem represents a data communication channel between a source and a destination."/>
+      </eAnnotations>
+      <eOperations name="getPorts" upperBound="-1" eType="#//oasd/IdentifiedElement"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pValue" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"
+          defaultValueLiteral="-1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The number of past value available in the communication channel. This number is an integer with positive and negative supported values."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="immediate" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="If a communication is immediate, the data is communicated to the consumer just after the producer execution without waiting the next temporal sycnhronization point."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="temporal" eType="#//oasd/Temporal"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The timing properties of the communication item."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dst" lowerBound="1" eType="#//oasd/Input"
+          resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The destination port of the communication."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//oasd/Output"
+          resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The source port of the communication."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//oasd/TypeItem"
+          resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The type of the communication.&#xD;&#xA;@DEPRECATED"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//oasd/IdentifiableElementReferencer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Source represents the set of external C-files and header files necessary to compile the block of the application."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="headers" lowerBound="1"
+          upperBound="-1" eType="#//oasd/File" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The headers produced by the functional implementation."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="code" lowerBound="1"
+          eType="#//oasd/Code" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The code element associated with the source file"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="NanoSec" instanceClassName="java.lang.Long">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A datatype to model the nanosecond unit."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IdentifiedElement" abstract="true"
+        eSuperTypes="#//oasd/IdentifiableElementReferencer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element with an Id."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//oasd/IdVal"
+          iD="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The element model Id. This is a number to reference the element in the model. All attributes IDs shall be global to the system, e.g. all id of Output shall be different for a given system. Two outputs with the same Id is forbidden. Nevertheless, an Output of Id &quot;0&quot; and an Input of Id &quot;0&quot; may exist.&#xD;&#xA;&#xD;&#xA;This id is used to serialize the references."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElementReferencer" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element that references an IdentifiedElement."/>
+      </eAnnotations>
+      <eOperations name="findItem" eType="#//oasd/IdentifiedElement">
+        <eParameters name="id" eType="#//oasd/IdVal"/>
+        <eParameters name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </eOperations>
+      <eOperations name="findItem" eType="#//oasd/IdentifiedElement">
+        <eParameters name="id" eType="#//oasd/IdVal"/>
+        <eParameters name="feature" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStructuralFeature"/>
+      </eOperations>
+      <eOperations name="findItemInResourceSet" eType="#//oasd/IdentifiedElement">
+        <eParameters name="id" eType="#//oasd/IdVal"/>
+        <eParameters name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </eOperations>
+      <eOperations name="findItem" eType="#//oasd/IdentifiedElement">
+        <eParameters name="id" eType="#//oasd/IdVal"/>
+        <eParameters name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        <eParameters name="eRessource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EResource"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element with a name."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The element name."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VersionedElement" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element with a version."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+          eType="#//oasd/AString" defaultValueLiteral="1.0.0">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The metamodel version."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Temporal">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reserved for internal use."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1"
+          eType="#//oasd/TemporalKind">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It corresponds to the immediate boolean of the communication item."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rate" lowerBound="1"
+          eType="#//oasd/TimeUnit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The communication rate."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
+          eType="#//oasd/TimeUnit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The communication offset."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TemporalKind">
+      <eLiterals name="periodic">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Non Immediate communication"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="direct" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Immediate communication."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimingConstraint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A timing constraint."/>
+      </eAnnotations>
+      <eOperations name="getConstraintExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+          eType="#//oasd/ConstraintOperator">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The timing operator of the constraint."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//oasd/TimeUnit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The timing value of the constraint."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ConstraintOperator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An operator to describe constraint statement: lesserThan, greaterThan."/>
+      </eAnnotations>
+      <eLiterals name="lesserThan" literal="lesserThan">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Strictly Lesser than a specified number."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="greaterThan" value="1" literal="greaterThan">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Strictly Greater than a specified number."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FunctionalChain" eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A set of communicationItem imply in a specific path."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="2"
+          eType="#//oasd/TimingConstraint" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A set of constraints if ChainSpatialConstraints exist."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timingpaths" upperBound="-1"
+          eType="#//oasd/TimingPath" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The timing paths of the functional chain."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="communicationItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/CommunicationItem" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The communication items implied in the path."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BlockSpatialConstraint" eSuperTypes="#//oasd/SpatialConstraint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A spatial constraint on blocks that imply to not have the referenced blocks in the same memory partition for example."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/BehaviorItem" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The right elements constrained."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/BehaviorItem" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The left elements constrained."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SpatialOperator">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An operator used to describe the timing constraint: memory partition exclusion or inclusion."/>
+      </eAnnotations>
+      <eLiterals name="exclude">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="To define that two elements shall be allocated in the same memory partition: they are included."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="include" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="To define that two elements shall not be allocated in the same memory partition: they are excluded."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChainSpatialConstraint" eSuperTypes="#//oasd/SpatialConstraint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A set of paths that are excluded or included in the same memory partition."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/FunctionalChain" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The right elements constrained."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/FunctionalChain" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The left elements constrained."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SpatialConstraint" abstract="true"
+        eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A memory partition constraint."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="spatialOperator" lowerBound="1"
+          eType="#//oasd/SpatialOperator">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The constraint spatial operator."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComSpatialConstraint" eSuperTypes="#//oasd/SpatialConstraint">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A constraint either to exclude or to include communication paths."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/CommunicationItem" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The right elements constrained."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rItems" lowerBound="1"
+          upperBound="-1" eType="#//oasd/CommunicationItem" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The left elements constrained."/>
+        </eAnnotations>
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimingPath" eSuperTypes="#//oasd/IdentifiableElementReferencer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The timing path of the functional chain, i.e. the timing instants through which the functional chain passes. Reserved for internal use."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1"
+          eType="#//oasd/TimeUnit">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The timing instant date."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviorItem" lowerBound="1"
+          eType="#//oasd/BehaviorItem">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The behaviorItem through which the functional chain passes at the given timing instant."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="oad" nsURI="http://www.kronosafe.com/oad" nsPrefix="">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The open allocation description used to describe the allocations of the behaviorItems to specific software execution units."/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="BehaviorItemReference" eSuperTypes="#//oasd/IdentifiableElementReferencer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A reference to a behavior item."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="behaviorItem" lowerBound="1"
+          eType="#//oasd/IdVal" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The behavior item id referenced in the Open Architecture System Description model."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviorItemElement"
+          lowerBound="1" eType="#//oasd/BehaviorItem" transient="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The behavior item referenced."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Allocation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The allocation of behavior items to software execution unit."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="swExecutionUnit" eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The software execution unit."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviorItemReferences"
+          lowerBound="1" upperBound="-1" eType="#//oad/BehaviorItemReference" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The behavior item references."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationDescription" eSuperTypes="#//oasd/VersionedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The set of allocations."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocations" upperBound="-1"
+          eType="#//oad/Allocation" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The allocations described in the models."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="systemDescriptionRef"
+          lowerBound="1" eType="#//oasd/SystemDescription">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The Open Architecture System Description referenced."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright Krono-Safe S.A. 2018-2019. All rights reserved."
+    modelDirectory="/com.kronosafe.osd/src-gen" editDirectory="/com.kronosafe.osd.edit/src"
+    editorDirectory="/com.kronosafe.osd.editor/src" modelPluginID="com.kronosafe.osd"
+    modelName="osd" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/com.kronosafe.osd.tests/src" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" editPluginID="com.kronosafe.osd.edit" editorPluginID="com.kronosafe.osd.editor"
+    runtimeVersion="2.13" language="" operationReflection="true" importOrganizing="true"
+    eclipsePlatformVersion="Oxygen">
+  <foreignModel>osd.ecore</foreignModel>
+  <genPackages prefix="osd" basePackage="com.kronosafe" resource="XML" disposableProviderFactory="true"
+      fileExtensions="osd" ecorePackage="osd.ecore#/">
+    <nestedGenPackages prefix="oasd" basePackage="com.kronosafe.osd" resource="XML"
+        disposableProviderFactory="true" ecorePackage="osd.ecore#//oasd" publicationLocation="">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/BehaviorItemKind">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/BehaviorItemKind/internal"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/BehaviorItemKind/in"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/BehaviorItemKind/out"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/FunctionKind">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/FunctionKind/init"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/FunctionKind/cycle"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/FunctionKind/reset"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/TemporalKind">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/TemporalKind/periodic"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/TemporalKind/direct"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/ConstraintOperator">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ConstraintOperator/lesserThan"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ConstraintOperator/greaterThan"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/SpatialOperator">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/SpatialOperator/exclude"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/SpatialOperator/include"/>
+      </genEnums>
+      <genDataTypes ecoreDataType="osd.ecore#//oasd/IdVal"/>
+      <genDataTypes ecoreDataType="osd.ecore#//oasd/AString"/>
+      <genDataTypes ecoreDataType="osd.ecore#//oasd/OrderVal"/>
+      <genDataTypes ecoreDataType="osd.ecore#//oasd/TimeUnit"/>
+      <genDataTypes ecoreDataType="osd.ecore#//oasd/NanoSec"/>
+      <genClasses ecoreClass="osd.ecore#//oasd/SystemDescription">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/types"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/behaviors"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/codes"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/SystemDescription/timeUnit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/SystemDescription/source"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/SystemDescription/timeUnitDeclaration"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/communications"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/functionalChains"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/chainSpatialConstraints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/blockSpatialConstraints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/comSpatialConstraints"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Input">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Input/inner"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Global">
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/Global/type"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Output">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Output/inner"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/File">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/File/path"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Code">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/Code/files"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/BehaviorItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/BehaviorItem/kind"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/BehaviorItem/order"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/BehaviorItem/functions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/BehaviorItem/outputs"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/BehaviorItem/globals"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/BehaviorItem/inputs"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/BehaviorItem/source"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/FunctionItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/kind"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/budget"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/execTWLength"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/execTWRhythm"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/TypeItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/TypeItem/copyFunction"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/CommunicationItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/CommunicationItem/pValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/CommunicationItem/immediate"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/CommunicationItem/temporal"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/CommunicationItem/dst"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/CommunicationItem/src"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/CommunicationItem/type"/>
+        <genOperations ecoreOperation="osd.ecore#//oasd/CommunicationItem/getPorts"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Source">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/Source/headers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/Source/code"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/IdentifiedElement">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/IdentifiedElement/id"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/IdentifiableElementReferencer">
+        <genOperations ecoreOperation="osd.ecore#//oasd/IdentifiableElementReferencer/findItem">
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem/id"/>
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem/eClass"/>
+        </genOperations>
+        <genOperations ecoreOperation="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.1">
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.1/id"/>
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.1/feature"/>
+        </genOperations>
+        <genOperations ecoreOperation="osd.ecore#//oasd/IdentifiableElementReferencer/findItemInResourceSet">
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItemInResourceSet/id"/>
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItemInResourceSet/eClass"/>
+        </genOperations>
+        <genOperations ecoreOperation="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.2">
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.2/id"/>
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.2/eClass"/>
+          <genParameters ecoreParameter="osd.ecore#//oasd/IdentifiableElementReferencer/findItem.2/eRessource"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/NamedElement/name"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/VersionedElement">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/VersionedElement/version"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Temporal">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Temporal/kind"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Temporal/rate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Temporal/offset"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/TimingConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/TimingConstraint/operator"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/TimingConstraint/value"/>
+        <genOperations ecoreOperation="osd.ecore#//oasd/TimingConstraint/getConstraintExpression"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/FunctionalChain">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/FunctionalChain/constraints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/FunctionalChain/timingpaths"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/FunctionalChain/communicationItems"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/BlockSpatialConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/BlockSpatialConstraint/lItems"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/BlockSpatialConstraint/rItems"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/ChainSpatialConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/ChainSpatialConstraint/lItems"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/ChainSpatialConstraint/rItems"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/SpatialConstraint">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/SpatialConstraint/spatialOperator"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/ComSpatialConstraint">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/ComSpatialConstraint/lItems"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/ComSpatialConstraint/rItems"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/TimingPath">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/TimingPath/date"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/TimingPath/behaviorItem"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="oad" basePackage="com.kronosafe.osd" resource="XML"
+        disposableProviderFactory="true" ecorePackage="osd.ecore#//oad">
+      <genClasses ecoreClass="osd.ecore#//oad/BehaviorItemReference">
+        <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EAttribute osd.ecore#//oad/BehaviorItemReference/behaviorItem"/>
+        <genFeatures documentation="The behavior item element referenced." createChild="false"
+            ecoreFeature="ecore:EReference osd.ecore#//oad/BehaviorItemReference/behaviorItemElement"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oad/Allocation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oad/Allocation/swExecutionUnit"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oad/Allocation/behaviorItemReferences"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oad/AllocationDescription">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oad/AllocationDescription/allocations"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oad/AllocationDescription/systemDescriptionRef"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

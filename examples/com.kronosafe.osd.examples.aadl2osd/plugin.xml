@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.ui.newWizards">
+    <category
+        id="com.kronosafe.osd.examples.category"
+        name="Open System Description Examples"
+        parentCategory="org.eclipse.ui.Examples">
+    </category>
+
+    <wizard
+          category="org.eclipse.ui.Examples/com.kronosafe.osd.examples.category"
+          class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+          icon="icons/wizban/aadltransfo.png"
+          id="com.kronosafe.osd.examples.aadl2osd.NewAADL2OSDModelTransformationWizard"
+          name="AADL2OSD Transformation Example"
+          project="true">
+      <description>A simplified AADL2OSD model transformation.</description>
+    </wizard>
+  </extension>
+ <extension point="org.eclipse.emf.common.ui.examples">
+  	<example wizardID="com.kronosafe.osd.examples.aadl2osd.NewAADL2OSDModelTransformationWizard">
+
+      <projectDescriptor name="com.kronosafe.osd.examples.aadl2osd"
+                         contentURI="sample/"
+                         description="A simplified AADL to OSD transformation example"/>
+  	</example>
+  </extension>
+ 
+</plugin>

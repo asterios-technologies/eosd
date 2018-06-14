@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="osd" version="12.0.0.2017041100">
+  <ownedViewpoints name="Open Architecture Viewpoint" modelFileExtension="*.oasd">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Architecture System Description" initialisation="true" showOnStartup="true" domainClass="SystemDescription" enablePopupBars="true">
+      <metamodel href="http://www.kronosafe.com/oasd#/"/>
+      <layout xsi:type="description_1:CompositeLayout" direction="LeftToRight"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="TypeItem" semanticCandidatesExpression="feature:types" domainClass="TypeItem">
+          <style xsi:type="style:BundledImageDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Time" semanticCandidatesExpression="aql:self" domainClass="SystemDescription">
+          <style xsi:type="style:NoteDescription" labelExpression="aql:'Time unit='+self.timeUnit+',\n Source='+self.source+',\n Time unit declaration='+self.timeUnitDeclaration" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="BehaviorItem" semanticCandidatesExpression="feature:behaviors" domainClass="BehaviorItem" childrenPresentation="List">
+          <borderedNodeMappings name="Input" semanticCandidatesExpression="feature:inputs" domainClass="Input">
+            <style xsi:type="style:BundledImageDescription" labelAlignment="LEFT" sizeComputationExpression="2" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="Output" semanticCandidatesExpression="feature:outputs" domainClass="Output">
+            <style xsi:type="style:BundledImageDescription" labelAlignment="LEFT" sizeComputationExpression="2" resizeKind="NSEW" shape="dot">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            </style>
+          </borderedNodeMappings>
+          <subNodeMappings name="Global" semanticCandidatesExpression="feature:eAllContents" domainClass="Global">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:'Global->'+self.name+':'+self.getTypeItem().name" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="FunctionItem" semanticCandidatesExpression="feature:eAllContents" domainClass="FunctionItem">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:'Cycle Function: '+self.name+' ( budget:'+self.budget+' ns, rhythm:'+self.execTWRhythm+' '+self.eContainer().eContainer().timeUnit+',comLength: '+self.execTWLength+' '+self.eContainer().eContainer().timeUnit+')'" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+            <conditionnalStyles predicateExpression="aql:self.kind==oasd::FunctionKind::init">
+              <style xsi:type="style:BundledImageDescription" labelExpression="aql:'Init Function: '+self.name+' ( budget:'+self.budget+' ns, rhythm:'+self.execTWRhythm+' '+self.eContainer().eContainer().timeUnit+')'" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="aql:self.kind==oasd::FunctionKind::reset">
+              <style xsi:type="style:BundledImageDescription" labelExpression="aql:'Reset Function: '+self.name+' ( budget:'+self.budget+' ns, rhythm:'+self.execTWRhythm+' '+self.eContainer().eContainer().timeUnit+')'" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+                <labelFormat>bold</labelFormat>
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <subNodeMappings name="SourceCode" semanticCandidatesExpression="feature:eAllContents" domainClass="Source">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:'Source Code: '+self.getCodeItem().files.path->sep(',')" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="SourceHeader" semanticCandidatesExpression="feature:eAllContents" semanticElements="aql:self.headers" domainClass="Source">
+            <style xsi:type="style:BundledImageDescription" labelExpression="aql:'Source Header: '+self.headers.path->sep(',')" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:self.name+' (order='+self.order+')'" roundedCorner="true" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.kind==oasd::BehaviorItemKind::in">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:self.name+' (order='+self.order+')'" roundedCorner="true" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.kind==oasd::BehaviorItemKind::out">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:self.name+' (order='+self.order+')'" roundedCorner="true" backgroundStyle="GradientTopToBottom">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="Code" semanticCandidatesExpression="feature:codes" domainClass="Code" childrenPresentation="List">
+          <subNodeMappings name="‎File" semanticCandidatesExpression="feature:eAllContents" domainClass="File">
+            <style xsi:type="style:BundledImageDescription" labelExpression="feature:path" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="Code" roundedCorner="true" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Behaviors">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="BehaviorItem" containerMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="BehaviorItem" referenceName="behaviors">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Block'+container.behaviors->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="order" valueExpression="0"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Input" referenceName="inputs" variableName="instanceInput">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'I'+instance.inputs->size()"/>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Output" referenceName="outputs" variableName="instanceOutput">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'O'+instance.outputs->size()"/>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Input" nodeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Input']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Input" referenceName="inputs">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'I'+container.inputs->size()"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Global" referenceName="globals">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'I'+container.inputs->size()"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Output" nodeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Output']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Output" referenceName="outputs">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'O'+container.outputs->size()"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Global" referenceName="globals">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'O'+container.inputs->size()"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Function">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Function" nodeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@subNodeMappings[name='FunctionItem']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="FunctionItem" referenceName="functions">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'f'+container.functions->size()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Global" precondition="aql:container.oclIsKindOf(oasd::BehaviorItem)" candidatesExpression="aql:self.eContainer().types">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Global" referenceName="globals">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'g'+container.globals->size()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:element.id"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Type" nodeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@nodeMappings[name='TypeItem']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="TypeItem" referenceName="types">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'t'+container.types->size()"/>
+                <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Source" precondition="aql:self.source->isEmpty()" candidatesExpression="aql:self.eContainer().codes">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Source" referenceName="source" variableName="instanceSource">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="code" valueExpression="aql:element.id"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="File" referenceName="headers">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="aql:'f0.h'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Header" precondition="aql:self.source->notEmpty()" nodeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@subNodeMappings[name='SourceHeader']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="File" referenceName="headers">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="aql:'f'+container.source.headers->size()+'.h'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Code">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Code" containerMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='Code']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="Code" referenceName="codes">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="File" nodeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='Code']/@subNodeMappings[name='‎File']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="File" referenceName="files">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="aql:'f'+container.files->size()+'.c'"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Communication">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Communication" edgeMappings="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@additionalLayers[name='Communication']/@edgeMappings[name='CommunicationItem']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer().eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="CommunicationItem" referenceName="communications">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="src" valueExpression="aql:source.id"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dst" valueExpression="aql:target.id">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dst" valueExpression="aql:target.id"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="id"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Communication" activeByDefault="true">
+        <edgeMappings name="CommunicationItem" semanticCandidatesExpression="feature:communications" sourceMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Output']" targetMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Input']" targetFinderExpression="aql:self.getDstItem()" sourceFinderExpression="aql:self.getSrcItem()" domainClass="CommunicationItem" useDomainElement="true">
+          <style routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelExpression="aql:'Type:'+self.getTypeItem().name+', P:'+self.pValue +', Immediate:'+self.immediate">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+      <additionalLayers name="Timing Constraints">
+        <edgeMappings name="Functional Chain" semanticElements="aql:self.constraints" sourceMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Input'] //@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Output']" targetMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Input'] //@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Output']" targetFinderExpression="aql:self.getComItems()->last().getDstItem()" sourceFinderExpression="aql:self.getComItems()->first().getSrcItem()" domainClass="oasd::FunctionalChain" useDomainElement="true" pathExpression="aql:self.getComItems().getPorts()" pathNodeMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Input'] //@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Architecture%20System%20Description']/@defaultLayer/@containerMappings[name='BehaviorItem']/@borderedNodeMappings[name='Output']">
+          <style sourceArrow="InputFillClosedArrow" targetArrow="InputFillClosedArrow" sizeComputationExpression="3" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription labelExpression="aql:self.constraints.getConstraintExpression()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="Spatial Constraints" domainClass="SystemDescription">
+      <ownedLineMappings name="BehaviorItemR" domainClass="BehaviorItem" semanticCandidatesExpression="aql:self.behaviors" headerLabelExpression="aql:self.name"/>
+      <ownedColumnMappings name="BehaviorItemC" headerLabelExpression="aql:self.name" domainClass="BehaviorItem" semanticCandidatesExpression="aql:self.behaviors"/>
+      <intersection name="SpatialConstraintInclude" lineMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedLineMappings[name='BehaviorItemR']" columnMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedColumnMappings.0" labelExpression="U" useDomainClass="true" columnFinderExpression="aql:self.getRBehavItems()" lineFinderExpression="aql:self.getLBehavItems()" semanticCandidatesExpression="aql:self.spatialConstraints->select(p|p.spatialOperator==oasd::SpatialOperator::include)" domainClass="SpatialConstraint">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </intersection>
+      <intersection name="SpatialConstraintExclude" lineMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedLineMappings[name='BehaviorItemR']" columnMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedColumnMappings.0" labelExpression="0" useDomainClass="true" columnFinderExpression="aql:self.getRBehavItems()" lineFinderExpression="aql:self.getLBehavItems()" semanticCandidatesExpression="aql:self.spatialConstraints->select(p|p.spatialOperator==oasd::SpatialOperator::exclude)" domainClass="SpatialConstraint">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </intersection>
+      <intersection name="Identite" lineMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedLineMappings[name='BehaviorItemR']" columnMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedColumnMappings.0" columnFinderExpression="aql:self" lineFinderExpression="aql:self">
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+        </defaultBackground>
+      </intersection>
+      <intersection name="SpatialConstraintInclude" lineMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedLineMappings[name='BehaviorItemR']" columnMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedColumnMappings.0" labelExpression="U" useDomainClass="true" columnFinderExpression="aql:self.getLBehavItems()" lineFinderExpression="aql:self.getRBehavItems()" semanticCandidatesExpression="aql:self.spatialConstraints->select(p|p.spatialOperator==oasd::SpatialOperator::include)" domainClass="SpatialConstraint">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </intersection>
+      <intersection name="SpatialConstraintExclude" lineMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedLineMappings[name='BehaviorItemR']" columnMapping="//@ownedViewpoints[name='Open%20Architecture%20Viewpoint']/@ownedRepresentations[name='Spatial%20Constraints']/@ownedColumnMappings.0" labelExpression="0" useDomainClass="true" columnFinderExpression="aql:self.getLBehavItems()" lineFinderExpression="aql:self.getRBehavItems()" semanticCandidatesExpression="aql:self.spatialConstraints->select(p|p.spatialOperator==oasd::SpatialOperator::exclude)" domainClass="SpatialConstraint">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </intersection>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="com.kronosafe.osd.design.Services"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="Open Allocation Viewpoint" modelFileExtension="*.oad">
+    <ownedRepresentations xsi:type="description_2:CrossTableDescription" name="Allocation Matrix" initialisation="true" showOnStartup="true" domainClass="AllocationDescription">
+      <metamodel href="http://www.kronosafe.com/oasd#/"/>
+      <metamodel href="http://www.kronosafe.com/oad#/"/>
+      <ownedLineMappings name="BehaviorItem" domainClass="BehaviorItem" semanticCandidatesExpression="aql:self.systemDescriptionRef.eAllContents()" headerLabelExpression="aql:self.name">
+        <delete name="Delete">
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+        </delete>
+      </ownedLineMappings>
+      <ownedColumnMappings name="Allocation" domainClass="Allocation" semanticCandidatesExpression="feature:allocations"/>
+      <intersection name="BehaviorItemRef" lineMapping="//@ownedViewpoints[name='Open%20Allocation%20Viewpoint']/@ownedRepresentations[name='Allocation%20Matrix']/@ownedLineMappings[name='BehaviorItem']" columnMapping="//@ownedViewpoints[name='Open%20Allocation%20Viewpoint']/@ownedRepresentations[name='Allocation%20Matrix']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="aql:self.eContainer()" lineFinderExpression="aql:self.getBehaviorItemRefItem()" domainClass="BehaviorItemRef">
+        <create name="BehaviorItemRef" forceRefresh="true">
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="aql:columnSemantic">
+            <subModelOperations xsi:type="tool_1:CreateInstance" typeName="BehaviorItemRef" referenceName="behaviorItemReferences">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="behaviorItem" valueExpression="aql:lineSemantic.id"/>
+            </subModelOperations>
+          </firstModelOperation>
+          <mask mask="{0}"/>
+        </create>
+      </intersection>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Allocation Description" initialisation="true" showOnStartup="true" domainClass="AllocationDescription">
+      <subItemMappings name="AllocationDescription" domainClass="AllocationDescription" semanticCandidatesExpression="aql:self">
+        <defaultStyle labelExpression="aql:'Allocation Description for '+self.systemDescription.name">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Allocation" domainClass="Allocation" semanticCandidatesExpression="feature:eAllContents">
+          <defaultStyle labelExpression="feature:swExecutionUnit">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+          <subItemMappings name="BehaviorItemRef" domainClass="BehaviorItemRef" semanticCandidatesExpression="feature:behaviorItemReferences">
+            <defaultStyle labelExpression="aql:self.getBehaviorItemRefItem().name">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+          </subItemMappings>
+          <create name="BehaviorItemRef" forceRefresh="true" mapping="//@ownedViewpoints[name='Open%20Allocation%20Viewpoint']/@ownedRepresentations[name='Allocation%20Description']/@subItemMappings[name='AllocationDescription']/@subItemMappings[name='Allocation']/@subItemMappings[name='BehaviorItemRef']">
+            <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="BehaviorItemRef" referenceName="behaviorItemReferences"/>
+            <variables name="root" documentation="The semantic element of the tree."/>
+            <variables name="element" documentation="The currently edited element."/>
+            <variables name="container" documentation="The semantic element corresponding to the view container."/>
+          </create>
+        </subItemMappings>
+      </subItemMappings>
+      <createTreeItem name="Allocation" forceRefresh="true" mapping="//@ownedViewpoints[name='Open%20Allocation%20Viewpoint']/@ownedRepresentations[name='Allocation%20Description']/@subItemMappings[name='AllocationDescription']/@subItemMappings[name='Allocation']">
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="Allocation" referenceName="allocations"/>
+        <variables name="root" documentation="The semantic element of the tree."/>
+        <variables name="element" documentation="The currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+      </createTreeItem>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

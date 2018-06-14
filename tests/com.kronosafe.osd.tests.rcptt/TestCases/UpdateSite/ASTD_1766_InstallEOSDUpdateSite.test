@@ -1,0 +1,52 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _bKL_sH-PEeS4X6G9cD21hw
+Element-Name: ASTD_1766_InstallEOSDUpdateSite
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _RZZskKYKEeinLb3se9nAag
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 12/10/18 11:16 AM
+Testcase-Type: ecl
+Verifications: _zjs7YM8nEeSz9_HNAw245A
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-1766
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+get-menu -path "Help/Install New Software..." | click
+get-window Install | get-button "Add..." | click
+//This path is relative to the AUT installation path which is in target\dependency\ObeoDesigner-Community
+set-dialog-result File "../../../../../packaging/com.kronosafe.eosd.update/target/com.kronosafe.eosd.update-1.0.0-SNAPSHOT.zip"
+with [get-window Install] {
+    with [get-window "Add Repository"] {
+        get-button "Archive..." | click
+        get-editbox -after [get-label "Name:"] | set-text eosd
+        get-button Add | click
+    }
+    get-tree | get-item -path "Open System Description/Eclipse Open System Description" | check
+    get-button "Next >" | click
+    get-tree | select "Eclipse Open System Description"
+    with [get-group Details | get-editbox] {
+        key-type "M1+a"
+        set-text-selection -offset 0 -startLine 0 -endLine 0 -endOffset 565
+    }
+    get-button "Next >" | click
+    try {
+    	get-button "I accept the terms of the license agreement" | click
+    } -catch {
+    	get-button "I accept the terms of the license agreements" | click
+    }
+    get-button Finish | click
+}
+get-window "Security Warning" | get-button "Install anyway" | click
+get-window "Software Updates" | get-button "Restart Now" | click
+wait-until-eclipse-is-ready
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

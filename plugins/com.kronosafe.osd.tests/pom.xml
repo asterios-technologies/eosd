@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2018 Krono-Safe.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/legal/epl-2.0/
+
+Contributors:
+    Krono-Safe - initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.kronosafe.eosd</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../../releng/com.kronosafe.eosd.parent</relativePath>
+  </parent>
+
+  <artifactId>com.kronosafe.osd.tests</artifactId>
+  <packaging>eclipse-test-plugin</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Eclipse Open System Description tests without GUI</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
+        <version>1.2.0</version>
+        <configuration>
+          <testSuite>com.kronosafe.osd.oasd.tests</testSuite>
+          <testClass>com.kronosafe.osd.oasd.tests.osdAllTests</testClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

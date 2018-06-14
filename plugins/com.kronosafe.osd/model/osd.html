@@ -1,0 +1,1294 @@
+<!-- This file was created using the HTML documentation generator. -->
+<!-- Creation date: Fri Dec 07 09:51:18 CET 2018-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+      	<title>Metamodel Documentation (platform:/resource/com.kronosafe.osd/model/osd.ecore)</title>
+    	<script type="text/javascript">
+//<![CDATA[				    	
+// TOC script based on code taken from http://www.quirksmode.org/dom/toc.html
+function makeTOC() {
+	
+	var toc = document.createElement('div')				
+	toc.id = "toc";
+	toc.innerHTML = "Table of Contents"				
+	document.body.appendChild(toc);
+				
+	var innertocDiv = createTOC()				
+	toc.appendChild(innertocDiv);
+}
+
+
+function createTOC() {
+	var y = document.createElement('div');
+	y.id = 'innertoc';
+	//var a = y.appendChild(document.createElement('span'));
+	//a.onclick = showhideTOC;
+	//a.id = 'contentheader';
+	//a.innerHTML = 'Show Table of Contents';
+	var z = y.appendChild(document.createElement('div'));
+	//z.onclick = showhideTOC;
+	var toBeTOCced = getElementsByTagNames('h1,h2,h3');
+	if (toBeTOCced.length < 2) return false;
+	var hCount = 0;
+	var hhCount = 0;
+	var hhhCount = 0;
+	for (var i=0;i<toBeTOCced.length;i++) {
+	var tmp = document.createElement('a');
+	tmp.className = 'page';
+	var text;
+	var textPre;
+	if (toBeTOCced[i].nodeName == 'h2'){
+		tmp.className += ' indent';
+		textPre = hCount + "."+ ++hhCount + ". "; 
+	}
+	else if (toBeTOCced[i].nodeName == 'h3'){
+		tmp.className += ' extraindent';
+		textPre = hCount + "."+ hhCount + "."+ ++hhhCount +". "; 
+	}
+	else {
+		textPre = ++hCount + ". "; 
+		hhCount = 0;
+		hhhCount = 0;
+	}
+	text = textPre + toBeTOCced[i].textContent;
+	toBeTOCced[i].innerHTML = textPre + toBeTOCced[i].innerHTML;
+	
+	tmp.innerHTML = text; 
+	z.appendChild(tmp);
+	var headerId = toBeTOCced[i].id || 'link' + i;
+	tmp.href = '#' + headerId;
+	toBeTOCced[i].id = headerId;
+	}
+	return y;
+}
+
+function getElementsByTagNames(list,obj) {
+	if (!obj) var obj = document;
+	var tagNames = list.split(',');
+	var resultArray = new Array();
+	for (var i=0;i<tagNames.length;i++) {
+		var tags = obj.getElementsByTagName(tagNames[i]);
+		for (var j=0;j<tags.length;j++) {
+			resultArray.push(tags[j]);
+		}
+	}
+	var testNode = resultArray[0];
+	if (!testNode) return [];
+	if (testNode.sourceIndex) {
+		resultArray.sort(function (a,b) {
+				return a.sourceIndex - b.sourceIndex;
+		});
+	}
+	else if (testNode.compareDocumentPosition) {
+		resultArray.sort(function (a,b) {
+				return 3 - (a.compareDocumentPosition(b) & 6);
+		});
+	}
+	return resultArray;
+}
+	    	
+//]]>				    	
+	    	</script>
+	    	<link rel="stylesheet" type="text/css" href="https://raw.github.com/necolas/normalize.css/master/normalize.css" /> 
+	    	<style>
+#toc {
+	position: fixed;
+	  right: 0;
+	  top: 0;
+	  background-color:#eee;
+	  overflow: scroll;
+	  border: 1px dashed;
+}
+
+#toc #innertoc { 
+	display: none;
+	height: 500px;
+} /* Hide the full TOC by default */
+
+#toc:hover #innertoc{
+	display: block; /* Show it on hover */
+}
+	td {
+	border: 1px solid;
+	}
+	.page{
+	display:table-row;
+	}
+	.indent {
+	text-indent:12pt;
+	}
+	.extraindent {
+	text-indent:14pt;
+	}
+
+	    	</style>
+	    	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body onload="makeTOC();">
+<h1 id=""><a href="#"><span class="packageName">osd.oasd</span> package</a></h1>
+
+<p>The open architecture system description used to describe the system and functional design.</p>
+<div class="">EPackage properties:</div>
+<div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype"></span></div>
+<div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://www.kronosafe.com/oasd</span></div>
+<h2 id="BehaviorItem"><a href="#BehaviorItem"><a href="#BehaviorItem">BehaviorItem</a></a></h2>
+
+<p>A BehaviorItem represents a block in the system.</p>
+<h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="BehaviorItem.kind" class="teletype">kind</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItemKind">BehaviorItemKind</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Unsettable</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">internal</span></div>
+ </td> <td><p>The kind of behaviorItem. A behaviorItem may be internal to a system, produce outputs (out) or acquire inputs (in).</p>
+</td>
+		</tr><tr>	<td><div id="BehaviorItem.order" class="teletype">order</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#OrderVal">OrderVal</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0</span></div>
+ </td> <td><p>The order of the behaviorItem execution in a time interval of a thread.	</p>
+</td>
+		</tr></table>
+<a href="#.BehaviorItem.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="BehaviorItem.functions" class="teletype">functions</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#FunctionItem">FunctionItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The functions of the item.</p>
+</td>
+		</tr><tr>	<td><div id="BehaviorItem.globals" class="teletype">globals</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Global">Global</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The global variables used in the functional code to pass data to functions.</p>
+</td>
+		</tr><tr>	<td><div id="BehaviorItem.inputs" class="teletype">inputs</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Input">Input</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The input ports of the item.</p>
+</td>
+		</tr><tr>	<td><div id="BehaviorItem.outputs" class="teletype">outputs</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Output">Output</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The output ports of the item.</p>
+</td>
+		</tr><tr>	<td><div id="BehaviorItem.source" class="teletype">source</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Source">Source</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The source element produced by the functional implementation.</p>
+</td>
+		</tr></table>
+<a href="#.BehaviorItem.ref"></a>
+<h2 id="BehaviorItemKind"><a href="#BehaviorItemKind"><a href="#BehaviorItemKind">BehaviorItemKind</a></a></h2>
+
+<p>A BehaviorItem represents a block in the system.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">internal</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>Internal system block, i.e. which has no interactions with the system environment.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">in</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+		<p>Input blocks which acquires system environment data (input driver).</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">out</span>
+	</td>
+	<td>
+		2
+	</td>
+	<td>
+		<p>Output blocks which produces/actuates data/command to the system environment (output driver).</p>
+	</td>	
+</tr>
+</table>
+<a href="#.BehaviorItemKind.lit"></a>
+<h2 id="BlockSpatialConstraint"><a href="#BlockSpatialConstraint"><a href="#BlockSpatialConstraint">BlockSpatialConstraint</a></a></h2>
+
+<p>A spatial constraint on blocks that imply to not have the referenced blocks in the same memory partition for example.</p>
+<h4><b>Supertype:</b><a href="#SpatialConstraint">SpatialConstraint</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="BlockSpatialConstraint.lItems" class="teletype">lItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItem">BehaviorItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The right elements constrained.</p>
+</td>
+		</tr><tr>	<td><div id="BlockSpatialConstraint.rItems" class="teletype">rItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItem">BehaviorItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The left elements constrained.</p>
+</td>
+		</tr></table>
+<a href="#.BlockSpatialConstraint.ref"></a>
+<h2 id="ChainSpatialConstraint"><a href="#ChainSpatialConstraint"><a href="#ChainSpatialConstraint">ChainSpatialConstraint</a></a></h2>
+
+<p>A set of paths that are excluded or included in the same memory partition.</p>
+<h4><b>Supertype:</b><a href="#SpatialConstraint">SpatialConstraint</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="ChainSpatialConstraint.lItems" class="teletype">lItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#FunctionalChain">FunctionalChain</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The right elements constrained.</p>
+</td>
+		</tr><tr>	<td><div id="ChainSpatialConstraint.rItems" class="teletype">rItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#FunctionalChain">FunctionalChain</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The left elements constrained.</p>
+</td>
+		</tr></table>
+<a href="#.ChainSpatialConstraint.ref"></a>
+<h2 id="Code"><a href="#Code"><a href="#Code">Code</a></a></h2>
+
+<p>This element gives a set of files associated to an implementation of a behaviorItem.</p>
+<h4><b>Supertype:</b><a href="#IdentifiedElement">IdentifiedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Code.files" class="teletype">files</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#File">File</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A set of files either manually written or generated to implement the functional requirements/designs.</p>
+</td>
+		</tr></table>
+<a href="#.Code.ref"></a>
+<h2 id="ComSpatialConstraint"><a href="#ComSpatialConstraint"><a href="#ComSpatialConstraint">ComSpatialConstraint</a></a></h2>
+
+<p>A constraint either to exclude or to include communication paths.</p>
+<h4><b>Supertype:</b><a href="#SpatialConstraint">SpatialConstraint</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="ComSpatialConstraint.lItems" class="teletype">lItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#CommunicationItem">CommunicationItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The right elements constrained.</p>
+</td>
+		</tr><tr>	<td><div id="ComSpatialConstraint.rItems" class="teletype">rItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#CommunicationItem">CommunicationItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The left elements constrained.</p>
+</td>
+		</tr></table>
+<a href="#.ComSpatialConstraint.ref"></a>
+<h2 id="CommunicationItem"><a href="#CommunicationItem"><a href="#CommunicationItem">CommunicationItem</a></a></h2>
+
+<p>A CommunicationItem represents a data communication channel between a source and a destination.</p>
+<h4><b>Supertype:</b><a href="#IdentifiedElement">IdentifiedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="CommunicationItem.immediate" class="teletype">immediate</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>If a communication is immediate, the data is communicated to the consummer just after the producer execution without waiting the next temporal sycnhronization point.</p>
+</td>
+		</tr><tr>	<td><div id="CommunicationItem.pValue" class="teletype">pValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EInt</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">-1</span></div>
+ </td> <td><p>The number of past value available in the communication channel.</p>
+</td>
+		</tr></table>
+<a href="#.CommunicationItem.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="CommunicationItem.dst" class="teletype">dst</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Input">Input</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The destination port of the communication.</p>
+</td>
+		</tr><tr>	<td><div id="CommunicationItem.src" class="teletype">src</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Output">Output</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The source port of the communication.</p>
+</td>
+		</tr><tr>	<td><div id="CommunicationItem.temporal" class="teletype">temporal</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Temporal">Temporal</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The timing properties of the communication item.</p>
+</td>
+		</tr><tr>	<td><div id="CommunicationItem.type" class="teletype">type</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TypeItem">TypeItem</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> <p>The type of the communication.
+@DEPRECATED</p>
+</td>
+		</tr></table>
+<a href="#.CommunicationItem.ref"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="CommunicationItem.getPorts" class="teletype">getPorts</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdentifiedElement">IdentifiedElement</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Returns:</div>
+<a href="#IdentifiedElement">IdentifiedElement</a>[0..*]
+ </td><td> </td>
+		</tr></table>
+<a href="#.CommunicationItem.op"></a>
+<h2 id="ConstraintOperator"><a href="#ConstraintOperator"><a href="#ConstraintOperator">ConstraintOperator</a></a></h2>
+
+<p>An operator to describe constraint statement: lesserThan, gretterThan.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">lesserThan</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>Strictly Lesser than a specified number.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">greaterThan</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+		<p>Strictly Greater than a specified number.</p>
+	</td>	
+</tr>
+</table>
+<a href="#.ConstraintOperator.lit"></a>
+<h2 id="File"><a href="#File"><a href="#File">File</a></a></h2>
+
+<p>A File is associated to a C-file implementing a behaviorItem. It is defined by a path attribute of type AString that gives the path of the C-file.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="File.path" class="teletype">path</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The path of the source file.</p>
+</td>
+		</tr></table>
+<a href="#.File.attr"></a>
+<h2 id="FunctionItem"><a href="#FunctionItem"><a href="#FunctionItem">FunctionItem</a></a></h2>
+
+<p>A FunctionItem represents a specific C-function of a block in the system. It can be the function called during the initialization phase, the function called during the reset phase or the function called during the main cycle phase. There are 3 FunctionItem per block. One of kind init, one of kind reset and one of kind cycle. The budget attribute is not used. The name attribute is the name of the C-function that will be executed during the corresponding phase (the reset phase is not used, only init and cycle functions are used).</p>
+<h4><b>Supertype:</b><a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="FunctionItem.budget" class="teletype">budget</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#NanoSec">NanoSec</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">0</span></div>
+ </td> <td><p>The timing budget needed by the function.</p>
+</td>
+		</tr><tr>	<td><div id="FunctionItem.execTWLength" class="teletype">execTWLength</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimeUnit">TimeUnit</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>It is the execution time windows length, i.e. the time windows in which the function shall be executed only once. The end instant of that time windows defines the communication visibility date. It is not the budget of the function, i.e the time to execute the function.</p>
+</td>
+		</tr><tr>	<td><div id="FunctionItem.execTWRhythm" class="teletype">execTWRhythm</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimeUnit">TimeUnit</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>It is the rhythm on which the execution time windows is activated, i.e. the period of the execution time window start.</p>
+</td>
+		</tr><tr>	<td><div id="FunctionItem.kind" class="teletype">kind</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#FunctionKind">FunctionKind</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The kind of function: initialization, cycle or reset.</p>
+</td>
+		</tr></table>
+<a href="#.FunctionItem.attr"></a>
+<h2 id="FunctionKind"><a href="#FunctionKind"><a href="#FunctionKind">FunctionKind</a></a></h2>
+
+<p>A FunctionItem represents a specific C-function of a block in the system. It can be the function called during the initialization phase, the function called during the reset phase or the function called during the main cycle phase.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">init</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>A function executed for the initialization of the block.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">cycle</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+		<p>A function executed each cycle of the block.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">reset</span>
+	</td>
+	<td>
+		2
+	</td>
+	<td>
+		<p>A function executed for the block reset.</p>
+	</td>	
+</tr>
+</table>
+<a href="#.FunctionKind.lit"></a>
+<h2 id="FunctionalChain"><a href="#FunctionalChain"><a href="#FunctionalChain">FunctionalChain</a></a></h2>
+
+<p>A set of communicationItem imply in a specific path.</p>
+<h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="FunctionalChain.communicationItems" class="teletype">communicationItems</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#CommunicationItem">CommunicationItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+</td> 
+<td> <p>The communication items implied in the path.</p>
+</td>
+		</tr><tr>	<td><div id="FunctionalChain.constraints" class="teletype">constraints</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimingConstraint">TimingConstraint</a></span></div>
+<div class="label">Cardinality: [0..2]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>A set of constraints if ChainSpatialConstraints exist.</p>
+</td>
+		</tr><tr>	<td><div id="FunctionalChain.timingpaths" class="teletype">timingpaths</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimingPath">TimingPath</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The timing paths of the functional chain.</p>
+</td>
+		</tr></table>
+<a href="#.FunctionalChain.ref"></a>
+<h2 id="Global"><a href="#Global"><a href="#Global">Global</a></a></h2>
+
+<p>A Global represents a global data of the block under consideration. It is an element of the context of the C-functions that correspond to the block.</p>
+<h4><b>Supertypes:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Global.type" class="teletype">type</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TypeItem">TypeItem</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The global variable type.</p>
+</td>
+		</tr></table>
+<a href="#.Global.ref"></a>
+<h2 id="IdentifiableElementReferencer"><a href="#IdentifiableElementReferencer"><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></a></h2>
+
+<p>An element that references an IdentifiedElement.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="IdentifiableElementReferencer.findItem" class="teletype">findItem</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdentifiedElement">IdentifiedElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#IdentifiedElement">IdentifiedElement</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#IdVal">IdVal</a>[0..1] <span class="teletype>"id</span></li>
+<li>EClass[0..1] <span class="teletype>"eClass</span></li>
+</ul>
+ </td><td> </td>
+		</tr><tr>	<td><div id="IdentifiableElementReferencer.findItem" class="teletype">findItem</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdentifiedElement">IdentifiedElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#IdentifiedElement">IdentifiedElement</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#IdVal">IdVal</a>[0..1] <span class="teletype>"id</span></li>
+<li>EStructuralFeature[0..1] <span class="teletype>"feature</span></li>
+</ul>
+ </td><td> </td>
+		</tr><tr>	<td><div id="IdentifiableElementReferencer.findItem" class="teletype">findItem</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdentifiedElement">IdentifiedElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#IdentifiedElement">IdentifiedElement</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#IdVal">IdVal</a>[0..1] <span class="teletype>"id</span></li>
+<li>EClass[0..1] <span class="teletype>"eClass</span></li>
+<li>EResource[0..1] <span class="teletype>"eRessource</span></li>
+</ul>
+ </td><td> </td>
+		</tr><tr>	<td><div id="IdentifiableElementReferencer.findItemInResourceSet" class="teletype">findItemInResourceSet</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdentifiedElement">IdentifiedElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#IdentifiedElement">IdentifiedElement</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#IdVal">IdVal</a>[0..1] <span class="teletype>"id</span></li>
+<li>EClass[0..1] <span class="teletype>"eClass</span></li>
+</ul>
+ </td><td> </td>
+		</tr></table>
+<a href="#.IdentifiableElementReferencer.op"></a>
+<h2 id="IdentifiedElement"><a href="#IdentifiedElement"><a href="#IdentifiedElement">IdentifiedElement</a></a></h2>
+
+<p>An element with an Id.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="IdentifiedElement.id" class="teletype">id</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdVal">IdVal</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Identifier</div>
+ </td> <td><p>The element model Id. This is a number to reference the element in the model. All attributes IDs shall be global to the system, e.g. all id of Output shall be different for a given system. Two outputs with the same Id is forbidden. Nevertheless, an Output of Id &quot;0&quot; and an Input of Id &quot;0&quot; may exist.</p>
+</td>
+		</tr></table>
+<a href="#.IdentifiedElement.attr"></a>
+<h2 id="Input"><a href="#Input"><a href="#Input">Input</a></a></h2>
+
+<p>An Input represents an input data of the block under consideration.</p>
+<h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Input.inner" class="teletype">inner</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The port name manipulated by the functional C function.</p>
+</td>
+		</tr></table>
+<a href="#.Input.attr"></a>
+<h2 id="NamedElement"><a href="#NamedElement"><a href="#NamedElement">NamedElement</a></a></h2>
+
+<p>An element with a name.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="NamedElement.name" class="teletype">name</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The element name.</p>
+</td>
+		</tr></table>
+<a href="#.NamedElement.attr"></a>
+<h2 id="Output"><a href="#Output"><a href="#Output">Output</a></a></h2>
+
+<p>An Output represents an output data of the block under consideration.</p>
+<h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Output.inner" class="teletype">inner</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The port name manipulated by the functional C function.</p>
+</td>
+		</tr></table>
+<a href="#.Output.attr"></a>
+<h2 id="Source"><a href="#Source"><a href="#Source">Source</a></a></h2>
+
+<p>A Source represents the set of external C-files and header files necessary to compile the block of the application.</p>
+<h4><b>Supertype:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Source.code" class="teletype">code</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Code">Code</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The code element associated with the source file</p>
+</td>
+		</tr><tr>	<td><div id="Source.headers" class="teletype">headers</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#File">File</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The headers produced by the functional implementation.</p>
+</td>
+		</tr></table>
+<a href="#.Source.ref"></a>
+<h2 id="SpatialConstraint"><a href="#SpatialConstraint"><a href="#SpatialConstraint">SpatialConstraint</a></a></h2>
+
+<p>A memory partition constraint.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="SpatialConstraint.spatialOperator" class="teletype">spatialOperator</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#SpatialOperator">SpatialOperator</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The constraint spatial operator.</p>
+</td>
+		</tr></table>
+<a href="#.SpatialConstraint.attr"></a>
+<h2 id="SpatialOperator"><a href="#SpatialOperator"><a href="#SpatialOperator">SpatialOperator</a></a></h2>
+
+<p>An operator used to describe the timing constraint: memory partition exclusion or inclusion.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">exclude</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>To define that two elements shall be allocated in the same memory partition: they are included.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">include</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+		<p>To define that two elements shall not be allocated in the same memory partition: they are excluded.</p>
+	</td>	
+</tr>
+</table>
+<a href="#.SpatialOperator.lit"></a>
+<h2 id="SystemDescription"><a href="#SystemDescription"><a href="#SystemDescription">SystemDescription</a></a></h2>
+
+<h4><b>Supertypes:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a>, <a href="#NamedElement">NamedElement</a>, <a href="#VersionedElement">VersionedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="SystemDescription.source" class="teletype">source</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">realtime</span></div>
+ </td> <td><p>The name of the application timing source.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.timeUnit" class="teletype">timeUnit</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">ast_realtime_us</span></div>
+ </td> <td><p>The unit used for the timing values in the model.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.timeUnitDeclaration" class="teletype">timeUnitDeclaration</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">asterios.h</span></div>
+ </td> <td><p>The file path in in which are declared the timing units.</p>
+</td>
+		</tr></table>
+<a href="#.SystemDescription.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="SystemDescription.behaviors" class="teletype">behaviors</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItem">BehaviorItem</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned behavior items.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.blockSpatialConstraints" class="teletype">blockSpatialConstraints</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BlockSpatialConstraint">BlockSpatialConstraint</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned block spatial constraints.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.chainSpatialConstraints" class="teletype">chainSpatialConstraints</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ChainSpatialConstraint">ChainSpatialConstraint</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned chain spatial constraints.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.codes" class="teletype">codes</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Code">Code</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned codes.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.comSpatialConstraints" class="teletype">comSpatialConstraints</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ComSpatialConstraint">ComSpatialConstraint</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned com spatial constraints.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.communications" class="teletype">communications</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#CommunicationItem">CommunicationItem</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned communication items.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.functionalChains" class="teletype">functionalChains</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#FunctionalChain">FunctionalChain</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned functional chains.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.types" class="teletype">types</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TypeItem">TypeItem</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The system owned types.</p>
+</td>
+		</tr></table>
+<a href="#.SystemDescription.ref"></a>
+<h2 id="Temporal"><a href="#Temporal"><a href="#Temporal">Temporal</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Temporal.kind" class="teletype">kind</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TemporalKind">TemporalKind</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>Reserved for internal use. It corresponds to the immediate boolean of the communication item.</p>
+</td>
+		</tr><tr>	<td><div id="Temporal.offset" class="teletype">offset</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimeUnit">TimeUnit</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The communication offset.</p>
+</td>
+		</tr><tr>	<td><div id="Temporal.rate" class="teletype">rate</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimeUnit">TimeUnit</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The communication rate.</p>
+</td>
+		</tr></table>
+<a href="#.Temporal.attr"></a>
+<h2 id="TemporalKind"><a href="#TemporalKind"><a href="#TemporalKind">TemporalKind</a></a></h2>
+
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">periodic</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">direct</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+	</td>	
+</tr>
+</table>
+<a href="#.TemporalKind.lit"></a>
+<h2 id="TimingConstraint"><a href="#TimingConstraint"><a href="#TimingConstraint">TimingConstraint</a></a></h2>
+
+<p>A timing constraint.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="TimingConstraint.operator" class="teletype">operator</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ConstraintOperator">ConstraintOperator</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The timing operator of the constraint.</p>
+</td>
+		</tr><tr>	<td><div id="TimingConstraint.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimeUnit">TimeUnit</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The timing value of the constraint.</p>
+</td>
+		</tr></table>
+<a href="#.TimingConstraint.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Operations</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="TimingConstraint.getConstraintExpression" class="teletype">getConstraintExpression</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EString</span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+EString[0..1]
+ </td><td> </td>
+		</tr></table>
+<a href="#.TimingConstraint.op"></a>
+<h2 id="TimingPath"><a href="#TimingPath"><a href="#TimingPath">TimingPath</a></a></h2>
+
+<p>The timing path of the functional chain, i.e. the timing instants through which the functional chain passes.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="TimingPath.date" class="teletype">date</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TimeUnit">TimeUnit</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The timing instant date.</p>
+</td>
+		</tr></table>
+<a href="#.TimingPath.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="TimingPath.behaviorItem" class="teletype">behaviorItem</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItem">BehaviorItem</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The behaviorItem through which the functional chain passes at the given timing instant.</p>
+</td>
+		</tr></table>
+<a href="#.TimingPath.ref"></a>
+<h2 id="TypeItem"><a href="#TypeItem"><a href="#TypeItem">TypeItem</a></a></h2>
+
+<p>A TypeItem represents the type of a data manipulated by a BehaviorItem.</p>
+<h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="TypeItem.copyFunction" class="teletype">copyFunction</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The function used to copy the element in the functional implementation.</p>
+</td>
+		</tr></table>
+<a href="#.TypeItem.attr"></a>
+<h2 id="VersionedElement"><a href="#VersionedElement"><a href="#VersionedElement">VersionedElement</a></a></h2>
+
+<p>An element with a version.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="VersionedElement.version" class="teletype">version</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">1.0.0</span></div>
+ </td> <td><p>The metamodel version.</p>
+</td>
+		</tr></table>
+<a href="#.VersionedElement.attr"></a>
+<h1 id=""><a href="#"><span class="packageName">osd.oad</span> package</a></h1>
+
+<p>The open allocation description used to describe the allocations of the behaviorItems to specific software execution units.</p>
+<div class="">EPackage properties:</div>
+<div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype"></span></div>
+<div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://www.kronosafe.com/oad</span></div>
+<h2 id="Allocation"><a href="#Allocation"><a href="#Allocation">Allocation</a></a></h2>
+
+<p>The allocation of behavior items to software execution unit.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Allocation.swExecutionUnit" class="teletype">swExecutionUnit</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The software execution unit.</p>
+</td>
+		</tr></table>
+<a href="#.Allocation.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Allocation.behaviorItemReferences" class="teletype">behaviorItemReferences</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItemReference">BehaviorItemReference</a></span></div>
+<div class="label">Cardinality: [1..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The software execution unit references.</p>
+</td>
+		</tr></table>
+<a href="#.Allocation.ref"></a>
+<h2 id="AllocationDescription"><a href="#AllocationDescription"><a href="#AllocationDescription">AllocationDescription</a></a></h2>
+
+<p>The set of allocations.</p>
+<h4><b>Supertype:</b><a href="#VersionedElement">VersionedElement</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="AllocationDescription.allocations" class="teletype">allocations</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Allocation">Allocation</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The allocations described in the models.</p>
+</td>
+		</tr><tr>	<td><div id="AllocationDescription.systemDescriptionRef" class="teletype">systemDescriptionRef</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#SystemDescription">SystemDescription</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The open architecture system description referenced.</p>
+</td>
+		</tr></table>
+<a href="#.AllocationDescription.ref"></a>
+<h2 id="BehaviorItemReference"><a href="#BehaviorItemReference"><a href="#BehaviorItemReference">BehaviorItemReference</a></a></h2>
+
+<p>References to behavior items.</p>
+<h4><b>Supertype:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="BehaviorItemReference.behaviorItem" class="teletype"><div style="color:blue">behaviorItem</div></div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdVal">IdVal</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Derived</div>
+ </td> <td><p>The behavior item id referenced.</p>
+</td>
+		</tr></table>
+<a href="#.BehaviorItemReference.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="BehaviorItemReference.behaviorItemElement" class="teletype">behaviorItemElement</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#BehaviorItem">BehaviorItem</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Transient</div>
+</td> 
+<td> <p>The behavior item referenced.</p>
+</td>
+		</tr></table>
+<a href="#.BehaviorItemReference.ref"></a>
+</body>
+</html>

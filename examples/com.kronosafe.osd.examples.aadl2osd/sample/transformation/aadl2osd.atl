@@ -1,0 +1,178 @@
+-- @nsURI oasd=http://www.kronosafe.com/oasd
+-- @nsURI oad=http://www.kronosafe.com/oad
+-- @nsURI aadl=http://aadl.info/AADL/2.0
+
+-- Copyright (c) 2018-2019 Krono-Safe. All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0.
+-- Contributors:
+--   Krono-Safe - initial API and implementation
+
+-- Current limitations
+-- - singleton for each element (no instance management)
+-- - system can only contains 
+-- - only realtime source
+-- - limited to one process
+-- - thread port must have the same name than the subprogram parameter
+module aadl2osd;
+create OUTOASD : oasd, OUTOAD : oad from IN : aadl;
+
+helper context aadl!SystemImplementation def : getAllProcesses() : Sequence(aadl!ProcessImplementation) = self.ownedSubcomponent->select(e|e.oclIsKindOf(aadl!ProcessSubcomponent))->collect(e|e.subcomponentType).debug('Process implementation');
+
+helper context aadl!SystemImplementation def : getAllThreads() : Sequence(aadl!ThreadSubcomponent) = self.getAllProcesses()->collect(e|e.ownedSubcomponent->select(e2|e2.oclIsKindOf(aadl!ThreadSubcomponent)))->flatten().debug('Threads in the current process');
+
+helper context aadl!SystemImplementation def : getAllThreadDefinitions() : Sequence(aadl!ThreadImplementation) = self.getAllThreads()->collect(e|e.subcomponentType)->select(e|e.oclIsKindOf(aadl!ThreadImplementation))->flatten().debug('Threads definitions in the current process');
+
+-- limitation only one property value for a property asso and one value in a list value. path are described with list value
+helper context aadl!SubprogramType def: getFunctionCalledName():String = self.ownedPropertyAssociation->select(e|e.property.name = 'Source_Name')->first().ownedValue.first().ownedValue.value.debug('Function called name:');
+
+helper context aadl!ThreadImplementation def: getPeriod():Integer = self.ownedPropertyAssociation->select(e|e.property.name = 'Period')->first().ownedValue.first().ownedValue.value.intValue().debug('Period:');
+
+helper context aadl!PropertyAssociation def: getPath():String = self.ownedValue.first().ownedValue.ownedListElement->first().value.debug('Path:');
+
+helper context aadl!SubprogramCall def: getThreadImplementation():aadl!ThreadImplementation = self.getOwner().getOwner();
+
+helper context aadl!SystemImplementation def: getSubprograms(): Sequence(aadl!SubprogramCall) = self.getAllThreadDefinitions()->collect(e|e.ownedSubprogramCallSequence)->flatten()->collect(e|e.ownedSubprogramCall);
+
+helper context aadl!SubprogramCall def: getCodeDescription(): Sequence(aadl!PropertyAssociation) = self.calledSubprogram.ownedPropertyAssociation->select(e|e.property.name = 'Source_Text').first().debug('Source code property');
+
+helper context aadl!SubprogramCall def: getOutputs(): Sequence(aadl!PropertyAssociation) = self.getThreadImplementation().ownedParameterConnection->select(e|e.source.context = self)->collect(e|e.destination.connectionEnd)->select(e|e.direction = #out).debug('Outputs');
+	
+helper context aadl!SubprogramCall def: getInputs(): Sequence(aadl!PropertyAssociation) = self.getThreadImplementation().ownedParameterConnection->select(e|e.destination.context = self)->collect(e|e.source.connectionEnd)->select(e|e.direction = #"in").debug('Inputs');
+
+helper context aadl!DataType def : getTypeName() : String = self.ownedPropertyAssociation->first().ownedValue.first().ownedValue.namedValue.name.debug('Type Name:');
+
+-- Current limitations
+-- - system can only contains subprocess
+-- - only realtime source
+-- - only data in ms
+-- - use a list of subprogram call
+-- - only one source_text property for all subprogramcalled in a thread implementation
+rule System2SystemDescription {
+	from
+		s : aadl!SystemType,
+		simpl : aadl!SystemImplementation
+	to 
+		tsyst : oasd!SystemDescription (
+			name <- s.name,
+			timeUnit <- 'ast_realtime_ms',
+			behaviors <- simpl.getSubprograms(),
+			codes <- s.getOwner().ownedMember->select(e|e.oclIsKindOf(aadl!SubprogramType))->collect(e|e.ownedPropertyAssociation)->flatten()->select(e|e.property.name = 'Source_Text'),
+			communications <- simpl.getAllProcesses()->collect(e|e.ownedPortConnection)->flatten() ,
+			types <- s.getOwner().ownedMember->select(e|e.oclIsKindOf(aadl!DataType))
+		),
+		talloc : oad!AllocationDescription(
+			systemDescriptionRef <- tsyst,
+			allocations <- simpl.getAllThreads()
+		)
+}
+
+rule DataType2TypeItem{
+	from
+		s : aadl!DataType
+	to 
+		t : oasd!TypeItem(
+			name <- s.getTypeName()
+		)
+}
+
+rule SubprogramCall2BehaviorItem {
+	from
+		s : aadl!SubprogramCall
+	using {
+		subPrgCalled : aadl!SubprogramType = s.calledSubprogram;
+	}
+	to 
+		t : oasd!BehaviorItem (
+			name <- s.name+'_'+subPrgCalled.name,
+			functions <- fcycle,
+			functions <- finit,
+			source <- source,
+			outputs <- s.getOutputs(),
+			inputs <- s.getInputs(),
+			globals <- s.getOutputs()->collect(e|thisModule.resolveTemp(e, 'tg')),
+			globals <- s.getInputs()->collect(e|thisModule.resolveTemp(e, 'tg'))
+		),
+		fcycle : oasd!FunctionItem(
+			name <- subPrgCalled.getFunctionCalledName(),
+			execTWRhythm <- s.getOwner().getOwner().getPeriod(),
+			execTWLength <- fcycle.execTWRhythm,
+			kind <- #cycle
+		),
+		finit : oasd!FunctionItem(
+			name <- subPrgCalled.getFunctionCalledName()+'Init',
+			execTWRhythm <- s.getOwner().getOwner().getPeriod(),
+			execTWLength <- fcycle.execTWRhythm,
+			kind <- #init
+		),
+	 	tref : oad!BehaviorItemReference (
+			behaviorItemElement <- t
+		),
+		source : oasd!Source (
+			headers <- file,
+			code <- thisModule.resolveTemp(s.getCodeDescription(),'code')
+		),
+		file : oasd!File(
+			path <- s.getCodeDescription().getPath()+'.h'
+		)
+}
+
+rule Port2Output {
+	from
+		s : aadl!Port (s.direction = #out)
+	to 
+		t : oasd!Output (
+			name<-s.name.debug('Output created'),
+			inner <- s.name
+		),
+		tg : oasd!Global(
+			name <-s.name.debug('Global created'),
+			type <- thisModule.resolveTemp(s.featureClassifier,'t')
+		)
+		
+}
+
+rule Port2Input {
+	from
+		s : aadl!Port (s.direction = #"in")
+	to 
+		t : oasd!Input (
+			name<-s.name.debug('Input created'),
+			inner <- s.name
+		),
+		tg : oasd!Global(
+			name <-s.name.debug('Global created'),
+			type <- thisModule.resolveTemp(s.featureClassifier,'t')
+		)
+}
+
+rule CodePropertyAssociation2Code {
+	from
+		s : aadl!PropertyAssociation (s.property.name = 'Source_Text')
+	to 
+		code: oasd!Code(
+			files <- fileC
+		),
+		fileC : oasd!File(
+			path <- s.getPath()+'.c'
+		)
+}
+
+rule ThreadSubcomponent2Allocation {
+	from
+		s : aadl!ThreadSubcomponent
+	to 
+		t : oad!Allocation (
+			swExecutionUnit <- s.name,
+			behaviorItemReferences <- s.subcomponentType.ownedSubprogramCallSequence->collect(e|e.ownedSubprogramCall)->flatten()->collect(e | thisModule.resolveTemp(e, 'tref'))
+		)
+	
+}
+
+rule PortConnexion2Communication {
+	from
+		s : aadl!PortConnection
+	to 
+		t : oasd!CommunicationItem (
+			src <- thisModule.resolveTemp(s.source.connectionEnd, 't'),
+			dst <- thisModule.resolveTemp(s.destination.connectionEnd, 't')
+		)
+}

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="5">
+  <element id="0" manual="true">
+    <element id="1">
+      <element id="2">
+        <bo>
+          <seg>tag</seg>
+          <seg>unidirectional</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <bo>
+        <seg>connection</seg>
+        <seg>coma2b</seg>
+      </bo>
+      <contentFilters/>
+    </element>
+    <element id="7" manual="true">
+      <element id="27">
+        <element id="28">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>function2threadcom</seg>
+        </bo>
+        <contentFilters/>
+      </element>
+      <element id="48" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>consumeddata</seg>
+        </bo>
+        <position y="32.0"/>
+        <contentFilters/>
+      </element>
+      <element id="31" manual="true">
+        <element id="39" manual="true">
+          <element id="45" manual="true" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>consumeddata</seg>
+            </bo>
+            <position/>
+            <contentFilters/>
+          </element>
+          <element id="41" manual="true">
+            <bo>
+              <seg>tag</seg>
+              <seg>spc_csp</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>subprogram_call</seg>
+            <seg>consumerfunction</seg>
+          </bo>
+          <position x="20.0" y="25.0"/>
+          <size width="351.0" height="60.0"/>
+          <contentFilters>
+            <filter>calledSubprogram</filter>
+          </contentFilters>
+        </element>
+        <bo>
+          <seg>subprogram_call_sequence</seg>
+          <seg>threadcalls</seg>
+        </bo>
+        <position x="130.0" y="22.0"/>
+        <size width="391.0" height="96.0"/>
+        <contentFilters>
+          <filter>subprogramCallOrders</filter>
+          <filter>subprogramCalls</filter>
+        </contentFilters>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>consumerb</seg>
+      </bo>
+      <position x="610.0" y="38.0"/>
+      <size width="551.0" height="153.0"/>
+      <contentFilters>
+        <filter>flowSpecifications</filter>
+        <filter>features</filter>
+        <filter>connections</filter>
+        <filter>processorFeatures</filter>
+        <filter>internalFeatures</filter>
+        <filter>subprogramCallSequences</filter>
+      </contentFilters>
+    </element>
+    <element id="3" manual="true">
+      <element id="23">
+        <element id="24">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+          <contentFilters/>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>function2threadcom</seg>
+        </bo>
+        <bendpoints>
+          <point x="92.0" y="73.0"/>
+        </bendpoints>
+        <contentFilters/>
+      </element>
+      <element id="47" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>produceddata</seg>
+        </bo>
+        <position x="444.0" y="32.0"/>
+        <contentFilters/>
+      </element>
+      <element id="33" manual="true">
+        <element id="36" manual="true">
+          <element id="46" manual="true" dockArea="left">
+            <bo>
+              <seg>feature</seg>
+              <seg>produceddata</seg>
+            </bo>
+            <position/>
+            <contentFilters/>
+          </element>
+          <element id="37" manual="true">
+            <bo>
+              <seg>tag</seg>
+              <seg>spc_csp</seg>
+            </bo>
+            <contentFilters/>
+          </element>
+          <bo>
+            <seg>subprogram_call</seg>
+            <seg>producerfunction</seg>
+          </bo>
+          <position x="24.0" y="50.0"/>
+          <size width="357.0" height="50.0"/>
+          <contentFilters>
+            <filter>calledSubprogram</filter>
+          </contentFilters>
+        </element>
+        <bo>
+          <seg>subprogram_call_sequence</seg>
+          <seg>threadcalls</seg>
+        </bo>
+        <position x="30.0" y="22.0"/>
+        <size width="410.0" height="101.0"/>
+        <contentFilters>
+          <filter>subprogramCallOrders</filter>
+          <filter>subprogramCalls</filter>
+        </contentFilters>
+      </element>
+      <bo>
+        <seg>subcomponent</seg>
+        <seg>producera</seg>
+      </bo>
+      <position x="30.0" y="38.0"/>
+      <size width="551.0" height="153.0"/>
+      <contentFilters>
+        <filter>flowSpecifications</filter>
+        <filter>features</filter>
+        <filter>connections</filter>
+        <filter>processorFeatures</filter>
+        <filter>internalFeatures</filter>
+        <filter>subprogramCallSequences</filter>
+      </contentFilters>
+    </element>
+    <bo>
+      <seg>classifier</seg>
+      <seg>prod_cons_memorypartition.impl</seg>
+    </bo>
+    <position x="20.0" y="-20.0"/>
+    <size width="1171.0" height="221.0"/>
+    <contentFilters>
+      <filter>features</filter>
+      <filter>internalFeatures</filter>
+      <filter>processorFeatures</filter>
+      <filter>connections</filter>
+      <filter>flowSpecifications</filter>
+      <filter>subcomponents</filter>
+    </contentFilters>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>classifier</seg>
+      <seg>producer::consumer::prod_cons_memorypartition.impl</seg>
+    </context>
+  </config>
+</diagram:Diagram>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<oasd name="ProducerConsumerSystem" version="1.0.0" timeUnit="ast_realtime_ms" source="realtime" timeUnitDeclaration="asterios.h">
+  <types id="0" name="Integer"/>
+  <types id="1" name="Boolean"/>
+  <behaviors id="0" name="ProducerFunction_ProducerFunction" kind="internal" order="0">
+    <functions name="produce" kind="cycle" budget="0" execTWLength="200" execTWRhythm="200"/>
+    <functions name="produceInit" kind="init" budget="0" execTWLength="200" execTWRhythm="200"/>
+    <outputs id="0" name="producedData" inner="producedData"/>
+    <globals name="producedData" type="0"/>
+    <source code="0">
+      <headers path="producer_consumer.h"/>
+    </source>
+  </behaviors>
+  <behaviors id="1" name="ConsumerFunction_ConsumerFunction" kind="internal" order="0">
+    <functions name="consume" kind="cycle" budget="0" execTWLength="100" execTWRhythm="100"/>
+    <functions name="consumeInit" kind="init" budget="0" execTWLength="100" execTWRhythm="100"/>
+    <globals name="consumedData" type="0"/>
+    <inputs id="0" name="consumedData" inner="consumedData"/>
+    <source code="1">
+      <headers path="producer_consumer.h"/>
+    </source>
+  </behaviors>
+  <codes id="0">
+    <files path="producer_consumer.c"/>
+  </codes>
+  <codes id="1">
+    <files path="producer_consumer.c"/>
+  </codes>
+  <communications id="0" pValue="-1" immediate="false" dst="0" src="0"/>
+</oasd>
