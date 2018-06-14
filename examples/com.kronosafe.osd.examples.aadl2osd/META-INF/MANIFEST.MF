@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.kronosafe.osd.examples.aadl2osd;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.kronosafe.osd,
+ org.eclipse.emf.common.ui,
+ org.eclipse.m2m.atl;resolution:=optional,
+ org.osate.aadl2;resolution:=optional

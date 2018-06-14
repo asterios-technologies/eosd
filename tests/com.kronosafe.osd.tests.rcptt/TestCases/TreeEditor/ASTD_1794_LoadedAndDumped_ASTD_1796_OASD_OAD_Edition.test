@@ -1,0 +1,197 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _-JTrgPo1EeidNbfFeejbxQ
+Element-Name: ASTD_1794_LoadedAndDumped_ASTD_1796_OASD_OAD_Edition
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _KMCuUPoaEeidNbfFeejbxQ
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 4/16/19 10:34 PM
+Testcase-Type: ecl
+Verifications: _zjs7YM8nEeSz9_HNAw245A
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-1794
+http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-1796
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    select project1 | double-click
+    select "project1/My.oasd" | double-click
+}
+
+with [get-editor "My.oasd" | get-tree] {
+    select "platform:\\/resource\\/project1\\/My.oasd"
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+}
+with [get-view Properties | get-tree] {
+    select Name | activate-cell-edit -column 1
+    with [get-editbox] {
+        set-text test
+        key-type Enter
+    }
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu -path "New Child/Type Item" 
+        | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Behavior Item" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu -path "New Child/Code" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Communication Item" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Functional Chain" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Chain Spatial Constraint" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Block Spatial Constraint" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Com Spatial Constraint" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | get-menu 
+        -path "New Child/Function Item" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | get-menu 
+        -path "New Child/Output" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | get-menu 
+        -path "New Child/Global" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | get-menu 
+        -path "New Child/Input" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item" | get-menu 
+        -path "New Child/Source" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Code 0" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Code 0" | get-menu -path "New Child/File" 
+        | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Communication Item 0" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Communication Item 0" | get-menu 
+        -path "New Child/Temporal" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | get-menu 
+        -path "New Child/Timing Constraint" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | get-menu 
+        -path "New Child/Timing Path" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Communication Item 0" | click
+}
+with [get-view Properties | get-tree] {
+    select Dst | activate-cell-edit -column 1
+    get-combo | select Input
+    apply-cell-edit
+    select Src | activate-cell-edit -column 1
+    get-combo | select Output
+    apply-cell-edit
+    select Type | activate-cell-edit -column 1
+    get-combo | select "Type Item"
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Code 0" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Code 0/File" | click
+}
+with [get-view Properties | get-tree] {
+    select Path | activate-cell-edit -column 1
+    get-editbox | set-text test
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Code 0/File test" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Chain Spatial Constraint" | click
+}
+with [get-view Properties | get-tree] {
+    select LItems | activate-cell-edit -column 1
+    get-button "..." | click
+}
+with [get-window "LItems -- Chain Spatial Constraint"] {
+    get-table | select "Functional Chain" | double-click
+    get-table -after [get-label Feature] | select "Functional Chain"
+    get-button OK | click
+}
+with [get-view Properties | get-tree] {
+    apply-cell-edit
+    select Name | activate-cell-edit -column 1
+    apply-cell-edit -deactivate
+    select RItems | activate-cell-edit -column 1
+    get-button "..." | click
+}
+with [get-window "RItems -- Chain Spatial Constraint"] {
+    get-table | select "Functional Chain" | double-click
+    get-table -after [get-label Feature] | select "Functional Chain"
+    get-button OK | click
+}
+get-view Properties | get-tree | apply-cell-edit
+get-button "Save (M1+S)" | click
+get-view "Model Explorer" | get-tree | select "project1/My.oad" | double-click
+get-editor "My.oad" | get-tree | get-item -path "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0" 
+    | click
+get-menu -path "oad Editor/Load Resource..." | click
+with [get-window "Load Resource"] {
+    get-button "Browse Workspace..." | click
+    with [get-window "File Selection"] {
+        get-tree | select "project1/My.oasd"
+        get-button OK | click
+    }
+    get-button OK | click
+}
+with [get-view Properties | get-tree] {
+    select "System Description Ref" | activate-cell-edit -column 1
+    get-combo | select "System Description test"
+    apply-cell-edit
+}
+with [get-editor "My.oad" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oad" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0" | click
+    select "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0" | get-menu 
+        -path "New Child/Allocation" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0/Allocation" | click
+    select "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0/Allocation" | get-menu 
+        -path "New Child/Behavior Item Reference" | click
+}
+with [get-view Properties | get-tree] {
+    select "Behavior Item Element" | activate-cell-edit -column 1
+    get-combo | select "Behavior Item"
+    apply-cell-edit
+}
+get-button "Save All (M1+M2+S)" | click
+get-editor "My.oad" | close
+get-editor "My.oasd" | close
+get-view "Model Explorer" | get-tree | select "project1/My.oad" | double-click
+with [get-editor "My.oad" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0" | click
+    get-item 
+        -path "platform:\\/resource\\/project1\\/My.oad/Allocation Description 1.0.0/Allocation/Behavior Item Reference 0" 
+        | click
+        
+    with [get-view Properties | get-tree] {
+    	select "Behavior Item Element" | activate-cell-edit -column 1
+    	get-combo | select "Behavior Item"
+    }
+}
+get-view "Model Explorer" | get-tree | select "project1/My.oasd" | double-click
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item/Function Item" 
+        | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item/Output" | click
+}
+get-editor "My.oad" | close
+get-editor "My.oasd" | close
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--

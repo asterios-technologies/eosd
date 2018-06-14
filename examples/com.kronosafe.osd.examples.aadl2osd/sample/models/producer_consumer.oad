@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<oad version="1.0.0">
+  <allocations swExecutionUnit="ProducerA">
+    <behaviorItemReferences behaviorItem="0"/>
+  </allocations>
+  <allocations swExecutionUnit="ConsumerB">
+    <behaviorItemReferences behaviorItem="1"/>
+  </allocations>
+  <systemDescriptionRef href="producer_consumer.oasd#/"/>
+</oad>

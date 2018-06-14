@@ -1,0 +1,31 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Element-Name: Suite
+Element-Type: testsuite
+Element-Version: 2.0
+Id: _qvSPYKYNEeinLb3se9nAag
+Manually-Ordered: true
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 4/17/19 10:28 AM
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+Test suite
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8
+Content-Type: text/testcase
+Entry-Name: testcase-items
+
+_RZZskKYKEeinLb3se9nAag	// kind: 'test' name: 'ASTD_1766_InstallEOSDUpdateSite' path: '../TestCases/UpdateSite/ASTD_1766_InstallEOSDUpdateSite.test'
+_Fw28cPoaEeidNbfFeejbxQ	// kind: 'test' name: 'ASTD_1797_OASD_OAD_Creation' path: '../TestCases/TreeEditor/ASTD_1797_OASD_OAD_Creation.test'
+_T_HK4PoaEeidNbfFeejbxQ	// kind: 'test' name: 'ASTD_1795_OASD_OAD_EmptyLoad' path: '../TestCases/OSDConformance/ASTD_1795_OASD_OAD_EmptyLoad.test'
+_KMCuUPoaEeidNbfFeejbxQ	// kind: 'test' name: 'ASTD_1794_LoadedAndDumped_ASTD_1796_OASD_OAD_Edition' path: '../TestCases/TreeEditor/ASTD_1794_LoadedAndDumped_ASTD_1796_OASD_OAD_Edition.test'
+_jTOlQGCQEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_1796_execTimeUnitEdition' path: '../TestCases/TreeEditor/ASTD_1796_execTimeUnitEdition.test'
+_E6s2sGCHEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2569_Copy_Paste_ASTD_2572_Validation' path: '../TestCases/TreeEditor/ASTD_2569_Copy_Paste_ASTD_2572_Validation.test'
+_Mf2bcGCNEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2572_Validation_Error' path: '../TestCases/TreeEditor/ASTD_2572_Validation_Error.test'
+_e0gogGDjEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2573_OSD_Rule_Validation' path: '../TestCases/OSDConformance/ASTD_2573_OSD_Rule_Validation.test'
+_v5CFgKYPEeilzpuCEGWvPA	// kind: 'test' name: 'ASTD_1765_UninstallEOSDUpdateSite' path: '../TestCases/UpdateSite/ASTD_1765_UninstallEOSDUpdateSite.test'
+
+------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--

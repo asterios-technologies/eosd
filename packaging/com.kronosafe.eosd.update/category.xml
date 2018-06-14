@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="com.kronosafe.eosd.feature" version="0.0.0">
+      <category name="Open System Description"/>
+   </feature>
+   <feature url="features/com.kronosafe.eosd.examples.aadl.feature_1.0.0.qualifier.jar" id="com.kronosafe.eosd.examples.aadl.feature" version="1.0.0.qualifier">
+      <category name="Open System Description"/>
+   </feature>
+   <category-def name="Open System Description" label="Open System Description">
+      <description>
+         The Open System Description Eclipse features.
+      </description>
+   </category-def>
+</site>

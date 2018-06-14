@@ -1,0 +1,108 @@
+package Producer::Consumer
+public
+	with Data_Model;
+
+	----------
+	-- Data --
+	----------
+	data ProducedConsumedDataType
+		properties
+			Data_Model::Data_Representation => Integer;
+	end ProducedConsumedDataType;
+
+	---------------
+	-- Processor --
+	---------------
+	processor mpc5777m
+	end mpc5777m;
+
+	processor implementation mpc5777m.impl
+	end mpc5777m.impl;
+
+	---------------
+	-- Processes --
+	---------------
+	process Prod_Cons_Memorypartition
+	end Prod_Cons_Memorypartition;
+
+	process implementation Prod_Cons_Memorypartition.impl
+		subcomponents
+			ProducerA: thread ProducerThread.impl;
+			ConsumerB: thread ConsumerThread.impl;
+		connections
+			comA2B: port ProducerA.producedData -> ConsumerB.consumedData;
+	end Prod_Cons_Memorypartition.impl;
+
+	------------
+	-- System --
+	------------
+	system ProducerConsumerSystem
+	end ProducerConsumerSystem;
+
+	system implementation ProducerConsumerSystem.impl
+		subcomponents
+			MemoryPartitonPCM: process Prod_Cons_Memorypartition.impl;
+			MemoryPartitonPCM2: process Prod_Cons_Memorypartition.impl;
+			CPUA: processor mpc5777m.impl;
+		properties
+			actual_processor_binding => (reference (CPUA)) applies to MemoryPartitonPCM;
+	end ProducerConsumerSystem.impl;
+
+	-----------------
+	-- Subprograms --
+	-----------------
+	subprogram ProducerFunction
+		features
+			producedData: out parameter ProducedConsumedDataType;
+		properties
+			source_language => (C);
+			source_name => "produce";
+			source_text => ("producer_consumer");
+	end ProducerFunction;
+
+	subprogram ConsumerFunction
+		features
+			consumedData: in parameter ProducedConsumedDataType;
+		properties
+			source_language => (C);
+			source_name => "consume";
+			source_text => ("producer_consumer");
+	end ConsumerFunction;
+
+	-------------
+	-- Threads --
+	-------------
+	thread ProducerThread
+		features
+			producedData: out data port ProducedConsumedDataType;
+	end ProducerThread;
+
+	thread implementation ProducerThread.impl
+		calls
+			ThreadCalls: {
+				ProducerFunction: subprogram ProducerFunction;
+			};
+		connections
+			Function2ThreadCom: parameter ProducerFunction.producedData -> producedData;
+		properties
+			Dispatch_Protocol => periodic;
+			Period => 200Ms;
+	end ProducerThread.impl;
+
+	thread ConsumerThread
+		features
+			consumedData: in data port ProducedConsumedDataType;
+	end ConsumerThread;
+
+	thread implementation ConsumerThread.impl
+		calls
+			ThreadCalls: {
+				ConsumerFunction: subprogram ConsumerFunction;
+			};
+		connections
+			Function2ThreadCom: parameter consumedData -> ConsumerFunction.consumedData;
+		properties
+			Dispatch_Protocol => periodic;
+			Period => 100Ms;
+	end ConsumerThread.impl;
+end Producer::Consumer;

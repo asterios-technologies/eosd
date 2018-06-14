@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.kronosafe.eosd.ui.feature"
+      label="Eclipse Open System Description User Interfaces"
+      version="1.0.0.qualifier"
+      provider-name="Krono-Safe">
+
+   <description url="http://www.krono-safe.com">
+      This feature provide a set of plugins to edit open system description models in the Eclipse Platform. The Open System Description format is an open format created in the S3P project (http://www.esterel-technologies.com/S3P.html) and a collaboration between Safran, Esterel Technology and Krono-Safe. The main goal of this format is to connect tools with a minimalist domain specific language. Hence, OSD is a dedicated language to describe a set of functions, their communications, their timing constraints and an identification of their final code implementations.
+   </description>
+
+   <copyright url="https://www.eclipse.org/legal/epl-2.0/">
+      Copyright Krono-Safe 2017, 2018. All rights reserved.
+   </copyright>
+
+   <license url="https://www.eclipse.org/legal/epl-2.0/">
+      All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0  which accompanies this distribution, and is available at https://www.eclipse.org/legal/epl-2.0/.
+   </license>
+
+   <url>
+      <discovery label="www.krono-safe.com" url="http://www.krono-safe.com"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.sirius"/>
+      <import plugin="org.eclipse.sirius.common.acceleo.aql"/>
+      <import feature="com.kronosafe.eosd.feature" version="1.0.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="com.kronosafe.osd.design"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

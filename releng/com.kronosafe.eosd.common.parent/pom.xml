@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2018-2019 Krono-Safe.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v2.0
+which accompanies this distribution, and is available at
+https://www.eclipse.org/legal/epl-2.0/
+
+Contributors:
+    Krono-Safe - initial API and implementation
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <prerequisites>
+  <maven>3.0</maven>
+  </prerequisites>
+  <groupId>com.kronosafe.eosd</groupId>
+  <artifactId>common.parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Eclipse Open System Description Common Parent</name>
+
+  <licenses>
+    <license>
+      <name>Eclipse Public License v2.0</name>
+      <comments>
+		All rights reserved. This program and the accompanying materials
+		are made available under the terms of the Eclipse Public License v2.0
+		which accompanies this distribution, and is available at
+		https://www.eclipse.org/legal/epl-2.0/
+      </comments>
+    </license>
+  </licenses>
+
+  <properties>
+    <tycho-version>1.2.0</tycho-version>
+    <root-path>../..</root-path>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <eclipse-repo.url>http://download.eclipse.org/releases/photon</eclipse-repo.url>
+  </properties>
+
+ <repositories>
+  <repository>
+   <id>eclipse-release</id>
+   <url>${eclipse-repo.url}</url>
+   <layout>p2</layout>
+  </repository>
+  <repository>
+   <id>osate-release</id>
+   <url>https://osate-build.sei.cmu.edu/download/osate/stable/2.3.7/updates/</url>
+   <layout>p2</layout>
+  </repository>
+ </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-versions-plugin</artifactId>
+          <version>${tycho-version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <id>package-feature</id>
+                    <configuration>
+                        <finalName>${project.artifactId}_${unqualifiedVersion}.${buildQualifier}</finalName>
+                    </configuration>
+            </execution>
+        </executions>
+    </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <resolver>p2</resolver>
+          <environments>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>     
+  </plugins>
+  </build>
+</project>

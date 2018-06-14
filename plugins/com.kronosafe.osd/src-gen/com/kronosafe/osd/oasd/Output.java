@@ -1,0 +1,62 @@
+/**
+ */
+package com.kronosafe.osd.oasd;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Output</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * An Output represents an output data of the block under consideration.
+ * <!-- end-model-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.kronosafe.osd.oasd.Output#getInner <em>Inner</em>}</li>
+ * </ul>
+ *
+ * @see com.kronosafe.osd.oasd.oasdPackage#getOutput()
+ * @model
+ * @generated
+ */
+public interface Output extends IdentifiedElement, NamedElement {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
+
+	/**
+	 * Returns the value of the '<em><b>Inner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inner</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The port name manipulated by the functional C function.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Inner</em>' attribute.
+	 * @see #setInner(String)
+	 * @see com.kronosafe.osd.oasd.oasdPackage#getOutput_Inner()
+	 * @model dataType="com.kronosafe.osd.oasd.AString"
+	 * @generated
+	 */
+	String getInner();
+
+	/**
+	 * Sets the value of the '{@link com.kronosafe.osd.oasd.Output#getInner <em>Inner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inner</em>' attribute.
+	 * @see #getInner()
+	 * @generated
+	 */
+	void setInner(String value);
+
+} // Output

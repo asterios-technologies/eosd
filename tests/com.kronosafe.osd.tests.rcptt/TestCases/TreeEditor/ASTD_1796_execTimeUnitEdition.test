@@ -1,0 +1,57 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _-JTrgPo1EeidNbfFeejbxQ
+Element-Name: ASTD_1796_execTimeUnitEdition
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _jTOlQGCQEemtI4gwOJfK8Q
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 4/17/19 10:37 AM
+Testcase-Type: ecl
+Verifications: _zjs7YM8nEeSz9_HNAw245A,_GrBmYGDrEemX4_g9ETHQNQ
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    //select "project1 [eosd 1.0]" | double-click
+    select "project1" | double-click
+    select "project1/My.oasd" | double-click
+    //select "project1 \\[eosd 1.0\\]/My.oasd"| double-click
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Behavior Item" | click
+}
+with [get-view Properties] {
+    click
+    with [get-tree] {
+        select Name | activate-cell-edit -column 1
+        get-editbox | set-text a
+        apply-cell-edit
+    }
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | get-menu 
+        -path "New Child/Function Item" | click
+}
+with [get-view Properties | get-tree] {
+    select "Exec TW Length" | activate-cell-edit -column 1
+    with [get-editbox] {
+        set-text 200
+        key-type Enter
+    }
+    apply-cell-edit
+    select "Exec TW Length" | activate-cell-edit -column 1
+    with [get-editbox] {
+        set-text ""
+        key-type Enter
+    }
+    apply-cell-edit
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
