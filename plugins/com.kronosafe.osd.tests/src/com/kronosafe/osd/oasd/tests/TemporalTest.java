@@ -5,9 +5,6 @@ package com.kronosafe.osd.oasd.tests;
 
 import com.kronosafe.osd.oasd.Temporal;
 import com.kronosafe.osd.oasd.oasdFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -16,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemporalTest extends TestCase {
+public class TemporalTest extends AnnotatedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -24,14 +21,6 @@ public class TemporalTest extends TestCase {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
-
-	/**
-	 * The fixture for this Temporal test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Temporal fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,23 +42,14 @@ public class TemporalTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Temporal test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Temporal fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Temporal test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Temporal getFixture() {
-		return fixture;
+		return (Temporal)fixture;
 	}
 
 	/**

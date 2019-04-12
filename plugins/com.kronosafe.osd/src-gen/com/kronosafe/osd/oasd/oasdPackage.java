@@ -70,6 +70,80 @@ public interface oasdPackage extends EPackage {
 	oasdPackage eINSTANCE = com.kronosafe.osd.oasd.impl.oasdPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.AnnotationImpl <em>Annotation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.AnnotationImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAnnotation()
+	 * @generated
+	 */
+	int ANNOTATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Details</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__DETAILS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.AnnotatedElementImpl <em>Annotated Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.AnnotatedElementImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAnnotatedElement()
+	 * @generated
+	 */
+	int ANNOTATED_ELEMENT = 25;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATED_ELEMENT__ANNOTATIONS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Annotated Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Annotated Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.IdentifiableElementReferencerImpl <em>Identifiable Element Referencer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,7 +151,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getIdentifiableElementReferencer()
 	 * @generated
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER = 12;
+	int IDENTIFIABLE_ELEMENT_REFERENCER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS = ANNOTATED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The number of structural features of the '<em>Identifiable Element Referencer</em>' class.
@@ -86,7 +169,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT = 0;
+	int IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT = ANNOTATED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -95,7 +178,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS = 0;
+	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS = ANNOTATED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -104,7 +187,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = 1;
+	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = ANNOTATED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Find Item In Resource Set</em>' operation.
@@ -113,7 +196,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = 2;
+	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = ANNOTATED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -122,7 +205,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE = 3;
+	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE = ANNOTATED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Identifiable Element Referencer</em>' class.
@@ -131,7 +214,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT = 4;
+	int IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.SystemDescriptionImpl <em>System Description</em>}' class.
@@ -141,7 +224,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getSystemDescription()
 	 * @generated
 	 */
-	int SYSTEM_DESCRIPTION = 0;
+	int SYSTEM_DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_DESCRIPTION__ANNOTATIONS = IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -322,7 +414,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getIdentifiedElement()
 	 * @generated
 	 */
-	int IDENTIFIED_ELEMENT = 11;
+	int IDENTIFIED_ELEMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIED_ELEMENT__ANNOTATIONS = IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -395,7 +496,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getInput()
 	 * @generated
 	 */
-	int INPUT = 1;
+	int INPUT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -486,7 +596,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getGlobal()
 	 * @generated
 	 */
-	int GLOBAL = 2;
+	int GLOBAL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOBAL__ANNOTATIONS = IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -568,7 +687,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getOutput()
 	 * @generated
 	 */
-	int OUTPUT = 3;
+	int OUTPUT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -659,7 +787,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 4;
+	int FILE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__ANNOTATIONS = ANNOTATED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -668,7 +805,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE__PATH = 0;
+	int FILE__PATH = ANNOTATED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>File</em>' class.
@@ -677,7 +814,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_FEATURE_COUNT = 1;
+	int FILE_FEATURE_COUNT = ANNOTATED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>File</em>' class.
@@ -686,7 +823,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_OPERATION_COUNT = 0;
+	int FILE_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.CodeImpl <em>Code</em>}' class.
@@ -696,7 +833,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getCode()
 	 * @generated
 	 */
-	int CODE = 5;
+	int CODE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -778,7 +924,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getBehaviorItem()
 	 * @generated
 	 */
-	int BEHAVIOR_ITEM = 6;
+	int BEHAVIOR_ITEM = 7;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_ITEM__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -923,7 +1078,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 13;
+	int NAMED_ELEMENT = 14;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__ANNOTATIONS = ANNOTATED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -932,7 +1096,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__NAME = 0;
+	int NAMED_ELEMENT__NAME = ANNOTATED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Named Element</em>' class.
@@ -941,7 +1105,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+	int NAMED_ELEMENT_FEATURE_COUNT = ANNOTATED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Named Element</em>' class.
@@ -950,7 +1114,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+	int NAMED_ELEMENT_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.FunctionItemImpl <em>Function Item</em>}' class.
@@ -960,7 +1124,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getFunctionItem()
 	 * @generated
 	 */
-	int FUNCTION_ITEM = 7;
+	int FUNCTION_ITEM = 8;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_ITEM__ANNOTATIONS = NAMED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1033,7 +1206,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTypeItem()
 	 * @generated
 	 */
-	int TYPE_ITEM = 8;
+	int TYPE_ITEM = 9;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ITEM__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1124,7 +1306,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getCommunicationItem()
 	 * @generated
 	 */
-	int COMMUNICATION_ITEM = 9;
+	int COMMUNICATION_ITEM = 10;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_ITEM__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1260,7 +1451,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getSource()
 	 * @generated
 	 */
-	int SOURCE = 10;
+	int SOURCE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__ANNOTATIONS = IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
@@ -1342,7 +1542,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getVersionedElement()
 	 * @generated
 	 */
-	int VERSIONED_ELEMENT = 14;
+	int VERSIONED_ELEMENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1379,7 +1579,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTemporal()
 	 * @generated
 	 */
-	int TEMPORAL = 15;
+	int TEMPORAL = 16;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL__ANNOTATIONS = ANNOTATED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Kind</b></em>' attribute.
@@ -1388,7 +1597,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL__KIND = 0;
+	int TEMPORAL__KIND = ANNOTATED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Rate</b></em>' attribute.
@@ -1397,7 +1606,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL__RATE = 1;
+	int TEMPORAL__RATE = ANNOTATED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Offset</b></em>' attribute.
@@ -1406,7 +1615,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL__OFFSET = 2;
+	int TEMPORAL__OFFSET = ANNOTATED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Temporal</em>' class.
@@ -1415,7 +1624,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL_FEATURE_COUNT = 3;
+	int TEMPORAL_FEATURE_COUNT = ANNOTATED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Temporal</em>' class.
@@ -1424,7 +1633,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL_OPERATION_COUNT = 0;
+	int TEMPORAL_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.TimingConstraintImpl <em>Timing Constraint</em>}' class.
@@ -1434,7 +1643,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTimingConstraint()
 	 * @generated
 	 */
-	int TIMING_CONSTRAINT = 16;
+	int TIMING_CONSTRAINT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_CONSTRAINT__ANNOTATIONS = ANNOTATED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1443,7 +1661,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIMING_CONSTRAINT__OPERATOR = 0;
+	int TIMING_CONSTRAINT__OPERATOR = ANNOTATED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1452,7 +1670,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIMING_CONSTRAINT__VALUE = 1;
+	int TIMING_CONSTRAINT__VALUE = ANNOTATED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Timing Constraint</em>' class.
@@ -1461,7 +1679,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIMING_CONSTRAINT_FEATURE_COUNT = 2;
+	int TIMING_CONSTRAINT_FEATURE_COUNT = ANNOTATED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Constraint Expression</em>' operation.
@@ -1470,7 +1688,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIMING_CONSTRAINT___GET_CONSTRAINT_EXPRESSION = 0;
+	int TIMING_CONSTRAINT___GET_CONSTRAINT_EXPRESSION = ANNOTATED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Timing Constraint</em>' class.
@@ -1479,7 +1697,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIMING_CONSTRAINT_OPERATION_COUNT = 1;
+	int TIMING_CONSTRAINT_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.FunctionalChainImpl <em>Functional Chain</em>}' class.
@@ -1489,7 +1707,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getFunctionalChain()
 	 * @generated
 	 */
-	int FUNCTIONAL_CHAIN = 17;
+	int FUNCTIONAL_CHAIN = 18;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTIONAL_CHAIN__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1598,7 +1825,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getBlockSpatialConstraint()
 	 * @generated
 	 */
-	int BLOCK_SPATIAL_CONSTRAINT = 18;
+	int BLOCK_SPATIAL_CONSTRAINT = 19;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.SpatialConstraintImpl <em>Spatial Constraint</em>}' class.
@@ -1608,7 +1835,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getSpatialConstraint()
 	 * @generated
 	 */
-	int SPATIAL_CONSTRAINT = 20;
+	int SPATIAL_CONSTRAINT = 21;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPATIAL_CONSTRAINT__ANNOTATIONS = IDENTIFIED_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1690,6 +1926,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPATIAL_CONSTRAINT_OPERATION_COUNT = IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_SPATIAL_CONSTRAINT__ANNOTATIONS = SPATIAL_CONSTRAINT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1798,7 +2043,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getChainSpatialConstraint()
 	 * @generated
 	 */
-	int CHAIN_SPATIAL_CONSTRAINT = 19;
+	int CHAIN_SPATIAL_CONSTRAINT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_SPATIAL_CONSTRAINT__ANNOTATIONS = SPATIAL_CONSTRAINT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1907,7 +2161,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getComSpatialConstraint()
 	 * @generated
 	 */
-	int COM_SPATIAL_CONSTRAINT = 21;
+	int COM_SPATIAL_CONSTRAINT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SPATIAL_CONSTRAINT__ANNOTATIONS = SPATIAL_CONSTRAINT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2016,7 +2279,16 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTimingPath()
 	 * @generated
 	 */
-	int TIMING_PATH = 22;
+	int TIMING_PATH = 23;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_PATH__ANNOTATIONS = IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Date</b></em>' attribute.
@@ -2091,6 +2363,52 @@ public interface oasdPackage extends EPackage {
 	int TIMING_PATH_OPERATION_COUNT = IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.AnnotationMapEntryImpl <em>Annotation Map Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.AnnotationMapEntryImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAnnotationMapEntry()
+	 * @generated
+	 */
+	int ANNOTATION_MAP_ENTRY = 24;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MAP_ENTRY__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MAP_ENTRY__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Annotation Map Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MAP_ENTRY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Annotation Map Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_MAP_ENTRY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.BehaviorItemKind <em>Behavior Item Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2098,7 +2416,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getBehaviorItemKind()
 	 * @generated
 	 */
-	int BEHAVIOR_ITEM_KIND = 23;
+	int BEHAVIOR_ITEM_KIND = 26;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.FunctionKind <em>Function Kind</em>}' enum.
@@ -2108,7 +2426,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getFunctionKind()
 	 * @generated
 	 */
-	int FUNCTION_KIND = 24;
+	int FUNCTION_KIND = 27;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.TemporalKind <em>Temporal Kind</em>}' enum.
@@ -2118,7 +2436,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTemporalKind()
 	 * @generated
 	 */
-	int TEMPORAL_KIND = 25;
+	int TEMPORAL_KIND = 28;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.ConstraintOperator <em>Constraint Operator</em>}' enum.
@@ -2128,7 +2446,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getConstraintOperator()
 	 * @generated
 	 */
-	int CONSTRAINT_OPERATOR = 26;
+	int CONSTRAINT_OPERATOR = 29;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.SpatialOperator <em>Spatial Operator</em>}' enum.
@@ -2138,7 +2456,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getSpatialOperator()
 	 * @generated
 	 */
-	int SPATIAL_OPERATOR = 27;
+	int SPATIAL_OPERATOR = 30;
 
 	/**
 	 * The meta object id for the '<em>Id Val</em>' data type.
@@ -2148,7 +2466,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getIdVal()
 	 * @generated
 	 */
-	int ID_VAL = 28;
+	int ID_VAL = 31;
 
 	/**
 	 * The meta object id for the '<em>AString</em>' data type.
@@ -2158,7 +2476,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAString()
 	 * @generated
 	 */
-	int ASTRING = 29;
+	int ASTRING = 32;
 
 	/**
 	 * The meta object id for the '<em>Order Val</em>' data type.
@@ -2168,7 +2486,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getOrderVal()
 	 * @generated
 	 */
-	int ORDER_VAL = 30;
+	int ORDER_VAL = 33;
 
 	/**
 	 * The meta object id for the '<em>Time Unit</em>' data type.
@@ -2178,7 +2496,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 31;
+	int TIME_UNIT = 34;
 
 	/**
 	 * The meta object id for the '<em>Nano Sec</em>' data type.
@@ -2188,8 +2506,29 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getNanoSec()
 	 * @generated
 	 */
-	int NANO_SEC = 32;
+	int NANO_SEC = 35;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation</em>'.
+	 * @see com.kronosafe.osd.oasd.Annotation
+	 * @generated
+	 */
+	EClass getAnnotation();
+
+	/**
+	 * Returns the meta object for the map '{@link com.kronosafe.osd.oasd.Annotation#getDetails <em>Details</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Details</em>'.
+	 * @see com.kronosafe.osd.oasd.Annotation#getDetails()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EReference getAnnotation_Details();
 
 	/**
 	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.SystemDescription <em>System Description</em>}'.
@@ -3098,6 +3437,61 @@ public interface oasdPackage extends EPackage {
 	EReference getTimingPath_BehaviorItem();
 
 	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Annotation Map Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation Map Entry</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyDataType="com.kronosafe.osd.oasd.AString"
+	 *        valueDataType="com.kronosafe.osd.oasd.AString"
+	 * @generated
+	 */
+	EClass getAnnotationMapEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getAnnotationMapEntry()
+	 * @generated
+	 */
+	EAttribute getAnnotationMapEntry_Key();
+
+	/**
+	 * Returns the meta object for the attribute '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getAnnotationMapEntry()
+	 * @generated
+	 */
+	EAttribute getAnnotationMapEntry_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.AnnotatedElement <em>Annotated Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotated Element</em>'.
+	 * @see com.kronosafe.osd.oasd.AnnotatedElement
+	 * @generated
+	 */
+	EClass getAnnotatedElement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.kronosafe.osd.oasd.AnnotatedElement#getAnnotations <em>Annotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotations</em>'.
+	 * @see com.kronosafe.osd.oasd.AnnotatedElement#getAnnotations()
+	 * @see #getAnnotatedElement()
+	 * @generated
+	 */
+	EReference getAnnotatedElement_Annotations();
+
+	/**
 	 * Returns the meta object for enum '{@link com.kronosafe.osd.oasd.BehaviorItemKind <em>Behavior Item Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3237,6 +3631,24 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.AnnotationImpl <em>Annotation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.AnnotationImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAnnotation()
+		 * @generated
+		 */
+		EClass ANNOTATION = eINSTANCE.getAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Details</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION__DETAILS = eINSTANCE.getAnnotation_Details();
+
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.SystemDescriptionImpl <em>System Description</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -3962,6 +4374,50 @@ public interface oasdPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TIMING_PATH__BEHAVIOR_ITEM = eINSTANCE.getTimingPath_BehaviorItem();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.AnnotationMapEntryImpl <em>Annotation Map Entry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.AnnotationMapEntryImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAnnotationMapEntry()
+		 * @generated
+		 */
+		EClass ANNOTATION_MAP_ENTRY = eINSTANCE.getAnnotationMapEntry();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANNOTATION_MAP_ENTRY__KEY = eINSTANCE.getAnnotationMapEntry_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANNOTATION_MAP_ENTRY__VALUE = eINSTANCE.getAnnotationMapEntry_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.AnnotatedElementImpl <em>Annotated Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.AnnotatedElementImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getAnnotatedElement()
+		 * @generated
+		 */
+		EClass ANNOTATED_ELEMENT = eINSTANCE.getAnnotatedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATED_ELEMENT__ANNOTATIONS = eINSTANCE.getAnnotatedElement_Annotations();
 
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.BehaviorItemKind <em>Behavior Item Kind</em>}' enum.

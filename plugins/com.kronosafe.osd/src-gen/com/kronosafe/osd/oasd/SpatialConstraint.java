@@ -23,7 +23,7 @@ package com.kronosafe.osd.oasd;
  * @model abstract="true"
  * @generated
  */
-public interface SpatialConstraint extends IdentifiedElement, NamedElement {
+public interface SpatialConstraint extends IdentifiedElement, NamedElement, AnnotatedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

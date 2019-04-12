@@ -8,8 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import com.kronosafe.osd.oasd.Temporal;
 import com.kronosafe.osd.oasd.TemporalKind;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -29,7 +27,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  *
  * @generated
  */
-public class TemporalImpl extends MinimalEObjectImpl.Container implements Temporal {
+public class TemporalImpl extends AnnotatedElementImpl implements Temporal {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

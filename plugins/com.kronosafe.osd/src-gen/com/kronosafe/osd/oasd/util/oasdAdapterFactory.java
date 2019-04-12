@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import com.kronosafe.osd.oasd.*;
+import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,6 +74,10 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected oasdSwitch<Adapter> modelSwitch =
 		new oasdSwitch<Adapter>() {
+			@Override
+			public Adapter caseAnnotation(Annotation object) {
+				return createAnnotationAdapter();
+			}
 			@Override
 			public Adapter caseSystemDescription(SystemDescription object) {
 				return createSystemDescriptionAdapter();
@@ -166,6 +171,14 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 				return createTimingPathAdapter();
 			}
 			@Override
+			public Adapter caseAnnotationMapEntry(Map.Entry<String, String> object) {
+				return createAnnotationMapEntryAdapter();
+			}
+			@Override
+			public Adapter caseAnnotatedElement(AnnotatedElement object) {
+				return createAnnotatedElementAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -184,6 +197,20 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.Annotation
+	 * @generated
+	 */
+	public Adapter createAnnotationAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.SystemDescription <em>System Description</em>}'.
@@ -504,6 +531,34 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimingPathAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Annotation Map Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createAnnotationMapEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.AnnotatedElement <em>Annotated Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.AnnotatedElement
+	 * @generated
+	 */
+	public Adapter createAnnotatedElementAdapter() {
 		return null;
 	}
 

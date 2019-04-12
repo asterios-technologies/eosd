@@ -80,6 +80,29 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.Annotation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnnotationItemProvider annotationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnnotationAdapter() {
+		if (annotationItemProvider == null) {
+			annotationItemProvider = new AnnotationItemProvider(this);
+		}
+
+		return annotationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.SystemDescription} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -494,6 +517,29 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnnotationMapEntryItemProvider annotationMapEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnnotationMapEntryAdapter() {
+		if (annotationMapEntryItemProvider == null) {
+			annotationMapEntryItemProvider = new AnnotationMapEntryItemProvider(this);
+		}
+
+		return annotationMapEntryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,6 +644,7 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	 */
 	@Override
 	public void dispose() {
+		if (annotationItemProvider != null) annotationItemProvider.dispose();
 		if (systemDescriptionItemProvider != null) systemDescriptionItemProvider.dispose();
 		if (inputItemProvider != null) inputItemProvider.dispose();
 		if (globalItemProvider != null) globalItemProvider.dispose();
@@ -616,6 +663,7 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 		if (chainSpatialConstraintItemProvider != null) chainSpatialConstraintItemProvider.dispose();
 		if (comSpatialConstraintItemProvider != null) comSpatialConstraintItemProvider.dispose();
 		if (timingPathItemProvider != null) timingPathItemProvider.dispose();
+		if (annotationMapEntryItemProvider != null) annotationMapEntryItemProvider.dispose();
 	}
 
 }

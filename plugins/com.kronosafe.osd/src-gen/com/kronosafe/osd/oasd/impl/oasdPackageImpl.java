@@ -33,7 +33,10 @@ import com.kronosafe.osd.oasd.TypeItem;
 import com.kronosafe.osd.oasd.VersionedElement;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
+import java.util.Map;
 import com.kronosafe.osd.oad.oadPackage;
+import com.kronosafe.osd.oasd.AnnotatedElement;
+import com.kronosafe.osd.oasd.Annotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -58,6 +61,13 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,6 +235,20 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass annotationMapEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotatedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum behaviorItemKindEEnum = null;
 
 	/**
@@ -358,6 +382,26 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(oasdPackage.eNS_URI, theoasdPackage);
 		return theoasdPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAnnotation_Details() {
+		return (EReference)annotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1216,6 +1260,56 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getAnnotationMapEntry() {
+		return annotationMapEntryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnnotationMapEntry_Key() {
+		return (EAttribute)annotationMapEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAnnotationMapEntry_Value() {
+		return (EAttribute)annotationMapEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAnnotatedElement() {
+		return annotatedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAnnotatedElement_Annotations() {
+		return (EReference)annotatedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getBehaviorItemKind() {
 		return behaviorItemKindEEnum;
 	}
@@ -1339,6 +1433,9 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		annotationEClass = createEClass(ANNOTATION);
+		createEReference(annotationEClass, ANNOTATION__DETAILS);
+
 		systemDescriptionEClass = createEClass(SYSTEM_DESCRIPTION);
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__TYPES);
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__BEHAVIORS);
@@ -1447,6 +1544,13 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEAttribute(timingPathEClass, TIMING_PATH__DATE);
 		createEReference(timingPathEClass, TIMING_PATH__BEHAVIOR_ITEM);
 
+		annotationMapEntryEClass = createEClass(ANNOTATION_MAP_ENTRY);
+		createEAttribute(annotationMapEntryEClass, ANNOTATION_MAP_ENTRY__KEY);
+		createEAttribute(annotationMapEntryEClass, ANNOTATION_MAP_ENTRY__VALUE);
+
+		annotatedElementEClass = createEClass(ANNOTATED_ELEMENT);
+		createEReference(annotatedElementEClass, ANNOTATED_ELEMENT__ANNOTATIONS);
+
 		// Create enums
 		behaviorItemKindEEnum = createEEnum(BEHAVIOR_ITEM_KIND);
 		functionKindEEnum = createEEnum(FUNCTION_KIND);
@@ -1502,6 +1606,7 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		globalEClass.getESuperTypes().add(this.getNamedElement());
 		outputEClass.getESuperTypes().add(this.getIdentifiedElement());
 		outputEClass.getESuperTypes().add(this.getNamedElement());
+		fileEClass.getESuperTypes().add(this.getAnnotatedElement());
 		codeEClass.getESuperTypes().add(this.getIdentifiedElement());
 		behaviorItemEClass.getESuperTypes().add(this.getIdentifiedElement());
 		behaviorItemEClass.getESuperTypes().add(this.getNamedElement());
@@ -1511,16 +1616,24 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		communicationItemEClass.getESuperTypes().add(this.getIdentifiedElement());
 		sourceEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
 		identifiedElementEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
+		identifiableElementReferencerEClass.getESuperTypes().add(this.getAnnotatedElement());
+		namedElementEClass.getESuperTypes().add(this.getAnnotatedElement());
+		temporalEClass.getESuperTypes().add(this.getAnnotatedElement());
+		timingConstraintEClass.getESuperTypes().add(this.getAnnotatedElement());
 		functionalChainEClass.getESuperTypes().add(this.getIdentifiedElement());
 		functionalChainEClass.getESuperTypes().add(this.getNamedElement());
 		blockSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
 		chainSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
 		spatialConstraintEClass.getESuperTypes().add(this.getIdentifiedElement());
 		spatialConstraintEClass.getESuperTypes().add(this.getNamedElement());
+		spatialConstraintEClass.getESuperTypes().add(this.getAnnotatedElement());
 		comSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
 		timingPathEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnnotation_Details(), this.getAnnotationMapEntry(), null, "details", null, 0, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(systemDescriptionEClass, SystemDescription.class, "SystemDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystemDescription_Types(), this.getTypeItem(), null, "types", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_Behaviors(), this.getBehaviorItem(), null, "behaviors", null, 1, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1643,6 +1756,13 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEClass(timingPathEClass, TimingPath.class, "TimingPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimingPath_Date(), this.getTimeUnit(), "date", null, 1, 1, TimingPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimingPath_BehaviorItem(), this.getBehaviorItem(), null, "behaviorItem", null, 1, 1, TimingPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(annotationMapEntryEClass, Map.Entry.class, "AnnotationMapEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnnotationMapEntry_Key(), this.getAString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnnotationMapEntry_Value(), this.getAString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(annotatedElementEClass, AnnotatedElement.class, "AnnotatedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnnotatedElement_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, AnnotatedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(behaviorItemKindEEnum, BehaviorItemKind.class, "BehaviorItemKind");

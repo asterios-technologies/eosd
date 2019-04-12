@@ -15,8 +15,6 @@ import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
 
-import junit.framework.TestCase;
-
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Identifiable Element Referencer</b></em>'.
@@ -32,7 +30,7 @@ import junit.framework.TestCase;
  * </p>
  * @generated
  */
-public abstract class IdentifiableElementReferencerTest extends TestCase {
+public abstract class IdentifiableElementReferencerTest extends AnnotatedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -40,14 +38,6 @@ public abstract class IdentifiableElementReferencerTest extends TestCase {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
-
-	/**
-	 * The fixture for this Identifiable Element Referencer test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IdentifiableElementReferencer fixture = null;
 
 	/**
 	 * Constructs a new Identifiable Element Referencer test case with the given name.
@@ -60,23 +50,14 @@ public abstract class IdentifiableElementReferencerTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Identifiable Element Referencer test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(IdentifiableElementReferencer fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Identifiable Element Referencer test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected IdentifiableElementReferencer getFixture() {
-		return fixture;
+		return (IdentifiableElementReferencer)fixture;
 	}
 
 	/**

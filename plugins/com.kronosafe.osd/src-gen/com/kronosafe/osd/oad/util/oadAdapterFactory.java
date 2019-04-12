@@ -3,6 +3,7 @@
 package com.kronosafe.osd.oad.util;
 
 import com.kronosafe.osd.oad.*;
+import com.kronosafe.osd.oasd.AnnotatedElement;
 import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
 import com.kronosafe.osd.oasd.VersionedElement;
 
@@ -88,6 +89,10 @@ public class oadAdapterFactory extends AdapterFactoryImpl {
 				return createAllocationDescriptionAdapter();
 			}
 			@Override
+			public Adapter caseAnnotatedElement(AnnotatedElement object) {
+				return createAnnotatedElementAdapter();
+			}
+			@Override
 			public Adapter caseIdentifiableElementReferencer(IdentifiableElementReferencer object) {
 				return createIdentifiableElementReferencerAdapter();
 			}
@@ -154,6 +159,20 @@ public class oadAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAllocationDescriptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.AnnotatedElement <em>Annotated Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.AnnotatedElement
+	 * @generated
+	 */
+	public Adapter createAnnotatedElementAdapter() {
 		return null;
 	}
 

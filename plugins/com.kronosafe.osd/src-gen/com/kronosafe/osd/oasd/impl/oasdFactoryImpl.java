@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.kronosafe.osd.oasd.*;
+import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,6 +64,7 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case oasdPackage.ANNOTATION: return createAnnotation();
 			case oasdPackage.SYSTEM_DESCRIPTION: return createSystemDescription();
 			case oasdPackage.INPUT: return createInput();
 			case oasdPackage.GLOBAL: return createGlobal();
@@ -81,6 +83,7 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 			case oasdPackage.CHAIN_SPATIAL_CONSTRAINT: return createChainSpatialConstraint();
 			case oasdPackage.COM_SPATIAL_CONSTRAINT: return createComSpatialConstraint();
 			case oasdPackage.TIMING_PATH: return createTimingPath();
+			case oasdPackage.ANNOTATION_MAP_ENTRY: return (EObject)createAnnotationMapEntry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -150,6 +153,17 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Annotation createAnnotation() {
+		AnnotationImpl annotation = new AnnotationImpl();
+		return annotation;
 	}
 
 	/**
@@ -348,6 +362,16 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	public TimingPath createTimingPath() {
 		TimingPathImpl timingPath = new TimingPathImpl();
 		return timingPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, String> createAnnotationMapEntry() {
+		AnnotationMapEntryImpl annotationMapEntry = new AnnotationMapEntryImpl();
+		return annotationMapEntry;
 	}
 
 	/**

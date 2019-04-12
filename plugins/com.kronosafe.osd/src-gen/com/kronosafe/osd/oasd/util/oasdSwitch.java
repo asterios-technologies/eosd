@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import com.kronosafe.osd.oasd.*;
+import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,12 +73,19 @@ public class oasdSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case oasdPackage.ANNOTATION: {
+				Annotation annotation = (Annotation)theEObject;
+				T result = caseAnnotation(annotation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case oasdPackage.SYSTEM_DESCRIPTION: {
 				SystemDescription systemDescription = (SystemDescription)theEObject;
 				T result = caseSystemDescription(systemDescription);
 				if (result == null) result = caseIdentifiableElementReferencer(systemDescription);
 				if (result == null) result = caseNamedElement(systemDescription);
 				if (result == null) result = caseVersionedElement(systemDescription);
+				if (result == null) result = caseAnnotatedElement(systemDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,6 +95,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(input);
 				if (result == null) result = caseNamedElement(input);
 				if (result == null) result = caseIdentifiableElementReferencer(input);
+				if (result == null) result = caseAnnotatedElement(input);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -95,6 +104,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				T result = caseGlobal(global);
 				if (result == null) result = caseIdentifiableElementReferencer(global);
 				if (result == null) result = caseNamedElement(global);
+				if (result == null) result = caseAnnotatedElement(global);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,12 +114,14 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(output);
 				if (result == null) result = caseNamedElement(output);
 				if (result == null) result = caseIdentifiableElementReferencer(output);
+				if (result == null) result = caseAnnotatedElement(output);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case oasdPackage.FILE: {
 				File file = (File)theEObject;
 				T result = caseFile(file);
+				if (result == null) result = caseAnnotatedElement(file);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,6 +130,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				T result = caseCode(code);
 				if (result == null) result = caseIdentifiedElement(code);
 				if (result == null) result = caseIdentifiableElementReferencer(code);
+				if (result == null) result = caseAnnotatedElement(code);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,6 +140,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(behaviorItem);
 				if (result == null) result = caseNamedElement(behaviorItem);
 				if (result == null) result = caseIdentifiableElementReferencer(behaviorItem);
+				if (result == null) result = caseAnnotatedElement(behaviorItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,6 +148,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				FunctionItem functionItem = (FunctionItem)theEObject;
 				T result = caseFunctionItem(functionItem);
 				if (result == null) result = caseNamedElement(functionItem);
+				if (result == null) result = caseAnnotatedElement(functionItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -143,6 +158,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(typeItem);
 				if (result == null) result = caseNamedElement(typeItem);
 				if (result == null) result = caseIdentifiableElementReferencer(typeItem);
+				if (result == null) result = caseAnnotatedElement(typeItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -151,6 +167,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				T result = caseCommunicationItem(communicationItem);
 				if (result == null) result = caseIdentifiedElement(communicationItem);
 				if (result == null) result = caseIdentifiableElementReferencer(communicationItem);
+				if (result == null) result = caseAnnotatedElement(communicationItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,6 +175,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				Source source = (Source)theEObject;
 				T result = caseSource(source);
 				if (result == null) result = caseIdentifiableElementReferencer(source);
+				if (result == null) result = caseAnnotatedElement(source);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -165,18 +183,21 @@ public class oasdSwitch<T> extends Switch<T> {
 				IdentifiedElement identifiedElement = (IdentifiedElement)theEObject;
 				T result = caseIdentifiedElement(identifiedElement);
 				if (result == null) result = caseIdentifiableElementReferencer(identifiedElement);
+				if (result == null) result = caseAnnotatedElement(identifiedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER: {
 				IdentifiableElementReferencer identifiableElementReferencer = (IdentifiableElementReferencer)theEObject;
 				T result = caseIdentifiableElementReferencer(identifiableElementReferencer);
+				if (result == null) result = caseAnnotatedElement(identifiableElementReferencer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case oasdPackage.NAMED_ELEMENT: {
 				NamedElement namedElement = (NamedElement)theEObject;
 				T result = caseNamedElement(namedElement);
+				if (result == null) result = caseAnnotatedElement(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,12 +210,14 @@ public class oasdSwitch<T> extends Switch<T> {
 			case oasdPackage.TEMPORAL: {
 				Temporal temporal = (Temporal)theEObject;
 				T result = caseTemporal(temporal);
+				if (result == null) result = caseAnnotatedElement(temporal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case oasdPackage.TIMING_CONSTRAINT: {
 				TimingConstraint timingConstraint = (TimingConstraint)theEObject;
 				T result = caseTimingConstraint(timingConstraint);
+				if (result == null) result = caseAnnotatedElement(timingConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -204,6 +227,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(functionalChain);
 				if (result == null) result = caseNamedElement(functionalChain);
 				if (result == null) result = caseIdentifiableElementReferencer(functionalChain);
+				if (result == null) result = caseAnnotatedElement(functionalChain);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,6 +238,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(blockSpatialConstraint);
 				if (result == null) result = caseNamedElement(blockSpatialConstraint);
 				if (result == null) result = caseIdentifiableElementReferencer(blockSpatialConstraint);
+				if (result == null) result = caseAnnotatedElement(blockSpatialConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -224,6 +249,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(chainSpatialConstraint);
 				if (result == null) result = caseNamedElement(chainSpatialConstraint);
 				if (result == null) result = caseIdentifiableElementReferencer(chainSpatialConstraint);
+				if (result == null) result = caseAnnotatedElement(chainSpatialConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -233,6 +259,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(spatialConstraint);
 				if (result == null) result = caseNamedElement(spatialConstraint);
 				if (result == null) result = caseIdentifiableElementReferencer(spatialConstraint);
+				if (result == null) result = caseAnnotatedElement(spatialConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -243,6 +270,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiedElement(comSpatialConstraint);
 				if (result == null) result = caseNamedElement(comSpatialConstraint);
 				if (result == null) result = caseIdentifiableElementReferencer(comSpatialConstraint);
+				if (result == null) result = caseAnnotatedElement(comSpatialConstraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,11 +278,39 @@ public class oasdSwitch<T> extends Switch<T> {
 				TimingPath timingPath = (TimingPath)theEObject;
 				T result = caseTimingPath(timingPath);
 				if (result == null) result = caseIdentifiableElementReferencer(timingPath);
+				if (result == null) result = caseAnnotatedElement(timingPath);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case oasdPackage.ANNOTATION_MAP_ENTRY: {
+				@SuppressWarnings("unchecked") Map.Entry<String, String> annotationMapEntry = (Map.Entry<String, String>)theEObject;
+				T result = caseAnnotationMapEntry(annotationMapEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case oasdPackage.ANNOTATED_ELEMENT: {
+				AnnotatedElement annotatedElement = (AnnotatedElement)theEObject;
+				T result = caseAnnotatedElement(annotatedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotation(Annotation object) {
+		return null;
 	}
 
 	/**
@@ -599,6 +655,36 @@ public class oasdSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingPath(TimingPath object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation Map Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation Map Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotationMapEntry(Map.Entry<String, String> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotated Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotated Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotatedElement(AnnotatedElement object) {
 		return null;
 	}
 

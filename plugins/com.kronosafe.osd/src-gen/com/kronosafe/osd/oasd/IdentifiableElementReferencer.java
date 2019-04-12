@@ -3,7 +3,6 @@
 package com.kronosafe.osd.oasd;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.resource.Resource;
  * @model abstract="true"
  * @generated
  */
-public interface IdentifiableElementReferencer extends EObject {
+public interface IdentifiableElementReferencer extends AnnotatedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
