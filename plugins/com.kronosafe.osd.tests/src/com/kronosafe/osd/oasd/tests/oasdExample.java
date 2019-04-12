@@ -3,7 +3,7 @@
  */
 package com.kronosafe.osd.oasd.tests;
 
-import com.kronosafe.osd.oasd.SystemDescription;
+import com.kronosafe.osd.oasd.Annotation;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
 
@@ -68,7 +68,7 @@ public class oasdExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.oasd"));
-				SystemDescription root = oasdFactory.eINSTANCE.createSystemDescription();
+				Annotation root = oasdFactory.eINSTANCE.createAnnotation();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

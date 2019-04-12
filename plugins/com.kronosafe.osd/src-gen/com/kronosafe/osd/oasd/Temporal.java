@@ -3,8 +3,6 @@
  */
 package com.kronosafe.osd.oasd;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Temporal</b></em>'.
@@ -27,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Temporal extends EObject {
+public interface Temporal extends AnnotatedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

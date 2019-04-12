@@ -1,19 +1,22 @@
 /**
- * Copyright Krono-Safe S.A. 2018. All rights reserved.
+ * Copyright Krono-Safe S.A. 2018-2019. All rights reserved.
  */
 package com.kronosafe.osd.oasd.tests;
 
-import com.kronosafe.osd.oasd.File;
+import com.kronosafe.osd.oasd.Annotation;
 import com.kronosafe.osd.oasd.oasdFactory;
+
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>File</b></em>'.
+ * A test case for the model object '<em><b>Annotation</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class FileTest extends AnnotatedElementTest {
+public class AnnotationTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,33 +26,50 @@ public class FileTest extends AnnotatedElementTest {
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
 
 	/**
+	 * The fixture for this Annotation test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Annotation fixture = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(FileTest.class);
+		TestRunner.run(AnnotationTest.class);
 	}
 
 	/**
-	 * Constructs a new File test case with the given name.
+	 * Constructs a new Annotation test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FileTest(String name) {
+	public AnnotationTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this File test case.
+	 * Sets the fixture for this Annotation test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected File getFixture() {
-		return (File)fixture;
+	protected void setFixture(Annotation fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
+	 * Returns the fixture for this Annotation test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Annotation getFixture() {
+		return fixture;
 	}
 
 	/**
@@ -60,7 +80,7 @@ public class FileTest extends AnnotatedElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(oasdFactory.eINSTANCE.createFile());
+		setFixture(oasdFactory.eINSTANCE.createAnnotation());
 	}
 
 	/**
@@ -74,4 +94,4 @@ public class FileTest extends AnnotatedElementTest {
 		setFixture(null);
 	}
 
-} //FileTest
+} //AnnotationTest

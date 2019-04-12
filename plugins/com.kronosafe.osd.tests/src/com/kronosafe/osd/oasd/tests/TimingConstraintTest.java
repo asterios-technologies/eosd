@@ -6,9 +6,6 @@ package com.kronosafe.osd.oasd.tests;
 import com.kronosafe.osd.oasd.ConstraintOperator;
 import com.kronosafe.osd.oasd.TimingConstraint;
 import com.kronosafe.osd.oasd.oasdFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -23,7 +20,7 @@ import junit.textui.TestRunner;
  * </p>
  * @generated
  */
-public class TimingConstraintTest extends TestCase {
+public class TimingConstraintTest extends AnnotatedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,14 +28,6 @@ public class TimingConstraintTest extends TestCase {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
-
-	/**
-	 * The fixture for this Timing Constraint test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimingConstraint fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,23 +49,14 @@ public class TimingConstraintTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Timing Constraint test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(TimingConstraint fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Timing Constraint test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected TimingConstraint getFixture() {
-		return fixture;
+		return (TimingConstraint)fixture;
 	}
 
 	/**

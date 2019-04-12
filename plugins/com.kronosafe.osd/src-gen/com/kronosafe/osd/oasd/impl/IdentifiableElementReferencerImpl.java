@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
@@ -23,7 +22,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  *
  * @generated
  */
-public abstract class IdentifiableElementReferencerImpl extends MinimalEObjectImpl.Container implements IdentifiableElementReferencer {
+public abstract class IdentifiableElementReferencerImpl extends AnnotatedElementImpl implements IdentifiableElementReferencer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

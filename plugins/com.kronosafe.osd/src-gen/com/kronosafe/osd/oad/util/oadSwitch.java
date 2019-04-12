@@ -3,6 +3,7 @@
 package com.kronosafe.osd.oad.util;
 
 import com.kronosafe.osd.oad.*;
+import com.kronosafe.osd.oasd.AnnotatedElement;
 import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
 import com.kronosafe.osd.oasd.VersionedElement;
 
@@ -78,6 +79,7 @@ public class oadSwitch<T> extends Switch<T> {
 				BehaviorItemReference behaviorItemReference = (BehaviorItemReference)theEObject;
 				T result = caseBehaviorItemReference(behaviorItemReference);
 				if (result == null) result = caseIdentifiableElementReferencer(behaviorItemReference);
+				if (result == null) result = caseAnnotatedElement(behaviorItemReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -140,6 +142,21 @@ public class oadSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAllocationDescription(AllocationDescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotated Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotated Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotatedElement(AnnotatedElement object) {
 		return null;
 	}
 

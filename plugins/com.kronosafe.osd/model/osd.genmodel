@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright Krono-Safe S.A. 2018-2019. All rights reserved."
-    modelDirectory="/com.kronosafe.osd/src-gen" editDirectory="/com.kronosafe.osd.edit/src"
+    modelDirectory="/com.kronosafe.osd/src-gen" editDirectory="/com.kronosafe.osd.edit/src-gen"
     editorDirectory="/com.kronosafe.osd.editor/src" modelPluginID="com.kronosafe.osd"
     modelName="osd" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     testsDirectory="/com.kronosafe.osd.tests/src" importerID="org.eclipse.emf.importer.ecore"
@@ -40,6 +40,9 @@
       <genDataTypes ecoreDataType="osd.ecore#//oasd/OrderVal"/>
       <genDataTypes ecoreDataType="osd.ecore#//oasd/TimeUnit"/>
       <genDataTypes ecoreDataType="osd.ecore#//oasd/NanoSec"/>
+      <genClasses ecoreClass="osd.ecore#//oasd/Annotation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/Annotation/details"/>
+      </genClasses>
       <genClasses ecoreClass="osd.ecore#//oasd/SystemDescription">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/types"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/behaviors"/>
@@ -167,6 +170,13 @@
       <genClasses ecoreClass="osd.ecore#//oasd/TimingPath">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/TimingPath/date"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/TimingPath/behaviorItem"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/AnnotationMapEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/AnnotationMapEntry/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/AnnotationMapEntry/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="osd.ecore#//oasd/AnnotatedElement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/AnnotatedElement/annotations"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="oad" basePackage="com.kronosafe.osd" resource="XML"

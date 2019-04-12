@@ -8,6 +8,17 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The open architecture system description used to describe the system and functional design."/>
     </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An OSD Annotation is attached to an AnnotatedElement to specify general-purpose model information that is relevant for OSD extensions, OSD iterative generations, traceability."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="details" upperBound="-1"
+          eType="#//oasd/AnnotationMapEntry" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The annotation values stored as a map."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="IdVal" instanceClassName="java.lang.Integer">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The IdVal type corresponds to an identity number. It is an integer comprised between 0 and the maximum number of element in the model minus 1."/>
@@ -163,7 +174,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="File">
+    <eClassifiers xsi:type="ecore:EClass" name="File" eSuperTypes="#//oasd/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A File is associated to a C-file implementing a behaviorItem. It is defined by a path attribute of type AString that gives the path of the C-file."/>
       </eAnnotations>
@@ -345,7 +356,8 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElementReferencer" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElementReferencer" abstract="true"
+        eSuperTypes="#//oasd/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An element that references an IdentifiedElement."/>
       </eAnnotations>
@@ -367,7 +379,7 @@
         <eParameters name="eRessource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EResource"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//oasd/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An element with a name."/>
       </eAnnotations>
@@ -389,7 +401,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Temporal">
+    <eClassifiers xsi:type="ecore:EClass" name="Temporal" eSuperTypes="#//oasd/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Reserved for internal use."/>
       </eAnnotations>
@@ -424,7 +436,7 @@
         </eAnnotations>
       </eLiterals>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TimingConstraint">
+    <eClassifiers xsi:type="ecore:EClass" name="TimingConstraint" eSuperTypes="#//oasd/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A timing constraint."/>
       </eAnnotations>
@@ -545,7 +557,7 @@
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpatialConstraint" abstract="true"
-        eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement">
+        eSuperTypes="#//oasd/IdentifiedElement #//oasd/NamedElement #//oasd/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A memory partition constraint."/>
       </eAnnotations>
@@ -593,6 +605,32 @@
           eType="#//oasd/BehaviorItem">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The behaviorItem through which the functional chain passes at the given timing instant."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationMapEntry" instanceClassName="java.util.Map$Entry">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An OSD Annotation map entry is attached to an Annotation to specify general-purpose model information. Each entry is a value identified by a key."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The annotation key."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//oasd/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The annotation value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotatedElement" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element that can be annotated with general-purpose model annotations."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
+          eType="#//oasd/Annotation" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The list of annotations."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>

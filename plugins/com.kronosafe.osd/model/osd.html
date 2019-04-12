@@ -1,5 +1,5 @@
 <!-- This file was created using the HTML documentation generator. -->
-<!-- Creation date: Fri Dec 07 09:51:18 CET 2018-->
+<!-- Creation date: Tue May 14 13:13:23 CEST 2019-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -132,6 +132,76 @@ function getElementsByTagNames(list,obj) {
 <div class="">EPackage properties:</div>
 <div class="keyValue"><span class="label">Namespace Prefix: </span><span class="teletype"></span></div>
 <div class="keyValue"><span class="label">Namespace URI: </span><span class="teletype">http://www.kronosafe.com/oasd</span></div>
+<h2 id="AnnotatedElement"><a href="#AnnotatedElement"><a href="#AnnotatedElement">AnnotatedElement</a></a></h2>
+
+<p>An element that can be annotated with general-purpose model annotations.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="AnnotatedElement.annotations" class="teletype">annotations</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Annotation">Annotation</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The list of annotations.</p>
+</td>
+		</tr></table>
+<a href="#.AnnotatedElement.ref"></a>
+<h2 id="Annotation"><a href="#Annotation"><a href="#Annotation">Annotation</a></a></h2>
+
+<p>An OSD Annotation is attached to an AnnotatedElement to specify general-purpose model information that is relevant for OSD extensions, OSD iterative generations, traceability.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Annotation.details" class="teletype">details</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AnnotationMapEntry">AnnotationMapEntry</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The annotation values stored as a map.</p>
+</td>
+		</tr></table>
+<a href="#.Annotation.ref"></a>
+<h2 id="AnnotationMapEntry"><a href="#AnnotationMapEntry"><a href="#AnnotationMapEntry">AnnotationMapEntry</a></a></h2>
+
+<p>An OSD Annotation map entry is attached to an Annotation to specify general-purpose model information. Each entry is a value identified by a key.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="AnnotationMapEntry.key" class="teletype">key</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The annotation key.</p>
+</td>
+		</tr><tr>	<td><div id="AnnotationMapEntry.value" class="teletype">value</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#AString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The annotation value.</p>
+</td>
+		</tr></table>
+<a href="#.AnnotationMapEntry.attr"></a>
 <h2 id="BehaviorItem"><a href="#BehaviorItem"><a href="#BehaviorItem">BehaviorItem</a></a></h2>
 
 <p>A BehaviorItem represents a block in the system.</p>
@@ -173,7 +243,7 @@ function getElementsByTagNames(list,obj) {
 <tr>	<td><div id="BehaviorItem.functions" class="teletype">functions</div>
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#FunctionItem">FunctionItem</a></span></div>
-<div class="label">Cardinality: [1..*]</div>
+<div class="label">Cardinality: [0..*]</div>
 <div class="label">Containment</div>
 </td> 
 <td> <p>The functions of the item.</p>
@@ -379,16 +449,16 @@ function getElementsByTagNames(list,obj) {
 </tr>
 <tr>	<td><div id="CommunicationItem.immediate" class="teletype">immediate</div>
 	</td>
-	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EBoolean</span></div>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ecorexmltypeBoolean">Boolean</a></span></div>
 <div class="label">Cardinality: [1..1]</div>
- </td> <td><p>If a communication is immediate, the data is communicated to the consummer just after the producer execution without waiting the next temporal sycnhronization point.</p>
+ </td> <td><p>If a communication is immediate, the data is communicated to the consumer just after the producer execution without waiting the next temporal sycnhronization point.</p>
 </td>
 		</tr><tr>	<td><div id="CommunicationItem.pValue" class="teletype">pValue</div>
 	</td>
-	<td><div class="keyValue"><span class="label">T: </span><span class="teletype">EInt</span></div>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ecorexmltypeInt">Int</a></span></div>
 <div class="label">Cardinality: [0..1]</div>
 <div class="keyValue"><span class="label">Default: </span><span class="teletype">-1</span></div>
- </td> <td><p>The number of past value available in the communication channel.</p>
+ </td> <td><p>The number of past value available in the communication channel. This number is an integer with positive and negative supported values.</p>
 </td>
 		</tr></table>
 <a href="#.CommunicationItem.attr"></a>
@@ -453,7 +523,7 @@ function getElementsByTagNames(list,obj) {
 <a href="#.CommunicationItem.op"></a>
 <h2 id="ConstraintOperator"><a href="#ConstraintOperator"><a href="#ConstraintOperator">ConstraintOperator</a></a></h2>
 
-<p>An operator to describe constraint statement: lesserThan, gretterThan.</p>
+<p>An operator to describe constraint statement: lesserThan, greaterThan.</p>
 <table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Literals</div></th>
@@ -490,7 +560,7 @@ function getElementsByTagNames(list,obj) {
 <h2 id="File"><a href="#File"><a href="#File">File</a></a></h2>
 
 <p>A File is associated to a C-file implementing a behaviorItem. It is defined by a path attribute of type AString that gives the path of the C-file.</p>
-<table>
+<h4><b>Supertype:</b><a href="#AnnotatedElement">AnnotatedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -654,7 +724,7 @@ function getElementsByTagNames(list,obj) {
 <h2 id="IdentifiableElementReferencer"><a href="#IdentifiableElementReferencer"><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></a></h2>
 
 <p>An element that references an IdentifiedElement.</p>
-<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#AnnotatedElement">AnnotatedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Operations</div></th>
 </tr>
@@ -732,6 +802,8 @@ function getElementsByTagNames(list,obj) {
 <div class="label">Cardinality: [1..1]</div>
 <div class="label">Identifier</div>
  </td> <td><p>The element model Id. This is a number to reference the element in the model. All attributes IDs shall be global to the system, e.g. all id of Output shall be different for a given system. Two outputs with the same Id is forbidden. Nevertheless, an Output of Id &quot;0&quot; and an Input of Id &quot;0&quot; may exist.</p>
+
+<p>This id is used to serialize the references.</p>
 </td>
 		</tr></table>
 <a href="#.IdentifiedElement.attr"></a>
@@ -758,7 +830,7 @@ function getElementsByTagNames(list,obj) {
 <h2 id="NamedElement"><a href="#NamedElement"><a href="#NamedElement">NamedElement</a></a></h2>
 
 <p>An element with a name.</p>
-<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><table>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertype:</b><a href="#AnnotatedElement">AnnotatedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -827,7 +899,7 @@ function getElementsByTagNames(list,obj) {
 <h2 id="SpatialConstraint"><a href="#SpatialConstraint"><a href="#SpatialConstraint">SpatialConstraint</a></a></h2>
 
 <p>A memory partition constraint.</p>
-<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertypes:</b><a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h4><b>Supertypes:</b><a href="#AnnotatedElement">AnnotatedElement</a>, <a href="#IdentifiedElement">IdentifiedElement</a>, <a href="#NamedElement">NamedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -991,7 +1063,8 @@ function getElementsByTagNames(list,obj) {
 <a href="#.SystemDescription.ref"></a>
 <h2 id="Temporal"><a href="#Temporal"><a href="#Temporal">Temporal</a></a></h2>
 
-<table>
+<p>Reserved for internal use.</p>
+<h4><b>Supertype:</b><a href="#AnnotatedElement">AnnotatedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -1004,7 +1077,7 @@ function getElementsByTagNames(list,obj) {
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TemporalKind">TemporalKind</a></span></div>
 <div class="label">Cardinality: [1..1]</div>
- </td> <td><p>Reserved for internal use. It corresponds to the immediate boolean of the communication item.</p>
+ </td> <td><p>It corresponds to the immediate boolean of the communication item.</p>
 </td>
 		</tr><tr>	<td><div id="Temporal.offset" class="teletype">offset</div>
 	</td>
@@ -1039,6 +1112,7 @@ function getElementsByTagNames(list,obj) {
 		0
 	</td>
 	<td>
+		<p>Non Immediate communication</p>
 	</td>	
 </tr>
 <tr>
@@ -1049,6 +1123,7 @@ function getElementsByTagNames(list,obj) {
 		1
 	</td>
 	<td>
+		<p>Immediate communication.</p>
 	</td>	
 </tr>
 </table>
@@ -1056,7 +1131,7 @@ function getElementsByTagNames(list,obj) {
 <h2 id="TimingConstraint"><a href="#TimingConstraint"><a href="#TimingConstraint">TimingConstraint</a></a></h2>
 
 <p>A timing constraint.</p>
-<table>
+<h4><b>Supertype:</b><a href="#AnnotatedElement">AnnotatedElement</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -1099,8 +1174,8 @@ EString[0..1]
 <a href="#.TimingConstraint.op"></a>
 <h2 id="TimingPath"><a href="#TimingPath"><a href="#TimingPath">TimingPath</a></a></h2>
 
-<p>The timing path of the functional chain, i.e. the timing instants through which the functional chain passes.</p>
-<table>
+<p>The timing path of the functional chain, i.e. the timing instants through which the functional chain passes. Reserved for internal use.</p>
+<h4><b>Supertype:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -1217,7 +1292,7 @@ EString[0..1]
 <div class="label">Cardinality: [1..*]</div>
 <div class="label">Containment</div>
 </td> 
-<td> <p>The software execution unit references.</p>
+<td> <p>The behavior item references.</p>
 </td>
 		</tr></table>
 <a href="#.Allocation.ref"></a>
@@ -1246,13 +1321,13 @@ EString[0..1]
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#SystemDescription">SystemDescription</a></span></div>
 <div class="label">Cardinality: [1..1]</div>
 </td> 
-<td> <p>The open architecture system description referenced.</p>
+<td> <p>The Open Architecture System Description referenced.</p>
 </td>
 		</tr></table>
 <a href="#.AllocationDescription.ref"></a>
 <h2 id="BehaviorItemReference"><a href="#BehaviorItemReference"><a href="#BehaviorItemReference">BehaviorItemReference</a></a></h2>
 
-<p>References to behavior items.</p>
+<p>A reference to a behavior item.</p>
 <h4><b>Supertype:</b><a href="#IdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
@@ -1267,7 +1342,7 @@ EString[0..1]
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#IdVal">IdVal</a></span></div>
 <div class="label">Cardinality: [1..1]</div>
 <div class="label">Derived</div>
- </td> <td><p>The behavior item id referenced.</p>
+ </td> <td><p>The behavior item id referenced in the Open Architecture System Description model.</p>
 </td>
 		</tr></table>
 <a href="#.BehaviorItemReference.attr"></a>

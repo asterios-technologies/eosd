@@ -10,8 +10,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import com.kronosafe.osd.oasd.ConstraintOperator;
 import com.kronosafe.osd.oasd.TimingConstraint;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -30,7 +28,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  *
  * @generated
  */
-public class TimingConstraintImpl extends MinimalEObjectImpl.Container implements TimingConstraint {
+public class TimingConstraintImpl extends AnnotatedElementImpl implements TimingConstraint {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

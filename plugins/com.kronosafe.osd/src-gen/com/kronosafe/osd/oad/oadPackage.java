@@ -79,6 +79,15 @@ public interface oadPackage extends EPackage {
 	int BEHAVIOR_ITEM_REFERENCE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_ITEM_REFERENCE__ANNOTATIONS = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
+
+	/**
 	 * The feature id for the '<em><b>Behavior Item</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
