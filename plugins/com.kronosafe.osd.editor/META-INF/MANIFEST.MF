@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.kronosafe.osd.editor;singleton:=true
 Automatic-Module-Name: com.kronosafe.osd.editor
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: com.kronosafe.osd.oasd.presentation.osdEditorPlugin$Implementation
 Bundle-Vendor: %providerName

@@ -14,12 +14,12 @@ https://www.eclipse.org/legal/epl-2.0/
   <parent>
     <groupId>com.kronosafe.eosd</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <relativePath>../../releng/com.kronosafe.eosd.parent</relativePath>
   </parent>
 
   <artifactId>com.kronosafe.eosd.ui.feature</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>2.0.0-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
 
   <name>Eclipse Open System Description User Interfaces Feature</name>

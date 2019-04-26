@@ -2,7 +2,7 @@
 <feature
       id="com.kronosafe.eosd.feature"
       label="Eclipse Open System Description"
-      version="1.0.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="Krono-Safe">
 
    <description url="http://www.krono-safe.com">
