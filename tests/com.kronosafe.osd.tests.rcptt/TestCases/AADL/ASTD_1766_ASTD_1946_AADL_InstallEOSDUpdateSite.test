@@ -25,7 +25,7 @@ Entry-Name: .content
 get-menu -path "Help/Install New Software..." | click
 get-window Install | get-button "Add..." | click
 //This path is relative to the AUT installation path which is in target\dependency\ObeoDesigner-Community
-set-dialog-result File "../../../../../packaging/com.kronosafe.eosd.update/target/com.kronosafe.eosd.update-1.0.0-SNAPSHOT.zip"
+set-dialog-result File "../../../../../packaging/com.kronosafe.eosd.update/target/com.kronosafe.eosd.update-2.0.0-SNAPSHOT.zip"
 with [get-window Install] {
 	with [get-window "Add Repository"] {
 		get-button "Archive..." | click

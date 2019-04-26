@@ -2,7 +2,7 @@
 <feature
       id="com.kronosafe.eosd.ui.feature"
       label="Eclipse Open System Description User Interfaces"
-      version="1.0.0.qualifier"
+      version="2.0.0.qualifier"
       provider-name="Krono-Safe">
 
    <description url="http://www.krono-safe.com">
@@ -27,7 +27,7 @@
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.sirius"/>
       <import plugin="org.eclipse.sirius.common.acceleo.aql"/>
-      <import feature="com.kronosafe.eosd.feature" version="1.0.0" match="compatible"/>
+      <import feature="com.kronosafe.eosd.feature" version="2.0.0" match="compatible"/>
    </requires>
 
    <plugin

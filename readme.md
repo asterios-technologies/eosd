@@ -70,10 +70,10 @@ To install eOSD plugin on the Eclipse IDE:
 ## How to change the version numbers
 
 - cd releng/com.kronosafe.eosd.parent
-- mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.0.0-SNAPSHOT
-- Open the pom.xml and change the common.parent version dependency to 1.0.0-SNAPSHOT
+- mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=2.0.0-SNAPSHOT
+- Open the pom.xml and change the common.parent version dependency to 2.0.0-SNAPSHOT
 - cd releng/com.kronosafe.eosd.common.parent
-- Open the pom.xml and change the version to 1.0.0-SNAPSHOT
+- Open the pom.xml and change the version to 2.0.0-SNAPSHOT
 
 ## How to launch Eclipse Integration Tests
 

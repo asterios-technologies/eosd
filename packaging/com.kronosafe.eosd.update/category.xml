@@ -3,7 +3,7 @@
    <feature id="com.kronosafe.eosd.feature" version="0.0.0">
       <category name="Open System Description"/>
    </feature>
-   <feature url="features/com.kronosafe.eosd.examples.aadl.feature_1.0.0.qualifier.jar" id="com.kronosafe.eosd.examples.aadl.feature" version="1.0.0.qualifier">
+   <feature url="features/com.kronosafe.eosd.examples.aadl.feature_2.0.0.qualifier.jar" id="com.kronosafe.eosd.examples.aadl.feature" version="2.0.0.qualifier">
       <category name="Open System Description"/>
    </feature>
    <category-def name="Open System Description" label="Open System Description">
