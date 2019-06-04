@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.kronosafe.osd.core.tests.IdentifiableElementReferencerTest;
 import com.kronosafe.osd.oad.Allocation;
 import com.kronosafe.osd.oad.AllocationDescription;
 import com.kronosafe.osd.oad.BehaviorItemReference;

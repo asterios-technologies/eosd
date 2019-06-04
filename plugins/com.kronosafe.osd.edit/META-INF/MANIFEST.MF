@@ -9,7 +9,8 @@ Bundle-Activator: com.kronosafe.osd.oasd.provider.osdEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.kronosafe.osd.oad.provider,
+Export-Package: com.kronosafe.osd.core.provider,
+ com.kronosafe.osd.oad.provider,
  com.kronosafe.osd.oasd.provider
 Require-Bundle: org.eclipse.core.runtime,
  com.kronosafe.osd;visibility:=reexport,

@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.kronosafe.osd.oasd.*;
-import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +63,6 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case oasdPackage.ANNOTATION: return createAnnotation();
 			case oasdPackage.SYSTEM_DESCRIPTION: return createSystemDescription();
 			case oasdPackage.INPUT: return createInput();
 			case oasdPackage.GLOBAL: return createGlobal();
@@ -78,12 +76,11 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 			case oasdPackage.SOURCE: return createSource();
 			case oasdPackage.TEMPORAL: return createTemporal();
 			case oasdPackage.TIMING_CONSTRAINT: return createTimingConstraint();
-			case oasdPackage.FUNCTIONAL_CHAIN: return createFunctionalChain();
+			case oasdPackage.FUNCTIONAL_CHAIN_ITEM: return createFunctionalChainItem();
 			case oasdPackage.BLOCK_SPATIAL_CONSTRAINT: return createBlockSpatialConstraint();
 			case oasdPackage.CHAIN_SPATIAL_CONSTRAINT: return createChainSpatialConstraint();
 			case oasdPackage.COM_SPATIAL_CONSTRAINT: return createComSpatialConstraint();
-			case oasdPackage.TIMING_PATH: return createTimingPath();
-			case oasdPackage.ANNOTATION_MAP_ENTRY: return (EObject)createAnnotationMapEntry();
+			case oasdPackage.TIMING_PATH_ITEM: return createTimingPathItem();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,10 +104,6 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 				return createConstraintOperatorFromString(eDataType, initialValue);
 			case oasdPackage.SPATIAL_OPERATOR:
 				return createSpatialOperatorFromString(eDataType, initialValue);
-			case oasdPackage.ID_VAL:
-				return createIdValFromString(eDataType, initialValue);
-			case oasdPackage.ASTRING:
-				return createAStringFromString(eDataType, initialValue);
 			case oasdPackage.ORDER_VAL:
 				return createOrderValFromString(eDataType, initialValue);
 			case oasdPackage.TIME_UNIT:
@@ -140,10 +133,6 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 				return convertConstraintOperatorToString(eDataType, instanceValue);
 			case oasdPackage.SPATIAL_OPERATOR:
 				return convertSpatialOperatorToString(eDataType, instanceValue);
-			case oasdPackage.ID_VAL:
-				return convertIdValToString(eDataType, instanceValue);
-			case oasdPackage.ASTRING:
-				return convertAStringToString(eDataType, instanceValue);
 			case oasdPackage.ORDER_VAL:
 				return convertOrderValToString(eDataType, instanceValue);
 			case oasdPackage.TIME_UNIT:
@@ -153,17 +142,6 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Annotation createAnnotation() {
-		AnnotationImpl annotation = new AnnotationImpl();
-		return annotation;
 	}
 
 	/**
@@ -315,9 +293,9 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	 * @generated
 	 */
 	@Override
-	public FunctionalChain createFunctionalChain() {
-		FunctionalChainImpl functionalChain = new FunctionalChainImpl();
-		return functionalChain;
+	public FunctionalChainItem createFunctionalChainItem() {
+		FunctionalChainItemImpl functionalChainItem = new FunctionalChainItemImpl();
+		return functionalChainItem;
 	}
 
 	/**
@@ -359,19 +337,9 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	 * @generated
 	 */
 	@Override
-	public TimingPath createTimingPath() {
-		TimingPathImpl timingPath = new TimingPathImpl();
-		return timingPath;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Map.Entry<String, String> createAnnotationMapEntry() {
-		AnnotationMapEntryImpl annotationMapEntry = new AnnotationMapEntryImpl();
-		return annotationMapEntry;
+	public TimingPathItem createTimingPathItem() {
+		TimingPathItemImpl timingPathItem = new TimingPathItemImpl();
+		return timingPathItem;
 	}
 
 	/**
@@ -472,42 +440,6 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	 */
 	public String convertSpatialOperatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer createIdValFromString(EDataType eDataType, String initialValue) {
-		return (Integer)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIdValToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createAStringFromString(EDataType eDataType, String initialValue) {
-		return (String)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAStringToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

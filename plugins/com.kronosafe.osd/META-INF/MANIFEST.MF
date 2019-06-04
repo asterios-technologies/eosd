@@ -8,7 +8,10 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.kronosafe.osd.oad;
+Export-Package: com.kronosafe.osd.core,
+ com.kronosafe.osd.core.impl,
+ com.kronosafe.osd.core.util,
+ com.kronosafe.osd.oad;
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.common.util,
    com.kronosafe.osd.oasd",

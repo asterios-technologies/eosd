@@ -7,8 +7,12 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.NamedElement;
+import com.kronosafe.osd.core.VersionedElement;
 import com.kronosafe.osd.oasd.*;
-import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,12 +77,6 @@ public class oasdSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case oasdPackage.ANNOTATION: {
-				Annotation annotation = (Annotation)theEObject;
-				T result = caseAnnotation(annotation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case oasdPackage.SYSTEM_DESCRIPTION: {
 				SystemDescription systemDescription = (SystemDescription)theEObject;
 				T result = caseSystemDescription(systemDescription);
@@ -179,34 +177,6 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case oasdPackage.IDENTIFIED_ELEMENT: {
-				IdentifiedElement identifiedElement = (IdentifiedElement)theEObject;
-				T result = caseIdentifiedElement(identifiedElement);
-				if (result == null) result = caseIdentifiableElementReferencer(identifiedElement);
-				if (result == null) result = caseAnnotatedElement(identifiedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER: {
-				IdentifiableElementReferencer identifiableElementReferencer = (IdentifiableElementReferencer)theEObject;
-				T result = caseIdentifiableElementReferencer(identifiableElementReferencer);
-				if (result == null) result = caseAnnotatedElement(identifiableElementReferencer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case oasdPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
-				T result = caseNamedElement(namedElement);
-				if (result == null) result = caseAnnotatedElement(namedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case oasdPackage.VERSIONED_ELEMENT: {
-				VersionedElement versionedElement = (VersionedElement)theEObject;
-				T result = caseVersionedElement(versionedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case oasdPackage.TEMPORAL: {
 				Temporal temporal = (Temporal)theEObject;
 				T result = caseTemporal(temporal);
@@ -221,13 +191,13 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case oasdPackage.FUNCTIONAL_CHAIN: {
-				FunctionalChain functionalChain = (FunctionalChain)theEObject;
-				T result = caseFunctionalChain(functionalChain);
-				if (result == null) result = caseIdentifiedElement(functionalChain);
-				if (result == null) result = caseNamedElement(functionalChain);
-				if (result == null) result = caseIdentifiableElementReferencer(functionalChain);
-				if (result == null) result = caseAnnotatedElement(functionalChain);
+			case oasdPackage.FUNCTIONAL_CHAIN_ITEM: {
+				FunctionalChainItem functionalChainItem = (FunctionalChainItem)theEObject;
+				T result = caseFunctionalChainItem(functionalChainItem);
+				if (result == null) result = caseIdentifiedElement(functionalChainItem);
+				if (result == null) result = caseNamedElement(functionalChainItem);
+				if (result == null) result = caseIdentifiableElementReferencer(functionalChainItem);
+				if (result == null) result = caseAnnotatedElement(functionalChainItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -274,43 +244,16 @@ public class oasdSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case oasdPackage.TIMING_PATH: {
-				TimingPath timingPath = (TimingPath)theEObject;
-				T result = caseTimingPath(timingPath);
-				if (result == null) result = caseIdentifiableElementReferencer(timingPath);
-				if (result == null) result = caseAnnotatedElement(timingPath);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case oasdPackage.ANNOTATION_MAP_ENTRY: {
-				@SuppressWarnings("unchecked") Map.Entry<String, String> annotationMapEntry = (Map.Entry<String, String>)theEObject;
-				T result = caseAnnotationMapEntry(annotationMapEntry);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case oasdPackage.ANNOTATED_ELEMENT: {
-				AnnotatedElement annotatedElement = (AnnotatedElement)theEObject;
-				T result = caseAnnotatedElement(annotatedElement);
+			case oasdPackage.TIMING_PATH_ITEM: {
+				TimingPathItem timingPathItem = (TimingPathItem)theEObject;
+				T result = caseTimingPathItem(timingPathItem);
+				if (result == null) result = caseIdentifiableElementReferencer(timingPathItem);
+				if (result == null) result = caseAnnotatedElement(timingPathItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnnotation(Annotation object) {
-		return null;
 	}
 
 	/**
@@ -569,17 +512,17 @@ public class oasdSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Functional Chain</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Functional Chain Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Functional Chain</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Functional Chain Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFunctionalChain(FunctionalChain object) {
+	public T caseFunctionalChainItem(FunctionalChainItem object) {
 		return null;
 	}
 
@@ -644,32 +587,17 @@ public class oasdSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Timing Path</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Timing Path Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Timing Path</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Timing Path Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTimingPath(TimingPath object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Annotation Map Entry</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Annotation Map Entry</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnnotationMapEntry(Map.Entry<String, String> object) {
+	public T caseTimingPathItem(TimingPathItem object) {
 		return null;
 	}
 

@@ -2,6 +2,11 @@
  */
 package com.kronosafe.osd.oasd.impl;
 
+import com.kronosafe.osd.core.NamedElement;
+import com.kronosafe.osd.core.VersionedElement;
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.impl.IdentifiableElementReferencerImpl;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,11 +26,9 @@ import com.kronosafe.osd.oasd.ChainSpatialConstraint;
 import com.kronosafe.osd.oasd.Code;
 import com.kronosafe.osd.oasd.ComSpatialConstraint;
 import com.kronosafe.osd.oasd.CommunicationItem;
-import com.kronosafe.osd.oasd.FunctionalChain;
-import com.kronosafe.osd.oasd.NamedElement;
+import com.kronosafe.osd.oasd.FunctionalChainItem;
 import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.TypeItem;
-import com.kronosafe.osd.oasd.VersionedElement;
 import com.kronosafe.osd.oasd.oasdPackage;
 
 /**
@@ -209,7 +212,7 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FunctionalChain> functionalChains;
+	protected EList<FunctionalChainItem> functionalChains;
 
 	/**
 	 * The cached value of the '{@link #getChainSpatialConstraints() <em>Chain Spatial Constraints</em>}' containment reference list.
@@ -433,9 +436,9 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 	 * @generated
 	 */
 	@Override
-	public EList<FunctionalChain> getFunctionalChains() {
+	public EList<FunctionalChainItem> getFunctionalChains() {
 		if (functionalChains == null) {
-			functionalChains = new EObjectContainmentEList<FunctionalChain>(FunctionalChain.class, this, oasdPackage.SYSTEM_DESCRIPTION__FUNCTIONAL_CHAINS);
+			functionalChains = new EObjectContainmentEList<FunctionalChainItem>(FunctionalChainItem.class, this, oasdPackage.SYSTEM_DESCRIPTION__FUNCTIONAL_CHAINS);
 		}
 		return functionalChains;
 	}
@@ -587,7 +590,7 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 				return;
 			case oasdPackage.SYSTEM_DESCRIPTION__FUNCTIONAL_CHAINS:
 				getFunctionalChains().clear();
-				getFunctionalChains().addAll((Collection<? extends FunctionalChain>)newValue);
+				getFunctionalChains().addAll((Collection<? extends FunctionalChainItem>)newValue);
 				return;
 			case oasdPackage.SYSTEM_DESCRIPTION__CHAIN_SPATIAL_CONSTRAINTS:
 				getChainSpatialConstraints().clear();
@@ -703,13 +706,13 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
-				case oasdPackage.SYSTEM_DESCRIPTION__NAME: return oasdPackage.NAMED_ELEMENT__NAME;
+				case oasdPackage.SYSTEM_DESCRIPTION__NAME: return corePackage.NAMED_ELEMENT__NAME;
 				default: return -1;
 			}
 		}
 		if (baseClass == VersionedElement.class) {
 			switch (derivedFeatureID) {
-				case oasdPackage.SYSTEM_DESCRIPTION__VERSION: return oasdPackage.VERSIONED_ELEMENT__VERSION;
+				case oasdPackage.SYSTEM_DESCRIPTION__VERSION: return corePackage.VERSIONED_ELEMENT__VERSION;
 				default: return -1;
 			}
 		}
@@ -725,13 +728,13 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-				case oasdPackage.NAMED_ELEMENT__NAME: return oasdPackage.SYSTEM_DESCRIPTION__NAME;
+				case corePackage.NAMED_ELEMENT__NAME: return oasdPackage.SYSTEM_DESCRIPTION__NAME;
 				default: return -1;
 			}
 		}
 		if (baseClass == VersionedElement.class) {
 			switch (baseFeatureID) {
-				case oasdPackage.VERSIONED_ELEMENT__VERSION: return oasdPackage.SYSTEM_DESCRIPTION__VERSION;
+				case corePackage.VERSIONED_ELEMENT__VERSION: return oasdPackage.SYSTEM_DESCRIPTION__VERSION;
 				default: return -1;
 			}
 		}

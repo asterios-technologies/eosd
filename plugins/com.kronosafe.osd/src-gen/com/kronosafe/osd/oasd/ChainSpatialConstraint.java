@@ -36,7 +36,7 @@ public interface ChainSpatialConstraint extends SpatialConstraint {
 
 	/**
 	 * Returns the value of the '<em><b>LItems</b></em>' reference list.
-	 * The list contents are of type {@link com.kronosafe.osd.oasd.FunctionalChain}.
+	 * The list contents are of type {@link com.kronosafe.osd.oasd.FunctionalChainItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -48,11 +48,11 @@ public interface ChainSpatialConstraint extends SpatialConstraint {
 	 *        extendedMetaData="kind='element'"
 	 * @generated
 	 */
-	EList<FunctionalChain> getLItems();
+	EList<FunctionalChainItem> getLItems();
 
 	/**
 	 * Returns the value of the '<em><b>RItems</b></em>' reference list.
-	 * The list contents are of type {@link com.kronosafe.osd.oasd.FunctionalChain}.
+	 * The list contents are of type {@link com.kronosafe.osd.oasd.FunctionalChainItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -64,6 +64,6 @@ public interface ChainSpatialConstraint extends SpatialConstraint {
 	 *        extendedMetaData="kind='element'"
 	 * @generated
 	 */
-	EList<FunctionalChain> getRItems();
+	EList<FunctionalChainItem> getRItems();
 
 } // ChainSpatialConstraint

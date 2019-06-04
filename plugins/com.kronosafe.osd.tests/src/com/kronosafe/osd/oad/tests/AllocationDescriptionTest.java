@@ -3,11 +3,9 @@
  */
 package com.kronosafe.osd.oad.tests;
 
+import com.kronosafe.osd.core.tests.VersionedElementTest;
 import com.kronosafe.osd.oad.AllocationDescription;
 import com.kronosafe.osd.oad.oadFactory;
-
-import com.kronosafe.osd.oasd.tests.VersionedElementTest;
-
 import junit.textui.TestRunner;
 
 /**

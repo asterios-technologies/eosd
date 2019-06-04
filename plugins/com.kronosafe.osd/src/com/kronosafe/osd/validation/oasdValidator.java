@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.kronosafe.osd.core.IdentifiedElement;
 import com.kronosafe.osd.oasd.BehaviorItem;
 import com.kronosafe.osd.oasd.FunctionItem;
 import com.kronosafe.osd.oasd.FunctionKind;
-import com.kronosafe.osd.oasd.IdentifiedElement;
 import com.kronosafe.osd.oasd.oasdPackage;
 import com.kronosafe.osd.oasd.util.oasdSwitch;
 

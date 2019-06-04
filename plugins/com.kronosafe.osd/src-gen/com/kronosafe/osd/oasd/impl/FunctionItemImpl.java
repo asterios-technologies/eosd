@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.kronosafe.osd.core.impl.NamedElementImpl;
 import com.kronosafe.osd.oasd.FunctionItem;
 import com.kronosafe.osd.oasd.FunctionKind;
 import com.kronosafe.osd.oasd.oasdPackage;

@@ -2,12 +2,11 @@
  */
 package com.kronosafe.osd.oad.impl;
 
+import com.kronosafe.osd.core.impl.VersionedElementImpl;
 import com.kronosafe.osd.oad.Allocation;
 import com.kronosafe.osd.oad.AllocationDescription;
 import com.kronosafe.osd.oad.oadPackage;
 import com.kronosafe.osd.oasd.SystemDescription;
-import com.kronosafe.osd.oasd.impl.VersionedElementImpl;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

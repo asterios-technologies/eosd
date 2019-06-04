@@ -3,6 +3,8 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Temporal</b></em>'.

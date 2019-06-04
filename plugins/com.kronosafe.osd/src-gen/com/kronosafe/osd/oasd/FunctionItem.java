@@ -2,6 +2,7 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

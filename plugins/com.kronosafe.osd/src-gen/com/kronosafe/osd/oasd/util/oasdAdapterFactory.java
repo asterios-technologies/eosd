@@ -9,8 +9,12 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.NamedElement;
+import com.kronosafe.osd.core.VersionedElement;
 import com.kronosafe.osd.oasd.*;
-import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,10 +79,6 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	protected oasdSwitch<Adapter> modelSwitch =
 		new oasdSwitch<Adapter>() {
 			@Override
-			public Adapter caseAnnotation(Annotation object) {
-				return createAnnotationAdapter();
-			}
-			@Override
 			public Adapter caseSystemDescription(SystemDescription object) {
 				return createSystemDescriptionAdapter();
 			}
@@ -123,22 +123,6 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 				return createSourceAdapter();
 			}
 			@Override
-			public Adapter caseIdentifiedElement(IdentifiedElement object) {
-				return createIdentifiedElementAdapter();
-			}
-			@Override
-			public Adapter caseIdentifiableElementReferencer(IdentifiableElementReferencer object) {
-				return createIdentifiableElementReferencerAdapter();
-			}
-			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
-			}
-			@Override
-			public Adapter caseVersionedElement(VersionedElement object) {
-				return createVersionedElementAdapter();
-			}
-			@Override
 			public Adapter caseTemporal(Temporal object) {
 				return createTemporalAdapter();
 			}
@@ -147,8 +131,8 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 				return createTimingConstraintAdapter();
 			}
 			@Override
-			public Adapter caseFunctionalChain(FunctionalChain object) {
-				return createFunctionalChainAdapter();
+			public Adapter caseFunctionalChainItem(FunctionalChainItem object) {
+				return createFunctionalChainItemAdapter();
 			}
 			@Override
 			public Adapter caseBlockSpatialConstraint(BlockSpatialConstraint object) {
@@ -167,16 +151,28 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 				return createComSpatialConstraintAdapter();
 			}
 			@Override
-			public Adapter caseTimingPath(TimingPath object) {
-				return createTimingPathAdapter();
-			}
-			@Override
-			public Adapter caseAnnotationMapEntry(Map.Entry<String, String> object) {
-				return createAnnotationMapEntryAdapter();
+			public Adapter caseTimingPathItem(TimingPathItem object) {
+				return createTimingPathItemAdapter();
 			}
 			@Override
 			public Adapter caseAnnotatedElement(AnnotatedElement object) {
 				return createAnnotatedElementAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiableElementReferencer(IdentifiableElementReferencer object) {
+				return createIdentifiableElementReferencerAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseVersionedElement(VersionedElement object) {
+				return createVersionedElementAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiedElement(IdentifiedElement object) {
+				return createIdentifiedElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -197,20 +193,6 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.Annotation <em>Annotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.Annotation
-	 * @generated
-	 */
-	public Adapter createAnnotationAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.SystemDescription <em>System Description</em>}'.
@@ -367,13 +349,13 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.IdentifiedElement <em>Identified Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.IdentifiedElement <em>Identified Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.IdentifiedElement
+	 * @see com.kronosafe.osd.core.IdentifiedElement
 	 * @generated
 	 */
 	public Adapter createIdentifiedElementAdapter() {
@@ -381,13 +363,13 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.IdentifiableElementReferencer <em>Identifiable Element Referencer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.IdentifiableElementReferencer <em>Identifiable Element Referencer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.IdentifiableElementReferencer
+	 * @see com.kronosafe.osd.core.IdentifiableElementReferencer
 	 * @generated
 	 */
 	public Adapter createIdentifiableElementReferencerAdapter() {
@@ -395,13 +377,13 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.NamedElement
+	 * @see com.kronosafe.osd.core.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -409,13 +391,13 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.VersionedElement <em>Versioned Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.VersionedElement <em>Versioned Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.VersionedElement
+	 * @see com.kronosafe.osd.core.VersionedElement
 	 * @generated
 	 */
 	public Adapter createVersionedElementAdapter() {
@@ -451,16 +433,16 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.FunctionalChain <em>Functional Chain</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.FunctionalChainItem <em>Functional Chain Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.FunctionalChain
+	 * @see com.kronosafe.osd.oasd.FunctionalChainItem
 	 * @generated
 	 */
-	public Adapter createFunctionalChainAdapter() {
+	public Adapter createFunctionalChainItemAdapter() {
 		return null;
 	}
 
@@ -521,41 +503,27 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.TimingPath <em>Timing Path</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.TimingPathItem <em>Timing Path Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.TimingPath
+	 * @see com.kronosafe.osd.oasd.TimingPathItem
 	 * @generated
 	 */
-	public Adapter createTimingPathAdapter() {
+	public Adapter createTimingPathItemAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Annotation Map Entry</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.AnnotatedElement <em>Annotated Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see java.util.Map.Entry
-	 * @generated
-	 */
-	public Adapter createAnnotationMapEntryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.AnnotatedElement <em>Annotated Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.AnnotatedElement
+	 * @see com.kronosafe.osd.core.AnnotatedElement
 	 * @generated
 	 */
 	public Adapter createAnnotatedElementAdapter() {

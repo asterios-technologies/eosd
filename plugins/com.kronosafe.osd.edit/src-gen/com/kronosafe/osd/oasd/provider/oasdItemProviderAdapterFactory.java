@@ -80,29 +80,6 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.Annotation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AnnotationItemProvider annotationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.Annotation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAnnotationAdapter() {
-		if (annotationItemProvider == null) {
-			annotationItemProvider = new AnnotationItemProvider(this);
-		}
-
-		return annotationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.SystemDescription} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,26 +379,26 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.FunctionalChain} instances.
+	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.FunctionalChainItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FunctionalChainItemProvider functionalChainItemProvider;
+	protected FunctionalChainItemItemProvider functionalChainItemItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.FunctionalChain}.
+	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.FunctionalChainItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createFunctionalChainAdapter() {
-		if (functionalChainItemProvider == null) {
-			functionalChainItemProvider = new FunctionalChainItemProvider(this);
+	public Adapter createFunctionalChainItemAdapter() {
+		if (functionalChainItemItemProvider == null) {
+			functionalChainItemItemProvider = new FunctionalChainItemItemProvider(this);
 		}
 
-		return functionalChainItemProvider;
+		return functionalChainItemItemProvider;
 	}
 
 	/**
@@ -494,49 +471,26 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.TimingPath} instances.
+	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.TimingPathItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimingPathItemProvider timingPathItemProvider;
+	protected TimingPathItemItemProvider timingPathItemItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.TimingPath}.
+	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.TimingPathItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTimingPathAdapter() {
-		if (timingPathItemProvider == null) {
-			timingPathItemProvider = new TimingPathItemProvider(this);
+	public Adapter createTimingPathItemAdapter() {
+		if (timingPathItemItemProvider == null) {
+			timingPathItemItemProvider = new TimingPathItemItemProvider(this);
 		}
 
-		return timingPathItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AnnotationMapEntryItemProvider annotationMapEntryItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link java.util.Map.Entry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAnnotationMapEntryAdapter() {
-		if (annotationMapEntryItemProvider == null) {
-			annotationMapEntryItemProvider = new AnnotationMapEntryItemProvider(this);
-		}
-
-		return annotationMapEntryItemProvider;
+		return timingPathItemItemProvider;
 	}
 
 	/**
@@ -644,7 +598,6 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	 */
 	@Override
 	public void dispose() {
-		if (annotationItemProvider != null) annotationItemProvider.dispose();
 		if (systemDescriptionItemProvider != null) systemDescriptionItemProvider.dispose();
 		if (inputItemProvider != null) inputItemProvider.dispose();
 		if (globalItemProvider != null) globalItemProvider.dispose();
@@ -658,12 +611,11 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 		if (sourceItemProvider != null) sourceItemProvider.dispose();
 		if (temporalItemProvider != null) temporalItemProvider.dispose();
 		if (timingConstraintItemProvider != null) timingConstraintItemProvider.dispose();
-		if (functionalChainItemProvider != null) functionalChainItemProvider.dispose();
+		if (functionalChainItemItemProvider != null) functionalChainItemItemProvider.dispose();
 		if (blockSpatialConstraintItemProvider != null) blockSpatialConstraintItemProvider.dispose();
 		if (chainSpatialConstraintItemProvider != null) chainSpatialConstraintItemProvider.dispose();
 		if (comSpatialConstraintItemProvider != null) comSpatialConstraintItemProvider.dispose();
-		if (timingPathItemProvider != null) timingPathItemProvider.dispose();
-		if (annotationMapEntryItemProvider != null) annotationMapEntryItemProvider.dispose();
+		if (timingPathItemItemProvider != null) timingPathItemItemProvider.dispose();
 	}
 
 }

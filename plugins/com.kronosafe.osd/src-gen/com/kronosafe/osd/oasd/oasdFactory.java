@@ -28,15 +28,6 @@ public interface oasdFactory extends EFactory {
 	oasdFactory eINSTANCE = com.kronosafe.osd.oasd.impl.oasdFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Annotation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Annotation</em>'.
-	 * @generated
-	 */
-	Annotation createAnnotation();
-
-	/**
 	 * Returns a new object of class '<em>System Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,13 +145,13 @@ public interface oasdFactory extends EFactory {
 	TimingConstraint createTimingConstraint();
 
 	/**
-	 * Returns a new object of class '<em>Functional Chain</em>'.
+	 * Returns a new object of class '<em>Functional Chain Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Functional Chain</em>'.
+	 * @return a new object of class '<em>Functional Chain Item</em>'.
 	 * @generated
 	 */
-	FunctionalChain createFunctionalChain();
+	FunctionalChainItem createFunctionalChainItem();
 
 	/**
 	 * Returns a new object of class '<em>Block Spatial Constraint</em>'.
@@ -190,13 +181,13 @@ public interface oasdFactory extends EFactory {
 	ComSpatialConstraint createComSpatialConstraint();
 
 	/**
-	 * Returns a new object of class '<em>Timing Path</em>'.
+	 * Returns a new object of class '<em>Timing Path Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Timing Path</em>'.
+	 * @return a new object of class '<em>Timing Path Item</em>'.
 	 * @generated
 	 */
-	TimingPath createTimingPath();
+	TimingPathItem createTimingPathItem();
 
 	/**
 	 * Returns the package supported by this factory.

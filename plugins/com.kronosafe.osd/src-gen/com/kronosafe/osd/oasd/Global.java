@@ -2,6 +2,9 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.NamedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Global</b></em>'.

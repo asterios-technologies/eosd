@@ -2,6 +2,9 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.NamedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Type Item</b></em>'.
@@ -44,7 +47,7 @@ public interface TypeItem extends IdentifiedElement, NamedElement {
 	 * @return the value of the '<em>Copy Function</em>' attribute.
 	 * @see #setCopyFunction(String)
 	 * @see com.kronosafe.osd.oasd.oasdPackage#getTypeItem_CopyFunction()
-	 * @model dataType="com.kronosafe.osd.oasd.AString"
+	 * @model dataType="com.kronosafe.osd.core.AString"
 	 * @generated
 	 */
 	String getCopyFunction();

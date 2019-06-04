@@ -3,9 +3,11 @@
  */
 package com.kronosafe.osd.oasd.tests;
 
+import com.kronosafe.osd.core.tests.AnnotatedElementTest;
 import com.kronosafe.osd.oasd.ConstraintOperator;
 import com.kronosafe.osd.oasd.TimingConstraint;
 import com.kronosafe.osd.oasd.oasdFactory;
+
 import junit.textui.TestRunner;
 
 /**

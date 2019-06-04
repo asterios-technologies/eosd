@@ -4,10 +4,9 @@
 package com.kronosafe.osd.oad.provider;
 
 
+import com.kronosafe.osd.core.provider.IdentifiableElementReferencerItemProvider;
 import com.kronosafe.osd.oad.BehaviorItemReference;
 import com.kronosafe.osd.oad.oadPackage;
-
-import com.kronosafe.osd.oasd.provider.IdentifiableElementReferencerItemProvider;
 import com.kronosafe.osd.oasd.provider.osdEditPlugin;
 
 import java.util.Collection;

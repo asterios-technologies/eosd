@@ -4,6 +4,7 @@
 package com.kronosafe.osd.oasd.provider;
 
 
+import com.kronosafe.osd.core.provider.IdentifiableElementReferencerItemProvider;
 import com.kronosafe.osd.oasd.Source;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -14,6 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -172,6 +174,17 @@ public class SourceItemProvider extends IdentifiableElementReferencerItemProvide
 			(createChildParameter
 				(oasdPackage.Literals.SOURCE__HEADERS,
 				 oasdFactory.eINSTANCE.createFile()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return osdEditPlugin.INSTANCE;
 	}
 
 }

@@ -26,7 +26,7 @@ import com.kronosafe.osd.oasd.CommunicationItem;
 import com.kronosafe.osd.oasd.ConstraintOperator;
 import com.kronosafe.osd.oasd.FunctionItem;
 import com.kronosafe.osd.oasd.FunctionKind;
-import com.kronosafe.osd.oasd.FunctionalChain;
+import com.kronosafe.osd.oasd.FunctionalChainItem;
 import com.kronosafe.osd.oasd.Global;
 import com.kronosafe.osd.oasd.Input;
 import com.kronosafe.osd.oasd.Output;
@@ -36,7 +36,7 @@ import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.Temporal;
 import com.kronosafe.osd.oasd.TemporalKind;
 import com.kronosafe.osd.oasd.TimingConstraint;
-import com.kronosafe.osd.oasd.TimingPath;
+import com.kronosafe.osd.oasd.TimingPathItem;
 import com.kronosafe.osd.oasd.TypeItem;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.util.oasdResourceFactoryImpl;
@@ -186,24 +186,24 @@ public class XMLSerializationTest extends TestCase {
 			g2.setName("g2");
 			g2.setType(t1);
 
-			FunctionalChain ch1 = oasdFactory.eINSTANCE.createFunctionalChain();
+			FunctionalChainItem ch1 = oasdFactory.eINSTANCE.createFunctionalChainItem();
 			s1.getFunctionalChains().add(ch1);
 			ch1.setName("ch1");
 			ch1.getCommunicationItems().add(c1);
 			ch1.getCommunicationItems().add(c2);
 
-			TimingPath path = oasdFactory.eINSTANCE.createTimingPath();
+			TimingPathItem path = oasdFactory.eINSTANCE.createTimingPathItem();
 			ch1.getTimingpaths().add(path);
 			path.setDate(10);
 			path.setBehaviorItem(b1);
 			
-			FunctionalChain ch2 = oasdFactory.eINSTANCE.createFunctionalChain();
+			FunctionalChainItem ch2 = oasdFactory.eINSTANCE.createFunctionalChainItem();
 			s1.getFunctionalChains().add(ch2);
 			ch2.setName("ch2");
 			ch2.getCommunicationItems().add(c1);
 			ch2.getCommunicationItems().add(c2);
 
-			TimingPath path2 = oasdFactory.eINSTANCE.createTimingPath();
+			TimingPathItem path2 = oasdFactory.eINSTANCE.createTimingPathItem();
 			path2.setDate(10);
 			path2.setBehaviorItem(b2);
 			ch2.getTimingpaths().add(path2);

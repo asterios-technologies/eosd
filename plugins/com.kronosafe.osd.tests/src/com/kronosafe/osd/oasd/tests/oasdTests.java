@@ -5,7 +5,6 @@ package com.kronosafe.osd.oasd.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import junit.textui.TestRunner;
 
 /**
@@ -49,11 +48,11 @@ public class oasdTests extends TestSuite {
 		suite.addTestSuite(CommunicationItemTest.class);
 		suite.addTestSuite(SourceTest.class);
 		suite.addTestSuite(TimingConstraintTest.class);
-		suite.addTestSuite(FunctionalChainTest.class);
+		suite.addTestSuite(FunctionalChainItemTest.class);
 		suite.addTestSuite(BlockSpatialConstraintTest.class);
 		suite.addTestSuite(ChainSpatialConstraintTest.class);
 		suite.addTestSuite(ComSpatialConstraintTest.class);
-		suite.addTestSuite(TimingPathTest.class);
+		suite.addTestSuite(TimingPathItemTest.class);
 		return suite;
 	}
 

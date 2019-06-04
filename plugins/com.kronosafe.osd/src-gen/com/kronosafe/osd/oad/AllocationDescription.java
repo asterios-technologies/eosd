@@ -2,10 +2,10 @@
  */
 package com.kronosafe.osd.oad;
 
+import com.kronosafe.osd.core.VersionedElement;
 import org.eclipse.emf.common.util.EList;
 
 import com.kronosafe.osd.oasd.SystemDescription;
-import com.kronosafe.osd.oasd.VersionedElement;
 
 /**
  * <!-- begin-user-doc -->

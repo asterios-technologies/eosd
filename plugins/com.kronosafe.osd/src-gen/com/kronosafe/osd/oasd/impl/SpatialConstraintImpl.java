@@ -3,6 +3,11 @@
  */
 package com.kronosafe.osd.oasd.impl;
 
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.NamedElement;
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.impl.IdentifiedElementImpl;
+
 import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -10,8 +15,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import com.kronosafe.osd.oasd.IdentifiedElement;
-import com.kronosafe.osd.oasd.NamedElement;
 import com.kronosafe.osd.oasd.SpatialConstraint;
 import com.kronosafe.osd.oasd.SpatialOperator;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -266,7 +269,7 @@ public abstract class SpatialConstraintImpl extends IdentifiedElementImpl implem
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
-				case oasdPackage.SPATIAL_CONSTRAINT__NAME: return oasdPackage.NAMED_ELEMENT__NAME;
+				case oasdPackage.SPATIAL_CONSTRAINT__NAME: return corePackage.NAMED_ELEMENT__NAME;
 				default: return -1;
 			}
 		}
@@ -282,7 +285,7 @@ public abstract class SpatialConstraintImpl extends IdentifiedElementImpl implem
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-				case oasdPackage.NAMED_ELEMENT__NAME: return oasdPackage.SPATIAL_CONSTRAINT__NAME;
+				case corePackage.NAMED_ELEMENT__NAME: return oasdPackage.SPATIAL_CONSTRAINT__NAME;
 				default: return -1;
 			}
 		}

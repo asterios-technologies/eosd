@@ -12,10 +12,10 @@ import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.SAXXMLHandler;
 
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.IdentifiedElement;
 import com.kronosafe.osd.oad.oadPackage;
 import com.kronosafe.osd.oad.util.oadResourceImpl;
-import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
-import com.kronosafe.osd.oasd.IdentifiedElement;
 import com.kronosafe.osd.oasd.oasdPackage;
 
 public class XMLKsm3HandlerImpl extends SAXXMLHandler {

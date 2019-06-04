@@ -3,6 +3,7 @@
  */
 package com.kronosafe.osd.oasd.tests;
 
+import com.kronosafe.osd.core.tests.IdentifiedElementTest;
 import com.kronosafe.osd.oasd.BehaviorItem;
 import com.kronosafe.osd.oasd.oasdFactory;
 

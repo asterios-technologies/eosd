@@ -2,6 +2,10 @@
  */
 package com.kronosafe.osd.oasd.impl;
 
+import com.kronosafe.osd.core.NamedElement;
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.impl.IdentifiedElementImpl;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -22,7 +26,6 @@ import com.kronosafe.osd.oasd.BehaviorItemKind;
 import com.kronosafe.osd.oasd.FunctionItem;
 import com.kronosafe.osd.oasd.Global;
 import com.kronosafe.osd.oasd.Input;
-import com.kronosafe.osd.oasd.NamedElement;
 import com.kronosafe.osd.oasd.Output;
 import com.kronosafe.osd.oasd.Source;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -550,7 +553,7 @@ public class BehaviorItemImpl extends IdentifiedElementImpl implements BehaviorI
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
-				case oasdPackage.BEHAVIOR_ITEM__NAME: return oasdPackage.NAMED_ELEMENT__NAME;
+				case oasdPackage.BEHAVIOR_ITEM__NAME: return corePackage.NAMED_ELEMENT__NAME;
 				default: return -1;
 			}
 		}
@@ -566,7 +569,7 @@ public class BehaviorItemImpl extends IdentifiedElementImpl implements BehaviorI
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-				case oasdPackage.NAMED_ELEMENT__NAME: return oasdPackage.BEHAVIOR_ITEM__NAME;
+				case corePackage.NAMED_ELEMENT__NAME: return oasdPackage.BEHAVIOR_ITEM__NAME;
 				default: return -1;
 			}
 		}

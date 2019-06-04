@@ -3,26 +3,21 @@
  */
 package com.kronosafe.osd.oasd.tests;
 
-import com.kronosafe.osd.oasd.Annotation;
-import com.kronosafe.osd.oasd.oasdFactory;
-import com.kronosafe.osd.oasd.oasdPackage;
-
-import com.kronosafe.osd.oasd.util.oasdResourceFactoryImpl;
-
 import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
+
+import com.kronosafe.osd.oasd.SystemDescription;
+import com.kronosafe.osd.oasd.oasdFactory;
+import com.kronosafe.osd.oasd.oasdPackage;
+import com.kronosafe.osd.oasd.util.oasdResourceFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,7 +63,7 @@ public class oasdExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.oasd"));
-				Annotation root = oasdFactory.eINSTANCE.createAnnotation();
+				SystemDescription root = oasdFactory.eINSTANCE.createSystemDescription();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

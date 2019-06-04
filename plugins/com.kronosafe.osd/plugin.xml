@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated osd -->
       <package
-            uri="http://www.kronosafe.com/oasd"
+            uri="http://www.krono-safe.com/oasd"
             class="com.kronosafe.osd.oasd.oasdPackage"
             genModel="model/osd.genmodel"/>
    </extension>
@@ -24,7 +24,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated osd -->
       <package
-            uri="http://www.kronosafe.com/oad"
+            uri="http://www.krono-safe.com/oad"
             class="com.kronosafe.osd.oad.oadPackage"
             genModel="model/osd.genmodel"/>
    </extension>
@@ -35,4 +35,20 @@
             type="oad"
             class="com.kronosafe.osd.oad.util.oadResourceFactoryImpl"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated osd -->
+      <package
+            uri="http://www.krono-safe.com/osd/core"
+            class="com.kronosafe.osd.core.corePackage"
+            genModel="model/osd.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated osd -->
+      <parser
+            type="core"
+            class="com.kronosafe.osd.core.util.coreResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

@@ -10,6 +10,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.kronosafe.osd.core.impl.AnnotatedElementImpl;
 import com.kronosafe.osd.oasd.ConstraintOperator;
 import com.kronosafe.osd.oasd.TimingConstraint;
 import com.kronosafe.osd.oasd.oasdPackage;
