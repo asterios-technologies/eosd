@@ -4,19 +4,23 @@
 package com.kronosafe.osd.core.provider;
 
 
-import com.kronosafe.osd.core.IdentifiedElement;
-import com.kronosafe.osd.core.corePackage;
-
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.edit.command.IdentifiedElementInitializeCopyCommand;
 
 /**
  * This is the item provider adapter for a {@link com.kronosafe.osd.core.IdentifiedElement} object.
@@ -125,6 +129,17 @@ public class IdentifiedElementItemProvider extends IdentifiableElementReferencer
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+	
+	/**
+	 * @not generated
+	 */
+	@Override
+	protected Command createInitializeCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+		// TODO Auto-generated method stub
+		if(owner instanceof IdentifiedElement)
+			return new IdentifiedElementInitializeCopyCommand(domain, owner, helper);
+		return super.createInitializeCopyCommand(domain, owner, helper);
 	}
 
 }
