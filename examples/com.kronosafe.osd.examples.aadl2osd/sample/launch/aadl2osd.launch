@@ -46,8 +46,8 @@
 <mapEntry key="OUTOAD" value="/com.kronosafe.osd.examples.aadl2osd/models/producer_consumer.oad"/>
 <mapEntry key="OUTOASD" value="/com.kronosafe.osd.examples.aadl2osd/models/producer_consumer.oasd"/>
 <mapEntry key="aadl" value="uri:http://aadl.info/AADL/2.0"/>
-<mapEntry key="oad" value="uri:http://www.kronosafe.com/oad"/>
-<mapEntry key="oasd" value="uri:http://www.kronosafe.com/oasd"/>
+<mapEntry key="oad" value="uri:http://www.krono-safe.com/oad"/>
+<mapEntry key="oasd" value="uri:http://www.krono-safe.com/oasd"/>
 </mapAttribute>
 <listAttribute key="Superimpose"/>
 </launchConfiguration>

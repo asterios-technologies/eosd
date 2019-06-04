@@ -1,5 +1,5 @@
--- @nsURI oasd=http://www.kronosafe.com/oasd
--- @nsURI oad=http://www.kronosafe.com/oad
+-- @nsURI oasd=http://www.krono-safe.com/oasd
+-- @nsURI oad=http://www.krono-safe.com/oad
 -- @nsURI aadl=http://aadl.info/AADL/2.0
 
 -- Copyright (c) 2018-2019 Krono-Safe. All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v2.0.
