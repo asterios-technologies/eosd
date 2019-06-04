@@ -2,11 +2,10 @@
  */
 package com.kronosafe.osd.oad.util;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.VersionedElement;
 import com.kronosafe.osd.oad.*;
-import com.kronosafe.osd.oasd.AnnotatedElement;
-import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
-import com.kronosafe.osd.oasd.VersionedElement;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 

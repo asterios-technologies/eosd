@@ -4,6 +4,8 @@
 package com.kronosafe.osd.oasd.provider;
 
 
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.provider.IdentifiedElementItemProvider;
 import com.kronosafe.osd.oasd.Input;
 import com.kronosafe.osd.oasd.oasdPackage;
 
@@ -13,6 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -72,7 +75,7 @@ public class InputItemProvider extends IdentifiedElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_NamedElement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
-				 oasdPackage.Literals.NAMED_ELEMENT__NAME,
+				 corePackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -159,6 +162,17 @@ public class InputItemProvider extends IdentifiedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return osdEditPlugin.INSTANCE;
 	}
 
 }

@@ -3,8 +3,8 @@
  */
 package com.kronosafe.osd.oad;
 
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
 import com.kronosafe.osd.oasd.BehaviorItem;
-import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public interface BehaviorItemReference extends IdentifiableElementReferencer {
 	 * @return the value of the '<em>Behavior Item</em>' attribute.
 	 * @see #setBehaviorItem(Integer)
 	 * @see com.kronosafe.osd.oad.oadPackage#getBehaviorItemReference_BehaviorItem()
-	 * @model dataType="com.kronosafe.osd.oasd.IdVal" required="true" derived="true"
+	 * @model dataType="com.kronosafe.osd.core.IdVal" required="true" derived="true"
 	 * @generated
 	 */
 	Integer getBehaviorItem();

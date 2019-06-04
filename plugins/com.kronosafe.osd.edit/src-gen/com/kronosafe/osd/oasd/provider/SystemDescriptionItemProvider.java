@@ -4,6 +4,8 @@
 package com.kronosafe.osd.oasd.provider;
 
 
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.provider.IdentifiableElementReferencerItemProvider;
 import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -14,6 +16,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -79,7 +82,7 @@ public class SystemDescriptionItemProvider extends IdentifiableElementReferencer
 				 getResourceLocator(),
 				 getString("_UI_NamedElement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
-				 oasdPackage.Literals.NAMED_ELEMENT__NAME,
+				 corePackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -101,8 +104,8 @@ public class SystemDescriptionItemProvider extends IdentifiableElementReferencer
 				 getResourceLocator(),
 				 getString("_UI_VersionedElement_version_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_VersionedElement_version_feature", "_UI_VersionedElement_type"),
-				 oasdPackage.Literals.VERSIONED_ELEMENT__VERSION,
-				 false,
+				 corePackage.Literals.VERSIONED_ELEMENT__VERSION,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -328,7 +331,7 @@ public class SystemDescriptionItemProvider extends IdentifiableElementReferencer
 		newChildDescriptors.add
 			(createChildParameter
 				(oasdPackage.Literals.SYSTEM_DESCRIPTION__FUNCTIONAL_CHAINS,
-				 oasdFactory.eINSTANCE.createFunctionalChain()));
+				 oasdFactory.eINSTANCE.createFunctionalChainItem()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -344,6 +347,17 @@ public class SystemDescriptionItemProvider extends IdentifiableElementReferencer
 			(createChildParameter
 				(oasdPackage.Literals.SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS,
 				 oasdFactory.eINSTANCE.createComSpatialConstraint()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return osdEditPlugin.INSTANCE;
 	}
 
 }

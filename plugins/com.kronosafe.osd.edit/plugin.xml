@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated osd -->
       <factory
-            uri="http://www.kronosafe.com/oasd"
+            uri="http://www.krono-safe.com/oasd"
             class="com.kronosafe.osd.oasd.provider.oasdItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
@@ -22,8 +22,21 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated osd -->
       <factory
-            uri="http://www.kronosafe.com/oad"
+            uri="http://www.krono-safe.com/oad"
             class="com.kronosafe.osd.oad.provider.oadItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated osd -->
+      <factory
+            uri="http://www.krono-safe.com/osd/core"
+            class="com.kronosafe.osd.core.provider.coreItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

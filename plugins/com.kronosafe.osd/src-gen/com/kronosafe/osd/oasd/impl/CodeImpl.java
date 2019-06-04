@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.kronosafe.osd.core.impl.IdentifiedElementImpl;
 import com.kronosafe.osd.oasd.Code;
 import com.kronosafe.osd.oasd.File;
 import com.kronosafe.osd.oasd.oasdPackage;

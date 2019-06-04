@@ -4,6 +4,10 @@ package com.kronosafe.osd.oasd;
 
 import org.eclipse.emf.common.util.EList;
 
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.NamedElement;
+import com.kronosafe.osd.core.VersionedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>System Description</b></em>'.
@@ -110,7 +114,7 @@ public interface SystemDescription extends IdentifiableElementReferencer, NamedE
 	 * @return the value of the '<em>Time Unit</em>' attribute.
 	 * @see #setTimeUnit(String)
 	 * @see com.kronosafe.osd.oasd.oasdPackage#getSystemDescription_TimeUnit()
-	 * @model default="ast_realtime_us" dataType="com.kronosafe.osd.oasd.AString" required="true"
+	 * @model default="ast_realtime_us" dataType="com.kronosafe.osd.core.AString" required="true"
 	 * @generated
 	 */
 	String getTimeUnit();
@@ -140,7 +144,7 @@ public interface SystemDescription extends IdentifiableElementReferencer, NamedE
 	 * @return the value of the '<em>Source</em>' attribute.
 	 * @see #setSource(String)
 	 * @see com.kronosafe.osd.oasd.oasdPackage#getSystemDescription_Source()
-	 * @model default="realtime" dataType="com.kronosafe.osd.oasd.AString" required="true"
+	 * @model default="realtime" dataType="com.kronosafe.osd.core.AString" required="true"
 	 * @generated
 	 */
 	String getSource();
@@ -170,7 +174,7 @@ public interface SystemDescription extends IdentifiableElementReferencer, NamedE
 	 * @return the value of the '<em>Time Unit Declaration</em>' attribute.
 	 * @see #setTimeUnitDeclaration(String)
 	 * @see com.kronosafe.osd.oasd.oasdPackage#getSystemDescription_TimeUnitDeclaration()
-	 * @model default="asterios.h" dataType="com.kronosafe.osd.oasd.AString" required="true"
+	 * @model default="asterios.h" dataType="com.kronosafe.osd.core.AString" required="true"
 	 * @generated
 	 */
 	String getTimeUnitDeclaration();
@@ -206,7 +210,7 @@ public interface SystemDescription extends IdentifiableElementReferencer, NamedE
 
 	/**
 	 * Returns the value of the '<em><b>Functional Chains</b></em>' containment reference list.
-	 * The list contents are of type {@link com.kronosafe.osd.oasd.FunctionalChain}.
+	 * The list contents are of type {@link com.kronosafe.osd.oasd.FunctionalChainItem}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Functional Chains</em>' containment reference list isn't clear,
@@ -221,7 +225,7 @@ public interface SystemDescription extends IdentifiableElementReferencer, NamedE
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<FunctionalChain> getFunctionalChains();
+	EList<FunctionalChainItem> getFunctionalChains();
 
 	/**
 	 * Returns the value of the '<em><b>Chain Spatial Constraints</b></em>' containment reference list.

@@ -2,6 +2,9 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.NamedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Input</b></em>'.
@@ -44,7 +47,7 @@ public interface Input extends IdentifiedElement, NamedElement {
 	 * @return the value of the '<em>Inner</em>' attribute.
 	 * @see #setInner(String)
 	 * @see com.kronosafe.osd.oasd.oasdPackage#getInput_Inner()
-	 * @model dataType="com.kronosafe.osd.oasd.AString"
+	 * @model dataType="com.kronosafe.osd.core.AString"
 	 * @generated
 	 */
 	String getInner();

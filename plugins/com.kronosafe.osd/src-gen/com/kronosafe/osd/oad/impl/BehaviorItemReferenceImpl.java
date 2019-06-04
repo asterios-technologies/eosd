@@ -3,12 +3,12 @@
  */
 package com.kronosafe.osd.oad.impl;
 
+import com.kronosafe.osd.core.impl.IdentifiableElementReferencerImpl;
 import com.kronosafe.osd.oad.BehaviorItemReference;
 import com.kronosafe.osd.oad.oadPackage;
 
 import com.kronosafe.osd.oasd.BehaviorItem;
 import com.kronosafe.osd.oasd.oasdPackage;
-import com.kronosafe.osd.oasd.impl.IdentifiableElementReferencerImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;

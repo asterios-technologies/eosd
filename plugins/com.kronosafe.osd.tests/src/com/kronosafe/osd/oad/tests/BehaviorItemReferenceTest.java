@@ -3,6 +3,7 @@
  */
 package com.kronosafe.osd.oad.tests;
 
+import com.kronosafe.osd.core.tests.IdentifiableElementReferencerTest;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -15,8 +16,6 @@ import com.kronosafe.osd.oad.oadFactory;
 import com.kronosafe.osd.oasd.BehaviorItem;
 import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.oasdFactory;
-import com.kronosafe.osd.oasd.tests.IdentifiableElementReferencerTest;
-
 import junit.textui.TestRunner;
 
 /**

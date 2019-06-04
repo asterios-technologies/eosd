@@ -4,11 +4,10 @@
 package com.kronosafe.osd.oad.provider;
 
 
+import com.kronosafe.osd.core.provider.VersionedElementItemProvider;
 import com.kronosafe.osd.oad.AllocationDescription;
 import com.kronosafe.osd.oad.oadFactory;
 import com.kronosafe.osd.oad.oadPackage;
-
-import com.kronosafe.osd.oasd.provider.VersionedElementItemProvider;
 import com.kronosafe.osd.oasd.provider.osdEditPlugin;
 
 import java.util.Collection;

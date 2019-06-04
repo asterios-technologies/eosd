@@ -157,7 +157,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import com.kronosafe.osd.oasd.provider.oasdItemProviderAdapterFactory;
-
+import com.kronosafe.osd.core.provider.coreItemProviderAdapterFactory;
 import com.kronosafe.osd.oad.provider.oadItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -722,6 +722,7 @@ public class oasdEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new oasdItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new oadItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new coreItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

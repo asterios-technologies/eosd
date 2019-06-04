@@ -2,6 +2,8 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>File</b></em>'.
@@ -44,7 +46,7 @@ public interface File extends AnnotatedElement {
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see com.kronosafe.osd.oasd.oasdPackage#getFile_Path()
-	 * @model dataType="com.kronosafe.osd.oasd.AString" required="true"
+	 * @model dataType="com.kronosafe.osd.core.AString" required="true"
 	 * @generated
 	 */
 	String getPath();

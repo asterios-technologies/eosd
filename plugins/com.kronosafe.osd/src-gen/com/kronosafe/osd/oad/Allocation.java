@@ -49,7 +49,7 @@ public interface Allocation extends EObject {
 	 * @return the value of the '<em>Sw Execution Unit</em>' attribute.
 	 * @see #setSwExecutionUnit(String)
 	 * @see com.kronosafe.osd.oad.oadPackage#getAllocation_SwExecutionUnit()
-	 * @model dataType="com.kronosafe.osd.oasd.AString"
+	 * @model dataType="com.kronosafe.osd.core.AString"
 	 * @generated
 	 */
 	String getSwExecutionUnit();

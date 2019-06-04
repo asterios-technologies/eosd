@@ -7,6 +7,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.kronosafe.osd.core.impl.AnnotatedElementImpl;
 import com.kronosafe.osd.oasd.File;
 import com.kronosafe.osd.oasd.oasdPackage;
 

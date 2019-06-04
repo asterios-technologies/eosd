@@ -6,8 +6,8 @@ import org.eclipse.emf.ecore.xmi.NameInfo;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLHelperImpl;
 
+import com.kronosafe.osd.core.IdentifiedElement;
 import com.kronosafe.osd.oad.oadPackage;
-import com.kronosafe.osd.oasd.IdentifiedElement;
 import com.kronosafe.osd.oasd.oasdPackage;
 
 public class XMLKsm3HelperImpl extends XMLHelperImpl {

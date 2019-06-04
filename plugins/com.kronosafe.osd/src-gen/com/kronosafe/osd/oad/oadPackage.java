@@ -2,12 +2,11 @@
  */
 package com.kronosafe.osd.oad;
 
+import com.kronosafe.osd.core.corePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import com.kronosafe.osd.oasd.oasdPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +49,7 @@ public interface oadPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.kronosafe.com/oad";
+	String eNS_URI = "http://www.krono-safe.com/oad";
 
 	/**
 	 * The package namespace name.
@@ -85,7 +84,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE__ANNOTATIONS = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
+	int BEHAVIOR_ITEM_REFERENCE__ANNOTATIONS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Behavior Item</b></em>' attribute.
@@ -94,7 +93,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE__BEHAVIOR_ITEM = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 0;
+	int BEHAVIOR_ITEM_REFERENCE__BEHAVIOR_ITEM = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Behavior Item Element</b></em>' reference.
@@ -103,7 +102,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE__BEHAVIOR_ITEM_ELEMENT = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 1;
+	int BEHAVIOR_ITEM_REFERENCE__BEHAVIOR_ITEM_ELEMENT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Behavior Item Reference</em>' class.
@@ -112,7 +111,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE_FEATURE_COUNT = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 2;
+	int BEHAVIOR_ITEM_REFERENCE_FEATURE_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -121,7 +120,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ECLASS = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS;
+	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -130,7 +129,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE;
+	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE;
 
 	/**
 	 * The operation id for the '<em>Find Item In Resource Set</em>' operation.
@@ -139,7 +138,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS;
+	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -148,7 +147,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ECLASS_RESOURCE = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Behavior Item Reference</em>' class.
@@ -157,7 +156,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOR_ITEM_REFERENCE_OPERATION_COUNT = oasdPackage.IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
+	int BEHAVIOR_ITEM_REFERENCE_OPERATION_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oad.impl.AllocationImpl <em>Allocation</em>}' class.
@@ -222,7 +221,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION__VERSION = oasdPackage.VERSIONED_ELEMENT__VERSION;
+	int ALLOCATION_DESCRIPTION__VERSION = corePackage.VERSIONED_ELEMENT__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Allocations</b></em>' containment reference list.
@@ -231,7 +230,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION__ALLOCATIONS = oasdPackage.VERSIONED_ELEMENT_FEATURE_COUNT + 0;
+	int ALLOCATION_DESCRIPTION__ALLOCATIONS = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>System Description Ref</b></em>' reference.
@@ -240,7 +239,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION__SYSTEM_DESCRIPTION_REF = oasdPackage.VERSIONED_ELEMENT_FEATURE_COUNT + 1;
+	int ALLOCATION_DESCRIPTION__SYSTEM_DESCRIPTION_REF = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Allocation Description</em>' class.
@@ -249,7 +248,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION_FEATURE_COUNT = oasdPackage.VERSIONED_ELEMENT_FEATURE_COUNT + 2;
+	int ALLOCATION_DESCRIPTION_FEATURE_COUNT = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Allocation Description</em>' class.
@@ -258,7 +257,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION_OPERATION_COUNT = oasdPackage.VERSIONED_ELEMENT_OPERATION_COUNT + 0;
+	int ALLOCATION_DESCRIPTION_OPERATION_COUNT = corePackage.VERSIONED_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**

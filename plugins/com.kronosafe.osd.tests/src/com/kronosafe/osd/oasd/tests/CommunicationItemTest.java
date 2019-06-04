@@ -10,9 +10,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.tests.IdentifiedElementTest;
 import com.kronosafe.osd.oasd.BehaviorItem;
 import com.kronosafe.osd.oasd.CommunicationItem;
-import com.kronosafe.osd.oasd.IdentifiedElement;
 import com.kronosafe.osd.oasd.Input;
 import com.kronosafe.osd.oasd.Output;
 import com.kronosafe.osd.oasd.SystemDescription;

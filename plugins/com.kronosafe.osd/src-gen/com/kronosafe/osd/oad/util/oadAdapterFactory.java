@@ -2,11 +2,10 @@
  */
 package com.kronosafe.osd.oad.util;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.VersionedElement;
 import com.kronosafe.osd.oad.*;
-import com.kronosafe.osd.oasd.AnnotatedElement;
-import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
-import com.kronosafe.osd.oasd.VersionedElement;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -163,13 +162,13 @@ public class oadAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.AnnotatedElement <em>Annotated Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.AnnotatedElement <em>Annotated Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.AnnotatedElement
+	 * @see com.kronosafe.osd.core.AnnotatedElement
 	 * @generated
 	 */
 	public Adapter createAnnotatedElementAdapter() {
@@ -177,13 +176,13 @@ public class oadAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.IdentifiableElementReferencer <em>Identifiable Element Referencer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.IdentifiableElementReferencer <em>Identifiable Element Referencer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.IdentifiableElementReferencer
+	 * @see com.kronosafe.osd.core.IdentifiableElementReferencer
 	 * @generated
 	 */
 	public Adapter createIdentifiableElementReferencerAdapter() {
@@ -191,13 +190,13 @@ public class oadAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.VersionedElement <em>Versioned Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.core.VersionedElement <em>Versioned Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.kronosafe.osd.oasd.VersionedElement
+	 * @see com.kronosafe.osd.core.VersionedElement
 	 * @generated
 	 */
 	public Adapter createVersionedElementAdapter() {

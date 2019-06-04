@@ -2,6 +2,8 @@
  */
 package com.kronosafe.osd.oad.impl;
 
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.impl.corePackageImpl;
 import com.kronosafe.osd.oad.Allocation;
 import com.kronosafe.osd.oad.AllocationDescription;
 import com.kronosafe.osd.oad.BehaviorItemReference;
@@ -102,14 +104,18 @@ public class oadPackageImpl extends EPackageImpl implements oadPackage {
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(oasdPackage.eNS_URI);
 		oasdPackageImpl theoasdPackage = (oasdPackageImpl)(registeredPackage instanceof oasdPackageImpl ? registeredPackage : oasdPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(corePackage.eNS_URI);
+		corePackageImpl thecorePackage = (corePackageImpl)(registeredPackage instanceof corePackageImpl ? registeredPackage : corePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theoadPackage.createPackageContents();
 		theoasdPackage.createPackageContents();
+		thecorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theoadPackage.initializePackageContents();
 		theoasdPackage.initializePackageContents();
+		thecorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theoadPackage.freeze();
@@ -275,6 +281,7 @@ public class oadPackageImpl extends EPackageImpl implements oadPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		corePackage thecorePackage = (corePackage)EPackage.Registry.INSTANCE.getEPackage(corePackage.eNS_URI);
 		oasdPackage theoasdPackage = (oasdPackage)EPackage.Registry.INSTANCE.getEPackage(oasdPackage.eNS_URI);
 
 		// Create type parameters
@@ -282,16 +289,16 @@ public class oadPackageImpl extends EPackageImpl implements oadPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		behaviorItemReferenceEClass.getESuperTypes().add(theoasdPackage.getIdentifiableElementReferencer());
-		allocationDescriptionEClass.getESuperTypes().add(theoasdPackage.getVersionedElement());
+		behaviorItemReferenceEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		allocationDescriptionEClass.getESuperTypes().add(thecorePackage.getVersionedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(behaviorItemReferenceEClass, BehaviorItemReference.class, "BehaviorItemReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBehaviorItemReference_BehaviorItem(), theoasdPackage.getIdVal(), "behaviorItem", null, 1, 1, BehaviorItemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBehaviorItemReference_BehaviorItem(), thecorePackage.getIdVal(), "behaviorItem", null, 1, 1, BehaviorItemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getBehaviorItemReference_BehaviorItemElement(), theoasdPackage.getBehaviorItem(), null, "behaviorItemElement", null, 1, 1, BehaviorItemReference.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(allocationEClass, Allocation.class, "Allocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAllocation_SwExecutionUnit(), theoasdPackage.getAString(), "swExecutionUnit", null, 0, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAllocation_SwExecutionUnit(), thecorePackage.getAString(), "swExecutionUnit", null, 0, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAllocation_BehaviorItemReferences(), this.getBehaviorItemReference(), null, "behaviorItemReferences", null, 1, -1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(allocationDescriptionEClass, AllocationDescription.class, "AllocationDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

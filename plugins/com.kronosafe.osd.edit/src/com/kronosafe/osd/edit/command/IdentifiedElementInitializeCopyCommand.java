@@ -10,7 +10,7 @@ import org.eclipse.emf.edit.command.CopyCommand.Helper;
 import org.eclipse.emf.edit.command.InitializeCopyCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import com.kronosafe.osd.oasd.oasdPackage;
+import com.kronosafe.osd.core.corePackage;
 
 public class IdentifiedElementInitializeCopyCommand extends InitializeCopyCommand {
 
@@ -20,7 +20,7 @@ public class IdentifiedElementInitializeCopyCommand extends InitializeCopyComman
 
 	protected Collection<? extends EAttribute> getAttributesToCopy() {
 		EList<EAttribute> attributes = new BasicEList<EAttribute>(owner.eClass().getEAllAttributes());
-		attributes.remove(oasdPackage.eINSTANCE.getIdentifiedElement_Id());
+		attributes.remove(corePackage.eINSTANCE.getIdentifiedElement_Id());
 		return attributes;
 	}
 

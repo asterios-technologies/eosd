@@ -2,6 +2,8 @@
  */
 package com.kronosafe.osd.oasd.impl;
 
+import com.kronosafe.osd.core.corePackage;
+import com.kronosafe.osd.core.impl.corePackageImpl;
 import com.kronosafe.osd.oad.impl.oadPackageImpl;
 import com.kronosafe.osd.oasd.BehaviorItem;
 import com.kronosafe.osd.oasd.BehaviorItemKind;
@@ -14,12 +16,9 @@ import com.kronosafe.osd.oasd.ConstraintOperator;
 import com.kronosafe.osd.oasd.File;
 import com.kronosafe.osd.oasd.FunctionItem;
 import com.kronosafe.osd.oasd.FunctionKind;
-import com.kronosafe.osd.oasd.FunctionalChain;
+import com.kronosafe.osd.oasd.FunctionalChainItem;
 import com.kronosafe.osd.oasd.Global;
-import com.kronosafe.osd.oasd.IdentifiableElementReferencer;
-import com.kronosafe.osd.oasd.IdentifiedElement;
 import com.kronosafe.osd.oasd.Input;
-import com.kronosafe.osd.oasd.NamedElement;
 import com.kronosafe.osd.oasd.Output;
 import com.kronosafe.osd.oasd.Source;
 import com.kronosafe.osd.oasd.SpatialConstraint;
@@ -28,15 +27,11 @@ import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.Temporal;
 import com.kronosafe.osd.oasd.TemporalKind;
 import com.kronosafe.osd.oasd.TimingConstraint;
-import com.kronosafe.osd.oasd.TimingPath;
+import com.kronosafe.osd.oasd.TimingPathItem;
 import com.kronosafe.osd.oasd.TypeItem;
-import com.kronosafe.osd.oasd.VersionedElement;
 import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
-import java.util.Map;
 import com.kronosafe.osd.oad.oadPackage;
-import com.kronosafe.osd.oasd.AnnotatedElement;
-import com.kronosafe.osd.oasd.Annotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -61,13 +56,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass annotationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,34 +139,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass identifiedElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass identifiableElementReferencerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namedElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass versionedElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass temporalEClass = null;
 
 	/**
@@ -193,7 +153,7 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass functionalChainEClass = null;
+	private EClass functionalChainItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,21 +188,7 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass timingPathEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass annotationMapEntryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass annotatedElementEClass = null;
+	private EClass timingPathItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -278,20 +224,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	private EEnum spatialOperatorEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType idValEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType aStringEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -367,14 +299,18 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(oadPackage.eNS_URI);
 		oadPackageImpl theoadPackage = (oadPackageImpl)(registeredPackage instanceof oadPackageImpl ? registeredPackage : oadPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(corePackage.eNS_URI);
+		corePackageImpl thecorePackage = (corePackageImpl)(registeredPackage instanceof corePackageImpl ? registeredPackage : corePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theoasdPackage.createPackageContents();
 		theoadPackage.createPackageContents();
+		thecorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theoasdPackage.initializePackageContents();
 		theoadPackage.initializePackageContents();
+		thecorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theoasdPackage.freeze();
@@ -382,26 +318,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(oasdPackage.eNS_URI, theoasdPackage);
 		return theoasdPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAnnotation() {
-		return annotationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAnnotation_Details() {
-		return (EReference)annotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -890,116 +806,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getIdentifiedElement() {
-		return identifiedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIdentifiedElement_Id() {
-		return (EAttribute)identifiedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIdentifiableElementReferencer() {
-		return identifiableElementReferencerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getIdentifiableElementReferencer__FindItem__Integer_EClass() {
-		return identifiableElementReferencerEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getIdentifiableElementReferencer__FindItem__Integer_EStructuralFeature() {
-		return identifiableElementReferencerEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getIdentifiableElementReferencer__FindItemInResourceSet__Integer_EClass() {
-		return identifiableElementReferencerEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getIdentifiableElementReferencer__FindItem__Integer_EClass_Resource() {
-		return identifiableElementReferencerEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getNamedElement() {
-		return namedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getVersionedElement() {
-		return versionedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getVersionedElement_Version() {
-		return (EAttribute)versionedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTemporal() {
 		return temporalEClass;
 	}
@@ -1080,8 +886,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getFunctionalChain() {
-		return functionalChainEClass;
+	public EClass getFunctionalChainItem() {
+		return functionalChainItemEClass;
 	}
 
 	/**
@@ -1090,8 +896,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getFunctionalChain_CommunicationItems() {
-		return (EReference)functionalChainEClass.getEStructuralFeatures().get(2);
+	public EReference getFunctionalChainItem_Constraints() {
+		return (EReference)functionalChainItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1100,8 +906,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getFunctionalChain_Constraints() {
-		return (EReference)functionalChainEClass.getEStructuralFeatures().get(0);
+	public EReference getFunctionalChainItem_Timingpaths() {
+		return (EReference)functionalChainItemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1110,8 +916,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getFunctionalChain_Timingpaths() {
-		return (EReference)functionalChainEClass.getEStructuralFeatures().get(1);
+	public EReference getFunctionalChainItem_CommunicationItems() {
+		return (EReference)functionalChainItemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1230,8 +1036,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getTimingPath() {
-		return timingPathEClass;
+	public EClass getTimingPathItem() {
+		return timingPathItemEClass;
 	}
 
 	/**
@@ -1240,8 +1046,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTimingPath_Date() {
-		return (EAttribute)timingPathEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTimingPathItem_Date() {
+		return (EAttribute)timingPathItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1250,58 +1056,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTimingPath_BehaviorItem() {
-		return (EReference)timingPathEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAnnotationMapEntry() {
-		return annotationMapEntryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAnnotationMapEntry_Key() {
-		return (EAttribute)annotationMapEntryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAnnotationMapEntry_Value() {
-		return (EAttribute)annotationMapEntryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getAnnotatedElement() {
-		return annotatedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getAnnotatedElement_Annotations() {
-		return (EReference)annotatedElementEClass.getEStructuralFeatures().get(0);
+	public EReference getTimingPathItem_BehaviorItem() {
+		return (EReference)timingPathItemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1352,26 +1108,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	@Override
 	public EEnum getSpatialOperator() {
 		return spatialOperatorEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EDataType getIdVal() {
-		return idValEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EDataType getAString() {
-		return aStringEDataType;
 	}
 
 	/**
@@ -1433,9 +1169,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		annotationEClass = createEClass(ANNOTATION);
-		createEReference(annotationEClass, ANNOTATION__DETAILS);
-
 		systemDescriptionEClass = createEClass(SYSTEM_DESCRIPTION);
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__TYPES);
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__BEHAVIORS);
@@ -1495,21 +1228,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEReference(sourceEClass, SOURCE__HEADERS);
 		createEReference(sourceEClass, SOURCE__CODE);
 
-		identifiedElementEClass = createEClass(IDENTIFIED_ELEMENT);
-		createEAttribute(identifiedElementEClass, IDENTIFIED_ELEMENT__ID);
-
-		identifiableElementReferencerEClass = createEClass(IDENTIFIABLE_ELEMENT_REFERENCER);
-		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS);
-		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE);
-		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS);
-		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE);
-
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
-
-		versionedElementEClass = createEClass(VERSIONED_ELEMENT);
-		createEAttribute(versionedElementEClass, VERSIONED_ELEMENT__VERSION);
-
 		temporalEClass = createEClass(TEMPORAL);
 		createEAttribute(temporalEClass, TEMPORAL__KIND);
 		createEAttribute(temporalEClass, TEMPORAL__RATE);
@@ -1520,10 +1238,10 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEAttribute(timingConstraintEClass, TIMING_CONSTRAINT__VALUE);
 		createEOperation(timingConstraintEClass, TIMING_CONSTRAINT___GET_CONSTRAINT_EXPRESSION);
 
-		functionalChainEClass = createEClass(FUNCTIONAL_CHAIN);
-		createEReference(functionalChainEClass, FUNCTIONAL_CHAIN__CONSTRAINTS);
-		createEReference(functionalChainEClass, FUNCTIONAL_CHAIN__TIMINGPATHS);
-		createEReference(functionalChainEClass, FUNCTIONAL_CHAIN__COMMUNICATION_ITEMS);
+		functionalChainItemEClass = createEClass(FUNCTIONAL_CHAIN_ITEM);
+		createEReference(functionalChainItemEClass, FUNCTIONAL_CHAIN_ITEM__CONSTRAINTS);
+		createEReference(functionalChainItemEClass, FUNCTIONAL_CHAIN_ITEM__TIMINGPATHS);
+		createEReference(functionalChainItemEClass, FUNCTIONAL_CHAIN_ITEM__COMMUNICATION_ITEMS);
 
 		blockSpatialConstraintEClass = createEClass(BLOCK_SPATIAL_CONSTRAINT);
 		createEReference(blockSpatialConstraintEClass, BLOCK_SPATIAL_CONSTRAINT__LITEMS);
@@ -1540,16 +1258,9 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEReference(comSpatialConstraintEClass, COM_SPATIAL_CONSTRAINT__LITEMS);
 		createEReference(comSpatialConstraintEClass, COM_SPATIAL_CONSTRAINT__RITEMS);
 
-		timingPathEClass = createEClass(TIMING_PATH);
-		createEAttribute(timingPathEClass, TIMING_PATH__DATE);
-		createEReference(timingPathEClass, TIMING_PATH__BEHAVIOR_ITEM);
-
-		annotationMapEntryEClass = createEClass(ANNOTATION_MAP_ENTRY);
-		createEAttribute(annotationMapEntryEClass, ANNOTATION_MAP_ENTRY__KEY);
-		createEAttribute(annotationMapEntryEClass, ANNOTATION_MAP_ENTRY__VALUE);
-
-		annotatedElementEClass = createEClass(ANNOTATED_ELEMENT);
-		createEReference(annotatedElementEClass, ANNOTATED_ELEMENT__ANNOTATIONS);
+		timingPathItemEClass = createEClass(TIMING_PATH_ITEM);
+		createEAttribute(timingPathItemEClass, TIMING_PATH_ITEM__DATE);
+		createEReference(timingPathItemEClass, TIMING_PATH_ITEM__BEHAVIOR_ITEM);
 
 		// Create enums
 		behaviorItemKindEEnum = createEEnum(BEHAVIOR_ITEM_KIND);
@@ -1559,8 +1270,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		spatialOperatorEEnum = createEEnum(SPATIAL_OPERATOR);
 
 		// Create data types
-		idValEDataType = createEDataType(ID_VAL);
-		aStringEDataType = createEDataType(ASTRING);
 		orderValEDataType = createEDataType(ORDER_VAL);
 		timeUnitEDataType = createEDataType(TIME_UNIT);
 		nanoSecEDataType = createEDataType(NANO_SEC);
@@ -1590,6 +1299,7 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		corePackage thecorePackage = (corePackage)EPackage.Registry.INSTANCE.getEPackage(corePackage.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
@@ -1597,67 +1307,61 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		systemDescriptionEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
-		systemDescriptionEClass.getESuperTypes().add(this.getNamedElement());
-		systemDescriptionEClass.getESuperTypes().add(this.getVersionedElement());
-		inputEClass.getESuperTypes().add(this.getIdentifiedElement());
-		inputEClass.getESuperTypes().add(this.getNamedElement());
-		globalEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
-		globalEClass.getESuperTypes().add(this.getNamedElement());
-		outputEClass.getESuperTypes().add(this.getIdentifiedElement());
-		outputEClass.getESuperTypes().add(this.getNamedElement());
-		fileEClass.getESuperTypes().add(this.getAnnotatedElement());
-		codeEClass.getESuperTypes().add(this.getIdentifiedElement());
-		behaviorItemEClass.getESuperTypes().add(this.getIdentifiedElement());
-		behaviorItemEClass.getESuperTypes().add(this.getNamedElement());
-		functionItemEClass.getESuperTypes().add(this.getNamedElement());
-		typeItemEClass.getESuperTypes().add(this.getIdentifiedElement());
-		typeItemEClass.getESuperTypes().add(this.getNamedElement());
-		communicationItemEClass.getESuperTypes().add(this.getIdentifiedElement());
-		sourceEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
-		identifiedElementEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
-		identifiableElementReferencerEClass.getESuperTypes().add(this.getAnnotatedElement());
-		namedElementEClass.getESuperTypes().add(this.getAnnotatedElement());
-		temporalEClass.getESuperTypes().add(this.getAnnotatedElement());
-		timingConstraintEClass.getESuperTypes().add(this.getAnnotatedElement());
-		functionalChainEClass.getESuperTypes().add(this.getIdentifiedElement());
-		functionalChainEClass.getESuperTypes().add(this.getNamedElement());
+		systemDescriptionEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		systemDescriptionEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		systemDescriptionEClass.getESuperTypes().add(thecorePackage.getVersionedElement());
+		inputEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		inputEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		globalEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		globalEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		outputEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		outputEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		fileEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
+		codeEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		behaviorItemEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		behaviorItemEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		functionItemEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		typeItemEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		typeItemEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		communicationItemEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		sourceEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		temporalEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
+		timingConstraintEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
+		functionalChainItemEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		functionalChainItemEClass.getESuperTypes().add(thecorePackage.getNamedElement());
 		blockSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
 		chainSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
-		spatialConstraintEClass.getESuperTypes().add(this.getIdentifiedElement());
-		spatialConstraintEClass.getESuperTypes().add(this.getNamedElement());
-		spatialConstraintEClass.getESuperTypes().add(this.getAnnotatedElement());
+		spatialConstraintEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
+		spatialConstraintEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		spatialConstraintEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
 		comSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
-		timingPathEClass.getESuperTypes().add(this.getIdentifiableElementReferencer());
+		timingPathItemEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotation_Details(), this.getAnnotationMapEntry(), null, "details", null, 0, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(systemDescriptionEClass, SystemDescription.class, "SystemDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystemDescription_Types(), this.getTypeItem(), null, "types", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_Behaviors(), this.getBehaviorItem(), null, "behaviors", null, 1, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_Codes(), this.getCode(), null, "codes", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemDescription_TimeUnit(), this.getAString(), "timeUnit", "ast_realtime_us", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemDescription_Source(), this.getAString(), "source", "realtime", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemDescription_TimeUnitDeclaration(), this.getAString(), "timeUnitDeclaration", "asterios.h", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystemDescription_TimeUnit(), thecorePackage.getAString(), "timeUnit", "ast_realtime_us", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystemDescription_Source(), thecorePackage.getAString(), "source", "realtime", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystemDescription_TimeUnitDeclaration(), thecorePackage.getAString(), "timeUnitDeclaration", "asterios.h", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_Communications(), this.getCommunicationItem(), null, "communications", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSystemDescription_FunctionalChains(), this.getFunctionalChain(), null, "functionalChains", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystemDescription_FunctionalChains(), this.getFunctionalChainItem(), null, "functionalChains", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_ChainSpatialConstraints(), this.getChainSpatialConstraint(), null, "chainSpatialConstraints", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_BlockSpatialConstraints(), this.getBlockSpatialConstraint(), null, "blockSpatialConstraints", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_ComSpatialConstraints(), this.getComSpatialConstraint(), null, "comSpatialConstraints", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInput_Inner(), this.getAString(), "inner", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInput_Inner(), thecorePackage.getAString(), "inner", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(globalEClass, Global.class, "Global", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGlobal_Type(), this.getTypeItem(), null, "type", null, 1, 1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputEClass, Output.class, "Output", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOutput_Inner(), this.getAString(), "inner", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutput_Inner(), thecorePackage.getAString(), "inner", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFile_Path(), this.getAString(), "path", null, 1, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFile_Path(), thecorePackage.getAString(), "path", null, 1, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(codeEClass, Code.class, "Code", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCode_Files(), this.getFile(), null, "files", null, 1, -1, Code.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1678,7 +1382,7 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEAttribute(getFunctionItem_ExecTWRhythm(), this.getTimeUnit(), "execTWRhythm", null, 0, 1, FunctionItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeItemEClass, TypeItem.class, "TypeItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTypeItem_CopyFunction(), this.getAString(), "copyFunction", null, 0, 1, TypeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeItem_CopyFunction(), thecorePackage.getAString(), "copyFunction", null, 0, 1, TypeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(communicationItemEClass, CommunicationItem.class, "CommunicationItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommunicationItem_PValue(), theXMLTypePackage.getInt(), "pValue", "-1", 0, 1, CommunicationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1688,39 +1392,11 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEReference(getCommunicationItem_Src(), this.getOutput(), null, "src", null, 1, 1, CommunicationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommunicationItem_Type(), this.getTypeItem(), null, "type", null, 0, 1, CommunicationItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getCommunicationItem__GetPorts(), this.getIdentifiedElement(), "getPorts", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getCommunicationItem__GetPorts(), thecorePackage.getIdentifiedElement(), "getPorts", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSource_Headers(), this.getFile(), null, "headers", null, 1, -1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSource_Code(), this.getCode(), null, "code", null, 1, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(identifiedElementEClass, IdentifiedElement.class, "IdentifiedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIdentifiedElement_Id(), this.getIdVal(), "id", null, 1, 1, IdentifiedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(identifiableElementReferencerEClass, IdentifiableElementReferencer.class, "IdentifiableElementReferencer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		EOperation op = initEOperation(getIdentifiableElementReferencer__FindItem__Integer_EClass(), this.getIdentifiedElement(), "findItem", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIdVal(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "eClass", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getIdentifiableElementReferencer__FindItem__Integer_EStructuralFeature(), this.getIdentifiedElement(), "findItem", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIdVal(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEStructuralFeature(), "feature", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getIdentifiableElementReferencer__FindItemInResourceSet__Integer_EClass(), this.getIdentifiedElement(), "findItemInResourceSet", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIdVal(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "eClass", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getIdentifiableElementReferencer__FindItem__Integer_EClass_Resource(), this.getIdentifiedElement(), "findItem", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIdVal(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "eClass", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEResource(), "eRessource", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), this.getAString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(versionedElementEClass, VersionedElement.class, "VersionedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVersionedElement_Version(), this.getAString(), "version", "1.0.0", 1, 1, VersionedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(temporalEClass, Temporal.class, "Temporal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTemporal_Kind(), this.getTemporalKind(), "kind", null, 1, 1, Temporal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1733,18 +1409,18 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 
 		initEOperation(getTimingConstraint__GetConstraintExpression(), ecorePackage.getEString(), "getConstraintExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(functionalChainEClass, FunctionalChain.class, "FunctionalChain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFunctionalChain_Constraints(), this.getTimingConstraint(), null, "constraints", null, 0, 2, FunctionalChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFunctionalChain_Timingpaths(), this.getTimingPath(), null, "timingpaths", null, 0, -1, FunctionalChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFunctionalChain_CommunicationItems(), this.getCommunicationItem(), null, "communicationItems", null, 1, -1, FunctionalChain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(functionalChainItemEClass, FunctionalChainItem.class, "FunctionalChainItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFunctionalChainItem_Constraints(), this.getTimingConstraint(), null, "constraints", null, 0, 2, FunctionalChainItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunctionalChainItem_Timingpaths(), this.getTimingPathItem(), null, "timingpaths", null, 0, -1, FunctionalChainItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunctionalChainItem_CommunicationItems(), this.getCommunicationItem(), null, "communicationItems", null, 1, -1, FunctionalChainItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blockSpatialConstraintEClass, BlockSpatialConstraint.class, "BlockSpatialConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlockSpatialConstraint_LItems(), this.getBehaviorItem(), null, "lItems", null, 1, -1, BlockSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBlockSpatialConstraint_RItems(), this.getBehaviorItem(), null, "rItems", null, 1, -1, BlockSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(chainSpatialConstraintEClass, ChainSpatialConstraint.class, "ChainSpatialConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChainSpatialConstraint_LItems(), this.getFunctionalChain(), null, "lItems", null, 1, -1, ChainSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getChainSpatialConstraint_RItems(), this.getFunctionalChain(), null, "rItems", null, 1, -1, ChainSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChainSpatialConstraint_LItems(), this.getFunctionalChainItem(), null, "lItems", null, 1, -1, ChainSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChainSpatialConstraint_RItems(), this.getFunctionalChainItem(), null, "rItems", null, 1, -1, ChainSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spatialConstraintEClass, SpatialConstraint.class, "SpatialConstraint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpatialConstraint_SpatialOperator(), this.getSpatialOperator(), "spatialOperator", null, 1, 1, SpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1753,16 +1429,9 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEReference(getComSpatialConstraint_LItems(), this.getCommunicationItem(), null, "lItems", null, 1, -1, ComSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComSpatialConstraint_RItems(), this.getCommunicationItem(), null, "rItems", null, 1, -1, ComSpatialConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(timingPathEClass, TimingPath.class, "TimingPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimingPath_Date(), this.getTimeUnit(), "date", null, 1, 1, TimingPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimingPath_BehaviorItem(), this.getBehaviorItem(), null, "behaviorItem", null, 1, 1, TimingPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(annotationMapEntryEClass, Map.Entry.class, "AnnotationMapEntry", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnnotationMapEntry_Key(), this.getAString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnnotationMapEntry_Value(), this.getAString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(annotatedElementEClass, AnnotatedElement.class, "AnnotatedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotatedElement_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, AnnotatedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(timingPathItemEClass, TimingPathItem.class, "TimingPathItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimingPathItem_Date(), this.getTimeUnit(), "date", null, 1, 1, TimingPathItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingPathItem_BehaviorItem(), this.getBehaviorItem(), null, "behaviorItem", null, 1, 1, TimingPathItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(behaviorItemKindEEnum, BehaviorItemKind.class, "BehaviorItemKind");
@@ -1788,8 +1457,6 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		addEEnumLiteral(spatialOperatorEEnum, SpatialOperator.INCLUDE);
 
 		// Initialize data types
-		initEDataType(idValEDataType, Integer.class, "IdVal", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(aStringEDataType, String.class, "AString", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(orderValEDataType, Integer.class, "OrderVal", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(timeUnitEDataType, Integer.class, "TimeUnit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(nanoSecEDataType, Long.class, "NanoSec", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1811,7 +1478,7 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (getFunctionalChain_CommunicationItems(),
+		  (getFunctionalChainItem_CommunicationItems(),
 		   source,
 		   new String[] {
 			   "kind", "element"

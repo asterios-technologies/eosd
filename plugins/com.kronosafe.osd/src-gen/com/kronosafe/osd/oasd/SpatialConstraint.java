@@ -3,6 +3,10 @@
  */
 package com.kronosafe.osd.oasd;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.NamedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Spatial Constraint</b></em>'.

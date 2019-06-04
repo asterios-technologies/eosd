@@ -4,7 +4,7 @@
 package com.kronosafe.osd.oasd.impl;
 
 import com.kronosafe.osd.oasd.ChainSpatialConstraint;
-import com.kronosafe.osd.oasd.FunctionalChain;
+import com.kronosafe.osd.oasd.FunctionalChainItem;
 import com.kronosafe.osd.oasd.oasdPackage;
 import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
@@ -41,7 +41,7 @@ public class ChainSpatialConstraintImpl extends SpatialConstraintImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FunctionalChain> lItems;
+	protected EList<FunctionalChainItem> lItems;
 	/**
 	 * The cached value of the '{@link #getRItems() <em>RItems</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class ChainSpatialConstraintImpl extends SpatialConstraintImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FunctionalChain> rItems;
+	protected EList<FunctionalChainItem> rItems;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class ChainSpatialConstraintImpl extends SpatialConstraintImpl implements
 	 * @generated
 	 */
 	@Override
-	public EList<FunctionalChain> getLItems() {
+	public EList<FunctionalChainItem> getLItems() {
 		if (lItems == null) {
-			lItems = new EObjectEList<FunctionalChain>(FunctionalChain.class, this, oasdPackage.CHAIN_SPATIAL_CONSTRAINT__LITEMS);
+			lItems = new EObjectEList<FunctionalChainItem>(FunctionalChainItem.class, this, oasdPackage.CHAIN_SPATIAL_CONSTRAINT__LITEMS);
 		}
 		return lItems;
 	}
@@ -90,9 +90,9 @@ public class ChainSpatialConstraintImpl extends SpatialConstraintImpl implements
 	 * @generated
 	 */
 	@Override
-	public EList<FunctionalChain> getRItems() {
+	public EList<FunctionalChainItem> getRItems() {
 		if (rItems == null) {
-			rItems = new EObjectEList<FunctionalChain>(FunctionalChain.class, this, oasdPackage.CHAIN_SPATIAL_CONSTRAINT__RITEMS);
+			rItems = new EObjectEList<FunctionalChainItem>(FunctionalChainItem.class, this, oasdPackage.CHAIN_SPATIAL_CONSTRAINT__RITEMS);
 		}
 		return rItems;
 	}
@@ -124,11 +124,11 @@ public class ChainSpatialConstraintImpl extends SpatialConstraintImpl implements
 		switch (featureID) {
 			case oasdPackage.CHAIN_SPATIAL_CONSTRAINT__LITEMS:
 				getLItems().clear();
-				getLItems().addAll((Collection<? extends FunctionalChain>)newValue);
+				getLItems().addAll((Collection<? extends FunctionalChainItem>)newValue);
 				return;
 			case oasdPackage.CHAIN_SPATIAL_CONSTRAINT__RITEMS:
 				getRItems().clear();
-				getRItems().addAll((Collection<? extends FunctionalChain>)newValue);
+				getRItems().addAll((Collection<? extends FunctionalChainItem>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

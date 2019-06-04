@@ -4,6 +4,8 @@ package com.kronosafe.osd.oasd;
 
 import org.eclipse.emf.common.util.EList;
 
+import com.kronosafe.osd.core.IdentifiedElement;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Code</b></em>'.

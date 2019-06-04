@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.kronosafe.osd.core.IdentifiedElement;
+import com.kronosafe.osd.core.impl.IdentifiedElementImpl;
 import com.kronosafe.osd.oasd.CommunicationItem;
-import com.kronosafe.osd.oasd.IdentifiedElement;
 import com.kronosafe.osd.oasd.Input;
 import com.kronosafe.osd.oasd.Output;
 import com.kronosafe.osd.oasd.Temporal;
