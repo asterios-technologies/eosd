@@ -552,7 +552,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Allocation">
+    <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//core/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The allocation of behavior items to software execution unit."/>
       </eAnnotations>
@@ -568,7 +568,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AllocationDescription" eSuperTypes="#//core/VersionedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationDescription" eSuperTypes="#//core/VersionedElement #//core/AnnotatedElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The set of allocations."/>
       </eAnnotations>

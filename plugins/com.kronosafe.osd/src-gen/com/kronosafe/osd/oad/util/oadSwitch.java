@@ -85,6 +85,7 @@ public class oadSwitch<T> extends Switch<T> {
 			case oadPackage.ALLOCATION: {
 				Allocation allocation = (Allocation)theEObject;
 				T result = caseAllocation(allocation);
+				if (result == null) result = caseAnnotatedElement(allocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -92,6 +93,7 @@ public class oadSwitch<T> extends Switch<T> {
 				AllocationDescription allocationDescription = (AllocationDescription)theEObject;
 				T result = caseAllocationDescription(allocationDescription);
 				if (result == null) result = caseVersionedElement(allocationDescription);
+				if (result == null) result = caseAnnotatedElement(allocationDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

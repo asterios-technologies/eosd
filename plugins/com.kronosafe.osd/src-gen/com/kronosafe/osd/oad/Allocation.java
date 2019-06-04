@@ -2,9 +2,8 @@
  */
 package com.kronosafe.osd.oad;
 
+import com.kronosafe.osd.core.AnnotatedElement;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Allocation extends EObject {
+public interface Allocation extends AnnotatedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
