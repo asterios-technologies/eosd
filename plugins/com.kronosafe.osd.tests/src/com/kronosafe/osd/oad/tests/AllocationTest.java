@@ -3,11 +3,9 @@
  */
 package com.kronosafe.osd.oad.tests;
 
+import com.kronosafe.osd.core.tests.AnnotatedElementTest;
 import com.kronosafe.osd.oad.Allocation;
 import com.kronosafe.osd.oad.oadFactory;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -16,7 +14,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AllocationTest extends TestCase {
+public class AllocationTest extends AnnotatedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -24,14 +22,6 @@ public class AllocationTest extends TestCase {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
-
-	/**
-	 * The fixture for this Allocation test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Allocation fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,23 +43,14 @@ public class AllocationTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Allocation test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Allocation fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Allocation test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Allocation getFixture() {
-		return fixture;
+		return (Allocation)fixture;
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package com.kronosafe.osd.oad.impl;
 
+import com.kronosafe.osd.core.impl.AnnotatedElementImpl;
 import com.kronosafe.osd.oad.Allocation;
 import com.kronosafe.osd.oad.BehaviorItemReference;
 import com.kronosafe.osd.oad.oadPackage;
@@ -17,8 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class AllocationImpl extends MinimalEObjectImpl.Container implements Allocation {
+public class AllocationImpl extends AnnotatedElementImpl implements Allocation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

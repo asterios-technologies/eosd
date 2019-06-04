@@ -169,13 +169,22 @@ public interface oadPackage extends EPackage {
 	int ALLOCATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION__ANNOTATIONS = corePackage.ANNOTATED_ELEMENT__ANNOTATIONS;
+
+	/**
 	 * The feature id for the '<em><b>Sw Execution Unit</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION__SW_EXECUTION_UNIT = 0;
+	int ALLOCATION__SW_EXECUTION_UNIT = corePackage.ANNOTATED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Behavior Item References</b></em>' containment reference list.
@@ -184,7 +193,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION__BEHAVIOR_ITEM_REFERENCES = 1;
+	int ALLOCATION__BEHAVIOR_ITEM_REFERENCES = corePackage.ANNOTATED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Allocation</em>' class.
@@ -193,7 +202,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_FEATURE_COUNT = 2;
+	int ALLOCATION_FEATURE_COUNT = corePackage.ANNOTATED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Allocation</em>' class.
@@ -202,7 +211,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_OPERATION_COUNT = 0;
+	int ALLOCATION_OPERATION_COUNT = corePackage.ANNOTATED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oad.impl.AllocationDescriptionImpl <em>Allocation Description</em>}' class.
@@ -224,13 +233,22 @@ public interface oadPackage extends EPackage {
 	int ALLOCATION_DESCRIPTION__VERSION = corePackage.VERSIONED_ELEMENT__VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION_DESCRIPTION__ANNOTATIONS = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Allocations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION__ALLOCATIONS = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 0;
+	int ALLOCATION_DESCRIPTION__ALLOCATIONS = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>System Description Ref</b></em>' reference.
@@ -239,7 +257,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION__SYSTEM_DESCRIPTION_REF = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 1;
+	int ALLOCATION_DESCRIPTION__SYSTEM_DESCRIPTION_REF = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Allocation Description</em>' class.
@@ -248,7 +266,7 @@ public interface oadPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_DESCRIPTION_FEATURE_COUNT = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 2;
+	int ALLOCATION_DESCRIPTION_FEATURE_COUNT = corePackage.VERSIONED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Allocation Description</em>' class.

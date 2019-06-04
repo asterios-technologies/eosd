@@ -4,6 +4,8 @@
 package com.kronosafe.osd.oad.provider;
 
 
+import com.kronosafe.osd.core.coreFactory;
+import com.kronosafe.osd.core.corePackage;
 import com.kronosafe.osd.core.provider.VersionedElementItemProvider;
 import com.kronosafe.osd.oad.AllocationDescription;
 import com.kronosafe.osd.oad.oadFactory;
@@ -98,6 +100,7 @@ public class AllocationDescriptionItemProvider extends VersionedElementItemProvi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(corePackage.Literals.ANNOTATED_ELEMENT__ANNOTATIONS);
 			childrenFeatures.add(oadPackage.Literals.ALLOCATION_DESCRIPTION__ALLOCATIONS);
 		}
 		return childrenFeatures;
@@ -154,6 +157,7 @@ public class AllocationDescriptionItemProvider extends VersionedElementItemProvi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AllocationDescription.class)) {
+			case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS:
 			case oadPackage.ALLOCATION_DESCRIPTION__ALLOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -171,6 +175,11 @@ public class AllocationDescriptionItemProvider extends VersionedElementItemProvi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(corePackage.Literals.ANNOTATED_ELEMENT__ANNOTATIONS,
+				 coreFactory.eINSTANCE.createAnnotation()));
 
 		newChildDescriptors.add
 			(createChildParameter

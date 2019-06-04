@@ -2,6 +2,9 @@
  */
 package com.kronosafe.osd.oad.impl;
 
+import com.kronosafe.osd.core.AnnotatedElement;
+import com.kronosafe.osd.core.Annotation;
+import com.kronosafe.osd.core.corePackage;
 import com.kronosafe.osd.core.impl.VersionedElementImpl;
 import com.kronosafe.osd.oad.Allocation;
 import com.kronosafe.osd.oad.AllocationDescription;
@@ -29,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.kronosafe.osd.oad.impl.AllocationDescriptionImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link com.kronosafe.osd.oad.impl.AllocationDescriptionImpl#getAllocations <em>Allocations</em>}</li>
  *   <li>{@link com.kronosafe.osd.oad.impl.AllocationDescriptionImpl#getSystemDescriptionRef <em>System Description Ref</em>}</li>
  * </ul>
@@ -42,6 +46,16 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	 * @generated
 	 */
 	public static final String copyright = "Copyright Krono-Safe S.A. 2018-2019. All rights reserved.";
+
+	/**
+	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> annotations;
 
 	/**
 	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' containment reference list.
@@ -80,6 +94,19 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	@Override
 	protected EClass eStaticClass() {
 		return oadPackage.Literals.ALLOCATION_DESCRIPTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Annotation> getAnnotations() {
+		if (annotations == null) {
+			annotations = new EObjectContainmentEList<Annotation>(Annotation.class, this, oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS);
+		}
+		return annotations;
 	}
 
 	/**
@@ -143,6 +170,8 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS:
+				return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
 			case oadPackage.ALLOCATION_DESCRIPTION__ALLOCATIONS:
 				return ((InternalEList<?>)getAllocations()).basicRemove(otherEnd, msgs);
 		}
@@ -157,6 +186,8 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS:
+				return getAnnotations();
 			case oadPackage.ALLOCATION_DESCRIPTION__ALLOCATIONS:
 				return getAllocations();
 			case oadPackage.ALLOCATION_DESCRIPTION__SYSTEM_DESCRIPTION_REF:
@@ -175,6 +206,10 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS:
+				getAnnotations().clear();
+				getAnnotations().addAll((Collection<? extends Annotation>)newValue);
+				return;
 			case oadPackage.ALLOCATION_DESCRIPTION__ALLOCATIONS:
 				getAllocations().clear();
 				getAllocations().addAll((Collection<? extends Allocation>)newValue);
@@ -194,6 +229,9 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS:
+				getAnnotations().clear();
+				return;
 			case oadPackage.ALLOCATION_DESCRIPTION__ALLOCATIONS:
 				getAllocations().clear();
 				return;
@@ -212,12 +250,46 @@ public class AllocationDescriptionImpl extends VersionedElementImpl implements A
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS:
+				return annotations != null && !annotations.isEmpty();
 			case oadPackage.ALLOCATION_DESCRIPTION__ALLOCATIONS:
 				return allocations != null && !allocations.isEmpty();
 			case oadPackage.ALLOCATION_DESCRIPTION__SYSTEM_DESCRIPTION_REF:
 				return systemDescriptionRef != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == AnnotatedElement.class) {
+			switch (derivedFeatureID) {
+				case oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS: return corePackage.ANNOTATED_ELEMENT__ANNOTATIONS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == AnnotatedElement.class) {
+			switch (baseFeatureID) {
+				case corePackage.ANNOTATED_ELEMENT__ANNOTATIONS: return oadPackage.ALLOCATION_DESCRIPTION__ANNOTATIONS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //AllocationDescriptionImpl

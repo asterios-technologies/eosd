@@ -54,7 +54,7 @@ with [get-editor "My.oasd" | get-tree] {
         -path "New Child/Communication Item" | click
     get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
     select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
-        -path "New Child/Functional Chain" | click
+        -path "New Child/Functional Chain Item" | click
     get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
     select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
         -path "New Child/Chain Spatial Constraint" | click
@@ -85,12 +85,12 @@ with [get-editor "My.oasd" | get-tree] {
     get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Communication Item 0" | click
     select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Communication Item 0" | get-menu 
         -path "New Child/Temporal" | click
-    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | click
-    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | get-menu 
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain Item" | get-menu 
         -path "New Child/Timing Constraint" | click
-    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | click
-    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain" | get-menu 
-        -path "New Child/Timing Path" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain Item" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Functional Chain Item" | get-menu 
+        -path "New Child/Timing Path Item" | click
     get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Communication Item 0" | click
 }
 with [get-view Properties | get-tree] {
@@ -122,8 +122,8 @@ with [get-view Properties | get-tree] {
     get-button "..." | click
 }
 with [get-window "LItems -- Chain Spatial Constraint"] {
-    get-table | select "Functional Chain" | double-click
-    get-table -after [get-label Feature] | select "Functional Chain"
+    get-table | select "Functional Chain Item" | double-click
+    get-table -after [get-label Feature] | select "Functional Chain Item"
     get-button OK | click
 }
 with [get-view Properties | get-tree] {
@@ -134,8 +134,8 @@ with [get-view Properties | get-tree] {
     get-button "..." | click
 }
 with [get-window "RItems -- Chain Spatial Constraint"] {
-    get-table | select "Functional Chain" | double-click
-    get-table -after [get-label Feature] | select "Functional Chain"
+    get-table | select "Functional Chain Item" | double-click
+    get-table -after [get-label Feature] | select "Functional Chain Item"
     get-button OK | click
 }
 get-view Properties | get-tree | apply-cell-edit

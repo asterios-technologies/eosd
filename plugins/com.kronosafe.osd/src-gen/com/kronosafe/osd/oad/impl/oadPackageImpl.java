@@ -290,7 +290,9 @@ public class oadPackageImpl extends EPackageImpl implements oadPackage {
 
 		// Add supertypes to classes
 		behaviorItemReferenceEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		allocationEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
 		allocationDescriptionEClass.getESuperTypes().add(thecorePackage.getVersionedElement());
+		allocationDescriptionEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(behaviorItemReferenceEClass, BehaviorItemReference.class, "BehaviorItemReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

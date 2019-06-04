@@ -2,6 +2,7 @@
  */
 package com.kronosafe.osd.oad;
 
+import com.kronosafe.osd.core.AnnotatedElement;
 import com.kronosafe.osd.core.VersionedElement;
 import org.eclipse.emf.common.util.EList;
 
@@ -28,7 +29,7 @@ import com.kronosafe.osd.oasd.SystemDescription;
  * @model
  * @generated
  */
-public interface AllocationDescription extends VersionedElement {
+public interface AllocationDescription extends VersionedElement, AnnotatedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
