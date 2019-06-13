@@ -160,7 +160,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="core" resource="XML" disposableProviderFactory="true"
-        ecorePackage="osd.ecore#//core">
+        multipleEditorPages="false" generateModelWizard="false" ecorePackage="osd.ecore#//core">
       <genDataTypes ecoreDataType="osd.ecore#//core/IdVal"/>
       <genDataTypes ecoreDataType="osd.ecore#//core/AString"/>
       <genClasses ecoreClass="osd.ecore#//core/AnnotationMapEntry">
