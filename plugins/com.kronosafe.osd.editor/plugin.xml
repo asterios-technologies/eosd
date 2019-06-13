@@ -62,22 +62,6 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated osd -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="com.kronosafe.osd.core.presentation.coreModelWizardID"
-            name="%_UI_coreModelWizard_label"
-            class="com.kronosafe.osd.core.presentation.coreModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/coreModelFile.gif">
-         <description>%_UI_coreModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
    <extension point="org.eclipse.ui.editors">
       <!-- @generated osd -->
       <editor
