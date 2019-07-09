@@ -23,6 +23,15 @@
         <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/FunctionKind/cycle"/>
         <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/FunctionKind/reset"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/GenerationMode">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/GenerationMode/globalContext"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/GenerationMode/separateIO"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/ParameterDir">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ParameterDir/intern"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ParameterDir/input"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ParameterDir/output"/>
+      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/TemporalKind">
         <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/TemporalKind/periodic"/>
         <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/TemporalKind/direct"/>
@@ -34,6 +43,10 @@
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/SpatialOperator">
         <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/SpatialOperator/exclude"/>
         <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/SpatialOperator/include"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="osd.ecore#//oasd/ReturnType">
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ReturnType/intern"/>
+        <genEnumLiterals ecoreEnumLiteral="osd.ecore#//oasd/ReturnType/output"/>
       </genEnums>
       <genDataTypes ecoreDataType="osd.ecore#//oasd/OrderVal"/>
       <genDataTypes ecoreDataType="osd.ecore#//oasd/TimeUnit"/>
@@ -51,15 +64,20 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/chainSpatialConstraints"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/blockSpatialConstraints"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/SystemDescription/comSpatialConstraints"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/SystemDescription/generation"/>
       </genClasses>
       <genClasses ecoreClass="osd.ecore#//oasd/Input">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Input/inner"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/Input/type"/>
       </genClasses>
       <genClasses ecoreClass="osd.ecore#//oasd/Global">
         <genFeatures createChild="false" ecoreFeature="ecore:EReference osd.ecore#//oasd/Global/type"/>
       </genClasses>
       <genClasses ecoreClass="osd.ecore#//oasd/Output">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Output/inner"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/Output/type"/>
       </genClasses>
       <genClasses ecoreClass="osd.ecore#//oasd/File">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/File/path"/>
@@ -81,6 +99,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/budget"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/execTWLength"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/FunctionItem/execTWRhythm"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/FunctionItem/parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference osd.ecore#//oasd/FunctionItem/returnValue"/>
       </genClasses>
       <genClasses ecoreClass="osd.ecore#//oasd/TypeItem">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/TypeItem/copyFunction"/>
@@ -140,6 +160,21 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference osd.ecore#//oasd/TimingPathItem/behaviorItem"/>
       </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/Parameter">
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Parameter/dir"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Parameter/pointer"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Parameter/order"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/Parameter/ref"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/Parameter/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="osd.ecore#//oasd/ParameterReference"/>
+      <genClasses ecoreClass="osd.ecore#//oasd/ReturnValue">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference osd.ecore#//oasd/ReturnValue/ref"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute osd.ecore#//oasd/ReturnValue/dir"/>
+      </genClasses>
+      <genClasses ecoreClass="osd.ecore#//oasd/ReturnValueReference"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="oad" basePackage="com.kronosafe.osd" resource="XML"
         disposableProviderFactory="true" ecorePackage="osd.ecore#//oad">
@@ -196,6 +231,11 @@
           <genParameters ecoreParameter="osd.ecore#//core/IdentifiableElementReferencer/findItem.2/id"/>
           <genParameters ecoreParameter="osd.ecore#//core/IdentifiableElementReferencer/findItem.2/eClass"/>
           <genParameters ecoreParameter="osd.ecore#//core/IdentifiableElementReferencer/findItem.2/eRessource"/>
+        </genOperations>
+        <genOperations ecoreOperation="osd.ecore#//core/IdentifiableElementReferencer/findItem.3">
+          <genParameters ecoreParameter="osd.ecore#//core/IdentifiableElementReferencer/findItem.3/id"/>
+          <genParameters ecoreParameter="osd.ecore#//core/IdentifiableElementReferencer/findItem.3/eReference"/>
+          <genParameters ecoreParameter="osd.ecore#//core/IdentifiableElementReferencer/findItem.3/eRessource"/>
         </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="osd.ecore#//core/NamedElement">

@@ -345,6 +345,16 @@ public class corePackageImpl extends EPackageImpl implements corePackage {
 	 * @generated
 	 */
 	@Override
+	public EOperation getIdentifiableElementReferencer__FindItem__Integer_EReference_Resource() {
+		return identifiableElementReferencerEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -429,6 +439,7 @@ public class corePackageImpl extends EPackageImpl implements corePackage {
 		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE);
 		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS);
 		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE);
+		createEOperation(identifiableElementReferencerEClass, IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -504,6 +515,11 @@ public class corePackageImpl extends EPackageImpl implements corePackage {
 		op = initEOperation(getIdentifiableElementReferencer__FindItem__Integer_EClass_Resource(), this.getIdentifiedElement(), "findItem", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIdVal(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEClass(), "eClass", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEResource(), "eRessource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getIdentifiableElementReferencer__FindItem__Integer_EReference_Resource(), this.getIdentifiedElement(), "findItem", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIdVal(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEReference(), "eReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEResource(), "eRessource", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

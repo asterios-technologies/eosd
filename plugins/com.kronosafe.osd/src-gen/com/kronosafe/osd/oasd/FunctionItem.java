@@ -3,6 +3,7 @@
 package com.kronosafe.osd.oasd;
 
 import com.kronosafe.osd.core.NamedElement;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +22,8 @@ import com.kronosafe.osd.core.NamedElement;
  *   <li>{@link com.kronosafe.osd.oasd.FunctionItem#getBudget <em>Budget</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.FunctionItem#getExecTWLength <em>Exec TW Length</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.FunctionItem#getExecTWRhythm <em>Exec TW Rhythm</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.FunctionItem#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.FunctionItem#getReturnValue <em>Return Value</em>}</li>
  * </ul>
  *
  * @see com.kronosafe.osd.oasd.oasdPackage#getFunctionItem()
@@ -154,5 +157,49 @@ public interface FunctionItem extends NamedElement {
 	 * @generated
 	 */
 	void setExecTWRhythm(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link com.kronosafe.osd.oasd.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The parameters of the function.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see com.kronosafe.osd.oasd.oasdPackage#getFunctionItem_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Parameter> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Return Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Return Value</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The return value of the function.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Return Value</em>' containment reference.
+	 * @see #setReturnValue(ReturnValue)
+	 * @see com.kronosafe.osd.oasd.oasdPackage#getFunctionItem_ReturnValue()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ReturnValue getReturnValue();
+
+	/**
+	 * Sets the value of the '{@link com.kronosafe.osd.oasd.FunctionItem#getReturnValue <em>Return Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Value</em>' containment reference.
+	 * @see #getReturnValue()
+	 * @generated
+	 */
+	void setReturnValue(ReturnValue value);
 
 } // FunctionItem

@@ -150,6 +150,15 @@ public interface oadPackage extends EPackage {
 	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_ITEM_REFERENCE___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Behavior Item Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

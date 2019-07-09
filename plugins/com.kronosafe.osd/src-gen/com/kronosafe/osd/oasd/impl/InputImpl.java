@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.kronosafe.osd.oasd.Input;
+import com.kronosafe.osd.oasd.ParameterReference;
+import com.kronosafe.osd.oasd.TypeItem;
 import com.kronosafe.osd.oasd.oasdPackage;
 
 /**
@@ -25,6 +27,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  * <ul>
  *   <li>{@link com.kronosafe.osd.oasd.impl.InputImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.impl.InputImpl#getInner <em>Inner</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.impl.InputImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +79,16 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 	 * @ordered
 	 */
 	protected String inner = INNER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypeItem type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,12 +161,37 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 	 * @generated
 	 */
 	@Override
+	public TypeItem getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(TypeItem newType) {
+		TypeItem oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.INPUT__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case oasdPackage.INPUT__NAME:
 				return getName();
 			case oasdPackage.INPUT__INNER:
 				return getInner();
+			case oasdPackage.INPUT__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +209,9 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 				return;
 			case oasdPackage.INPUT__INNER:
 				setInner((String)newValue);
+				return;
+			case oasdPackage.INPUT__TYPE:
+				setType((TypeItem)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,6 +231,9 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 			case oasdPackage.INPUT__INNER:
 				setInner(INNER_EDEFAULT);
 				return;
+			case oasdPackage.INPUT__TYPE:
+				setType((TypeItem)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +250,8 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case oasdPackage.INPUT__INNER:
 				return INNER_EDEFAULT == null ? inner != null : !INNER_EDEFAULT.equals(inner);
+			case oasdPackage.INPUT__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,6 +269,11 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 				default: return -1;
 			}
 		}
+		if (baseClass == ParameterReference.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -236,6 +287,11 @@ public class InputImpl extends IdentifiedElementImpl implements Input {
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
 				case corePackage.NAMED_ELEMENT__NAME: return oasdPackage.INPUT__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == ParameterReference.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

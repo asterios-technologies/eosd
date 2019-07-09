@@ -4,13 +4,14 @@ package com.kronosafe.osd.oasd.impl;
 
 import com.kronosafe.osd.core.NamedElement;
 import com.kronosafe.osd.core.corePackage;
-import com.kronosafe.osd.core.impl.IdentifiableElementReferencerImpl;
-
+import com.kronosafe.osd.core.impl.IdentifiedElementImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import com.kronosafe.osd.oasd.Global;
+import com.kronosafe.osd.oasd.ParameterReference;
+import com.kronosafe.osd.oasd.ReturnValueReference;
 import com.kronosafe.osd.oasd.TypeItem;
 import com.kronosafe.osd.oasd.oasdPackage;
 
@@ -28,7 +29,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  *
  * @generated
  */
-public class GlobalImpl extends IdentifiableElementReferencerImpl implements Global {
+public class GlobalImpl extends IdentifiedElementImpl implements Global {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,6 +213,16 @@ public class GlobalImpl extends IdentifiableElementReferencerImpl implements Glo
 				default: return -1;
 			}
 		}
+		if (baseClass == ParameterReference.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReturnValueReference.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -225,6 +236,16 @@ public class GlobalImpl extends IdentifiableElementReferencerImpl implements Glo
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
 				case corePackage.NAMED_ELEMENT__NAME: return oasdPackage.GLOBAL__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == ParameterReference.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReturnValueReference.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

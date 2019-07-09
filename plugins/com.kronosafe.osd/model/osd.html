@@ -1,5 +1,5 @@
 <!-- This file was created using the HTML documentation generator. -->
-<!-- Creation date: Wed Jun 05 11:31:07 CEST 2019-->
+<!-- Creation date: Thu Jul 18 15:04:14 CEST 2019-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -546,6 +546,33 @@ function getElementsByTagNames(list,obj) {
 </td>
 		</tr></table>
 <a href="#.FunctionItem.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="FunctionItem.parameters" class="teletype">parameters</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#Parameter">Parameter</a></span></div>
+<div class="label">Cardinality: [0..*]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The parameters of the function.</p>
+</td>
+		</tr><tr>	<td><div id="FunctionItem.returnValue" class="teletype">returnValue</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ReturnValue">ReturnValue</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Containment</div>
+</td> 
+<td> <p>The return value of the function.</p>
+</td>
+		</tr></table>
+<a href="#.FunctionItem.ref"></a>
 <h2 id="FunctionKind"><a href="#FunctionKind"><a href="#FunctionKind">FunctionKind</a></a></h2>
 
 <p>A FunctionItem represents a specific C-function of a block in the system. It can be the function called during the initialization phase, the function called during the reset phase or the function called during the main cycle phase.</p>
@@ -630,10 +657,46 @@ function getElementsByTagNames(list,obj) {
 </td>
 		</tr></table>
 <a href="#.FunctionalChainItem.ref"></a>
+<h2 id="GenerationMode"><a href="#GenerationMode"><a href="#GenerationMode">GenerationMode</a></a></h2>
+
+<p>The description of the functional generation mode.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">globalContext</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>A global context generation mode.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">separateIO</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+		<p>Function with parameters generation mode.</p>
+	</td>	
+</tr>
+</table>
+<a href="#.GenerationMode.lit"></a>
 <h2 id="Global"><a href="#Global"><a href="#Global">Global</a></a></h2>
 
 <p>A Global represents a global data of the block under consideration. It is an element of the context of the C-functions that correspond to the block.</p>
-<h4><b>Supertypes:</b><a href="#coreIdentifiableElementReferencer">IdentifiableElementReferencer</a>, <a href="#coreNamedElement">NamedElement</a></h4><table>
+<h4><b>Supertypes:</b><a href="#coreIdentifiableElementReferencer">IdentifiableElementReferencer</a>, <a href="#coreIdentifiedElement">IdentifiedElement</a>, <a href="#coreNamedElement">NamedElement</a>, <a href="#ParameterReference">ParameterReference</a>, <a href="#ReturnValueReference">ReturnValueReference</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">References</div></th>
 </tr>
@@ -654,7 +717,7 @@ function getElementsByTagNames(list,obj) {
 <h2 id="Input"><a href="#Input"><a href="#Input">Input</a></a></h2>
 
 <p>An Input represents an input data of the block under consideration.</p>
-<h4><b>Supertypes:</b><a href="#coreIdentifiedElement">IdentifiedElement</a>, <a href="#coreNamedElement">NamedElement</a></h4><table>
+<h4><b>Supertypes:</b><a href="#coreIdentifiedElement">IdentifiedElement</a>, <a href="#coreNamedElement">NamedElement</a>, <a href="#ParameterReference">ParameterReference</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -671,10 +734,28 @@ function getElementsByTagNames(list,obj) {
 </td>
 		</tr></table>
 <a href="#.Input.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Input.type" class="teletype">type</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TypeItem">TypeItem</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> <p>The type of the input</p>
+</td>
+		</tr></table>
+<a href="#.Input.ref"></a>
 <h2 id="Output"><a href="#Output"><a href="#Output">Output</a></a></h2>
 
 <p>An Output represents an output data of the block under consideration.</p>
-<h4><b>Supertypes:</b><a href="#coreIdentifiedElement">IdentifiedElement</a>, <a href="#coreNamedElement">NamedElement</a></h4><table>
+<h4><b>Supertypes:</b><a href="#coreIdentifiedElement">IdentifiedElement</a>, <a href="#coreNamedElement">NamedElement</a>, <a href="#ParameterReference">ParameterReference</a>, <a href="#ReturnValueReference">ReturnValueReference</a></h4><table>
 <tr>
 	<th colspan="3"><div class="tableHeader">Attributes</div></th>
 </tr>
@@ -691,7 +772,210 @@ function getElementsByTagNames(list,obj) {
 </td>
 		</tr></table>
 <a href="#.Output.attr"></a>
-<h2 id="Source"><a href="#Source"><a href="#Source">Source</a></a></h2>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Output.type" class="teletype">type</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#TypeItem">TypeItem</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+</td> 
+<td> <p>The type of the output</p>
+</td>
+		</tr></table>
+<a href="#.Output.ref"></a>
+<h2 id="Parameter"><a href="#Parameter"><a href="#Parameter">Parameter</a></a></h2>
+
+<p>A function parameter in case of separate IO generation, i.e. functions are using parameters to exchange data and not global variables.</p>
+<h4><b>Supertype:</b><a href="#coreIdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Parameter.dir" class="teletype"><div style="color:blue">dir</div></div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ParameterDir">ParameterDir</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Derived</div>
+ </td> <td><p>The parameter direction derivated from the input/output/global reference type.</p>
+</td>
+		</tr><tr>	<td><div id="Parameter.name" class="teletype">name</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreAString">AString</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>The parameter name.</p>
+</td>
+		</tr><tr>	<td><div id="Parameter.order" class="teletype">order</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ecorexmltypeInt">Int</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+ </td> <td><p>The parameter position in the function prototype.</p>
+</td>
+		</tr><tr>	<td><div id="Parameter.pointer" class="teletype">pointer</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ecorexmltypeBoolean">Boolean</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+ </td> <td><p>If true, the parameter is a pointer, i.e. at execution the assigned variable to this parameter is passed by reference. If false, the assigned variable is passed by value.</p>
+</td>
+		</tr></table>
+<a href="#.Parameter.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="Parameter.ref" class="teletype">ref</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ParameterReference">ParameterReference</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The input/output/global that the parameter references.</p>
+</td>
+		</tr></table>
+<a href="#.Parameter.ref"></a>
+<h2 id="ParameterDir"><a href="#ParameterDir"><a href="#ParameterDir">ParameterDir</a></a></h2>
+
+<p>The function parameter direction reference enumeration.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">intern</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>A reference to a Global.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">input</span>
+	</td>
+	<td>
+		1
+	</td>
+	<td>
+		<p>A reference to an Input.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">output</span>
+	</td>
+	<td>
+		2
+	</td>
+	<td>
+		<p>A reference to an output.</p>
+	</td>	
+</tr>
+</table>
+<a href="#.ParameterDir.lit"></a>
+<h2 id="ParameterReference"><a href="#ParameterReference"><a href="#ParameterReference">ParameterReference</a></a></h2>
+
+<p>An element that a parameter may reference.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h2 id="ReturnType"><a href="#ReturnType"><a href="#ReturnType">ReturnType</a></a></h2>
+
+<p>The function return value direction reference enumeration.</p>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Literals</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Value</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>
+	<td>
+		<span class="teletype">intern</span>
+	</td>
+	<td>
+		0
+	</td>
+	<td>
+		<p>A reference to a Global.</p>
+	</td>	
+</tr>
+<tr>
+	<td>
+		<span class="teletype">output</span>
+	</td>
+	<td>
+		2
+	</td>
+	<td>
+		<p>A reference to an output.</p>
+	</td>	
+</tr>
+</table>
+<a href="#.ReturnType.lit"></a>
+<h2 id="ReturnValue"><a href="#ReturnValue"><a href="#ReturnValue">ReturnValue</a></a></h2>
+
+<p>A function return value in case of separate IO generation, i.e. functions are using return value to exchange data and not global variables.</p>
+<h4><b>Supertype:</b><a href="#coreIdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
+<tr>
+	<th colspan="3"><div class="tableHeader">Attributes</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="ReturnValue.dir" class="teletype"><div style="color:blue">dir</div></div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ReturnType">ReturnType</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="label">Derived</div>
+ </td> <td><p>The parameter direction derivated from the output/global reference type.</p>
+</td>
+		</tr></table>
+<a href="#.ReturnValue.attr"></a>
+<table>
+<tr>
+	<th colspan="3"><div class="tableHeader">References</div></th>
+</tr>
+<tr>
+	<th><div class="columnHeader">Name</div></th>
+	<th><div class="columnHeader">Properties</div></th>
+	<th><div class="columnHeader">Documentation</div></th>
+</tr>
+<tr>	<td><div id="ReturnValue.ref" class="teletype">ref</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#ReturnValueReference">ReturnValueReference</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+</td> 
+<td> <p>The output/global that the function references as return value.</p>
+</td>
+		</tr></table>
+<a href="#.ReturnValue.ref"></a>
+<h2 id="ReturnValueReference"><a href="#ReturnValueReference"><a href="#ReturnValueReference">ReturnValueReference</a></a></h2>
+
+<p>An element that a function may reference as a return value.</p>
+<div class="eclassProps">EClass properties:<div class="eclassPropList"><span class="label">Abstract</span></div></div><h2 id="Source"><a href="#Source"><a href="#Source">Source</a></a></h2>
 
 <p>A Source represents the set of external C-files and header files necessary to compile the block of the application.</p>
 <h4><b>Supertype:</b><a href="#coreIdentifiableElementReferencer">IdentifiableElementReferencer</a></h4><table>
@@ -787,7 +1071,14 @@ function getElementsByTagNames(list,obj) {
 	<th><div class="columnHeader">Properties</div></th>
 	<th><div class="columnHeader">Documentation</div></th>
 </tr>
-<tr>	<td><div id="SystemDescription.source" class="teletype">source</div>
+<tr>	<td><div id="SystemDescription.generation" class="teletype">generation</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#GenerationMode">GenerationMode</a></span></div>
+<div class="label">Cardinality: [1..1]</div>
+<div class="keyValue"><span class="label">Default: </span><span class="teletype">globalContext</span></div>
+ </td> <td><p>The description of the functional generation mode, either with a global context approach or functions with parameters.</p>
+</td>
+		</tr><tr>	<td><div id="SystemDescription.source" class="teletype">source</div>
 	</td>
 	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreAString">AString</a></span></div>
 <div class="label">Cardinality: [1..1]</div>
@@ -1290,6 +1581,19 @@ EString[0..1]
 <ul>
 <li><a href="#coreIdVal">IdVal</a>[0..1] <span class="teletype>"id</span></li>
 <li>EClass[0..1] <span class="teletype>"eClass</span></li>
+<li>EResource[0..1] <span class="teletype>"eRessource</span></li>
+</ul>
+ </td><td> </td>
+		</tr><tr>	<td><div id="coreIdentifiableElementReferencer.findItem" class="teletype">findItem</div>
+	</td>
+	<td><div class="keyValue"><span class="label">T: </span><span class="teletype"><a href="#coreIdentifiedElement">IdentifiedElement</a></span></div>
+<div class="label">Cardinality: [0..1]</div>
+<div class="label">Returns:</div>
+<a href="#coreIdentifiedElement">IdentifiedElement</a>[0..1]
+<div class="label">Parameters:
+<ul>
+<li><a href="#coreIdVal">IdVal</a>[0..1] <span class="teletype>"id</span></li>
+<li>EReference[0..1] <span class="teletype>"eReference</span></li>
 <li>EResource[0..1] <span class="teletype>"eRessource</span></li>
 </ul>
  </td><td> </td>

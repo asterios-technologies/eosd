@@ -5,7 +5,7 @@ package com.kronosafe.osd.oasd.provider;
 
 
 import com.kronosafe.osd.core.corePackage;
-import com.kronosafe.osd.core.provider.IdentifiableElementReferencerItemProvider;
+import com.kronosafe.osd.core.provider.IdentifiedElementItemProvider;
 import com.kronosafe.osd.oasd.Global;
 import com.kronosafe.osd.oasd.oasdPackage;
 
@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GlobalItemProvider extends IdentifiableElementReferencerItemProvider {
+public class GlobalItemProvider extends IdentifiedElementItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

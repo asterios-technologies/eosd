@@ -291,13 +291,22 @@ public interface corePackage extends EPackage {
 	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE = ANNOTATED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = ANNOTATED_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Identifiable Element Referencer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 4;
+	int IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT = ANNOTATED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.core.impl.IdentifiedElementImpl <em>Identified Element</em>}' class.
@@ -371,6 +380,15 @@ public interface corePackage extends EPackage {
 	 * @ordered
 	 */
 	int IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Identified Element</em>' class.
@@ -617,6 +635,16 @@ public interface corePackage extends EPackage {
 	EOperation getIdentifiableElementReferencer__FindItem__Integer_EClass_Resource();
 
 	/**
+	 * Returns the meta object for the '{@link com.kronosafe.osd.core.IdentifiableElementReferencer#findItem(java.lang.Integer, org.eclipse.emf.ecore.EReference, org.eclipse.emf.ecore.resource.Resource) <em>Find Item</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Item</em>' operation.
+	 * @see com.kronosafe.osd.core.IdentifiableElementReferencer#findItem(java.lang.Integer, org.eclipse.emf.ecore.EReference, org.eclipse.emf.ecore.resource.Resource)
+	 * @generated
+	 */
+	EOperation getIdentifiableElementReferencer__FindItem__Integer_EReference_Resource();
+
+	/**
 	 * Returns the meta object for class '{@link com.kronosafe.osd.core.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -827,6 +855,14 @@ public interface corePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE = eINSTANCE.getIdentifiableElementReferencer__FindItem__Integer_EClass_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Item</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = eINSTANCE.getIdentifiableElementReferencer__FindItem__Integer_EReference_Resource();
 
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.core.impl.NamedElementImpl <em>Named Element</em>}' class.

@@ -83,7 +83,7 @@ public class XMLKsm3HandlerImpl extends SAXXMLHandler {
 			element = ((IdentifiableElementReferencer) object).findItemInResourceSet(id,
 					eReference.getEReferenceType());
 		} else {
-			element = ((IdentifiableElementReferencer) object).findItem(id, eReference.getEReferenceType(),
+			element = ((IdentifiableElementReferencer) object).findItem(id, eReference,
 					xmlResource);
 		}
 		return element;
@@ -132,7 +132,7 @@ public class XMLKsm3HandlerImpl extends SAXXMLHandler {
 		//When frontend and/or backend use ksM3, some attributes are added in the serialized xml by ksM3. 
 		//We don't care for emf and we can remove them for a new serialization.
 		//starttime is added by the frontend but it is not in the osd metamodel.
-		if (name.equals("ksM3ID") || name.equals("ksM3Class") || name.equals("starttime"))
+		if (name.equals("ksM3ID") || name.equals("ksM3Class") || name.equals("starttime")|| name.equals("opt"))
 			return;
 		super.handleUnknownFeature(prefix, name, isElement, peekObject, value);
 	}

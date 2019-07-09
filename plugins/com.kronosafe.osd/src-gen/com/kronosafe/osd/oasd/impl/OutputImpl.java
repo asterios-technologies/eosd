@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.kronosafe.osd.oasd.Output;
+import com.kronosafe.osd.oasd.ParameterReference;
+import com.kronosafe.osd.oasd.ReturnValueReference;
+import com.kronosafe.osd.oasd.TypeItem;
 import com.kronosafe.osd.oasd.oasdPackage;
 
 /**
@@ -24,6 +27,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  * <ul>
  *   <li>{@link com.kronosafe.osd.oasd.impl.OutputImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.impl.OutputImpl#getInner <em>Inner</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.impl.OutputImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +79,16 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 	 * @ordered
 	 */
 	protected String inner = INNER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypeItem type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,12 +161,37 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 	 * @generated
 	 */
 	@Override
+	public TypeItem getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(TypeItem newType) {
+		TypeItem oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.OUTPUT__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case oasdPackage.OUTPUT__NAME:
 				return getName();
 			case oasdPackage.OUTPUT__INNER:
 				return getInner();
+			case oasdPackage.OUTPUT__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,6 +209,9 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 				return;
 			case oasdPackage.OUTPUT__INNER:
 				setInner((String)newValue);
+				return;
+			case oasdPackage.OUTPUT__TYPE:
+				setType((TypeItem)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,6 +231,9 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 			case oasdPackage.OUTPUT__INNER:
 				setInner(INNER_EDEFAULT);
 				return;
+			case oasdPackage.OUTPUT__TYPE:
+				setType((TypeItem)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +250,8 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case oasdPackage.OUTPUT__INNER:
 				return INNER_EDEFAULT == null ? inner != null : !INNER_EDEFAULT.equals(inner);
+			case oasdPackage.OUTPUT__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,6 +269,16 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 				default: return -1;
 			}
 		}
+		if (baseClass == ParameterReference.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReturnValueReference.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -235,6 +292,16 @@ public class OutputImpl extends IdentifiedElementImpl implements Output {
 		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
 				case corePackage.NAMED_ELEMENT__NAME: return oasdPackage.OUTPUT__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == ParameterReference.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ReturnValueReference.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

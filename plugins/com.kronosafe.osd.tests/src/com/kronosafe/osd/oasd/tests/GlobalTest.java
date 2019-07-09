@@ -3,7 +3,7 @@
  */
 package com.kronosafe.osd.oasd.tests;
 
-import com.kronosafe.osd.core.tests.IdentifiableElementReferencerTest;
+import com.kronosafe.osd.core.tests.IdentifiedElementTest;
 import com.kronosafe.osd.oasd.Global;
 import com.kronosafe.osd.oasd.oasdFactory;
 
@@ -15,7 +15,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GlobalTest extends IdentifiableElementReferencerTest {
+public class GlobalTest extends IdentifiedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->

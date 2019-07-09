@@ -4,7 +4,6 @@
 package com.kronosafe.osd.core.tests;
 
 import com.kronosafe.osd.core.AnnotatedElement;
-
 import junit.framework.TestCase;
 
 /**
