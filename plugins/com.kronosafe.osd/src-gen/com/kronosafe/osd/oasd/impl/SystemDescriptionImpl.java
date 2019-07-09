@@ -27,6 +27,7 @@ import com.kronosafe.osd.oasd.Code;
 import com.kronosafe.osd.oasd.ComSpatialConstraint;
 import com.kronosafe.osd.oasd.CommunicationItem;
 import com.kronosafe.osd.oasd.FunctionalChainItem;
+import com.kronosafe.osd.oasd.GenerationMode;
 import com.kronosafe.osd.oasd.SystemDescription;
 import com.kronosafe.osd.oasd.TypeItem;
 import com.kronosafe.osd.oasd.oasdPackage;
@@ -52,6 +53,7 @@ import com.kronosafe.osd.oasd.oasdPackage;
  *   <li>{@link com.kronosafe.osd.oasd.impl.SystemDescriptionImpl#getChainSpatialConstraints <em>Chain Spatial Constraints</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.impl.SystemDescriptionImpl#getBlockSpatialConstraints <em>Block Spatial Constraints</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.impl.SystemDescriptionImpl#getComSpatialConstraints <em>Com Spatial Constraints</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.impl.SystemDescriptionImpl#getGeneration <em>Generation</em>}</li>
  * </ul>
  *
  * @generated
@@ -243,6 +245,26 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 	 * @ordered
 	 */
 	protected EList<ComSpatialConstraint> comSpatialConstraints;
+
+	/**
+	 * The default value of the '{@link #getGeneration() <em>Generation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeneration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final GenerationMode GENERATION_EDEFAULT = GenerationMode.GLOBAL_CONTEXT;
+
+	/**
+	 * The cached value of the '{@link #getGeneration() <em>Generation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGeneration()
+	 * @generated
+	 * @ordered
+	 */
+	protected GenerationMode generation = GENERATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -488,6 +510,29 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 	 * @generated
 	 */
 	@Override
+	public GenerationMode getGeneration() {
+		return generation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGeneration(GenerationMode newGeneration) {
+		GenerationMode oldGeneration = generation;
+		generation = newGeneration == null ? GENERATION_EDEFAULT : newGeneration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.SYSTEM_DESCRIPTION__GENERATION, oldGeneration, generation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case oasdPackage.SYSTEM_DESCRIPTION__TYPES:
@@ -544,6 +589,8 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 				return getBlockSpatialConstraints();
 			case oasdPackage.SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS:
 				return getComSpatialConstraints();
+			case oasdPackage.SYSTEM_DESCRIPTION__GENERATION:
+				return getGeneration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -604,6 +651,9 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 				getComSpatialConstraints().clear();
 				getComSpatialConstraints().addAll((Collection<? extends ComSpatialConstraint>)newValue);
 				return;
+			case oasdPackage.SYSTEM_DESCRIPTION__GENERATION:
+				setGeneration((GenerationMode)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -655,6 +705,9 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 			case oasdPackage.SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS:
 				getComSpatialConstraints().clear();
 				return;
+			case oasdPackage.SYSTEM_DESCRIPTION__GENERATION:
+				setGeneration(GENERATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -693,6 +746,8 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 				return blockSpatialConstraints != null && !blockSpatialConstraints.isEmpty();
 			case oasdPackage.SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS:
 				return comSpatialConstraints != null && !comSpatialConstraints.isEmpty();
+			case oasdPackage.SYSTEM_DESCRIPTION__GENERATION:
+				return generation != GENERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -761,6 +816,8 @@ public class SystemDescriptionImpl extends IdentifiableElementReferencerImpl imp
 		result.append(source);
 		result.append(", timeUnitDeclaration: ");
 		result.append(timeUnitDeclaration);
+		result.append(", generation: ");
+		result.append(generation);
 		result.append(')');
 		return result.toString();
 	}

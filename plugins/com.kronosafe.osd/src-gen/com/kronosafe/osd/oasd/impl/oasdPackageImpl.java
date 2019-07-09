@@ -17,9 +17,16 @@ import com.kronosafe.osd.oasd.File;
 import com.kronosafe.osd.oasd.FunctionItem;
 import com.kronosafe.osd.oasd.FunctionKind;
 import com.kronosafe.osd.oasd.FunctionalChainItem;
+import com.kronosafe.osd.oasd.GenerationMode;
 import com.kronosafe.osd.oasd.Global;
 import com.kronosafe.osd.oasd.Input;
 import com.kronosafe.osd.oasd.Output;
+import com.kronosafe.osd.oasd.Parameter;
+import com.kronosafe.osd.oasd.ParameterDir;
+import com.kronosafe.osd.oasd.ParameterReference;
+import com.kronosafe.osd.oasd.ReturnType;
+import com.kronosafe.osd.oasd.ReturnValue;
+import com.kronosafe.osd.oasd.ReturnValueReference;
 import com.kronosafe.osd.oasd.Source;
 import com.kronosafe.osd.oasd.SpatialConstraint;
 import com.kronosafe.osd.oasd.SpatialOperator;
@@ -195,6 +202,34 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass parameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass returnValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass returnValueReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum behaviorItemKindEEnum = null;
 
 	/**
@@ -203,6 +238,20 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	private EEnum functionKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum generationModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterDirEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +273,13 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	private EEnum spatialOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum returnTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -446,6 +502,16 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSystemDescription_Generation() {
+		return (EAttribute)systemDescriptionEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInput() {
 		return inputEClass;
 	}
@@ -458,6 +524,16 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	@Override
 	public EAttribute getInput_Inner() {
 		return (EAttribute)inputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getInput_Type() {
+		return (EReference)inputEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -498,6 +574,16 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	@Override
 	public EAttribute getOutput_Inner() {
 		return (EAttribute)outputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOutput_Type() {
+		return (EReference)outputEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -668,6 +754,26 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	@Override
 	public EAttribute getFunctionItem_ExecTWRhythm() {
 		return (EAttribute)functionItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFunctionItem_Parameters() {
+		return (EReference)functionItemEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFunctionItem_ReturnValue() {
+		return (EReference)functionItemEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1066,6 +1172,116 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Dir() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Pointer() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Order() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameter_Ref() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameter_Name() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParameterReference() {
+		return parameterReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getReturnValue() {
+		return returnValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getReturnValue_Ref() {
+		return (EReference)returnValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getReturnValue_Dir() {
+		return (EAttribute)returnValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getReturnValueReference() {
+		return returnValueReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getBehaviorItemKind() {
 		return behaviorItemKindEEnum;
 	}
@@ -1078,6 +1294,26 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	@Override
 	public EEnum getFunctionKind() {
 		return functionKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getGenerationMode() {
+		return generationModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getParameterDir() {
+		return parameterDirEEnum;
 	}
 
 	/**
@@ -1108,6 +1344,16 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 	@Override
 	public EEnum getSpatialOperator() {
 		return spatialOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getReturnType() {
+		return returnTypeEEnum;
 	}
 
 	/**
@@ -1181,15 +1427,18 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__CHAIN_SPATIAL_CONSTRAINTS);
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__BLOCK_SPATIAL_CONSTRAINTS);
 		createEReference(systemDescriptionEClass, SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS);
+		createEAttribute(systemDescriptionEClass, SYSTEM_DESCRIPTION__GENERATION);
 
 		inputEClass = createEClass(INPUT);
 		createEAttribute(inputEClass, INPUT__INNER);
+		createEReference(inputEClass, INPUT__TYPE);
 
 		globalEClass = createEClass(GLOBAL);
 		createEReference(globalEClass, GLOBAL__TYPE);
 
 		outputEClass = createEClass(OUTPUT);
 		createEAttribute(outputEClass, OUTPUT__INNER);
+		createEReference(outputEClass, OUTPUT__TYPE);
 
 		fileEClass = createEClass(FILE);
 		createEAttribute(fileEClass, FILE__PATH);
@@ -1211,6 +1460,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEAttribute(functionItemEClass, FUNCTION_ITEM__BUDGET);
 		createEAttribute(functionItemEClass, FUNCTION_ITEM__EXEC_TW_LENGTH);
 		createEAttribute(functionItemEClass, FUNCTION_ITEM__EXEC_TW_RHYTHM);
+		createEReference(functionItemEClass, FUNCTION_ITEM__PARAMETERS);
+		createEReference(functionItemEClass, FUNCTION_ITEM__RETURN_VALUE);
 
 		typeItemEClass = createEClass(TYPE_ITEM);
 		createEAttribute(typeItemEClass, TYPE_ITEM__COPY_FUNCTION);
@@ -1262,12 +1513,30 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		createEAttribute(timingPathItemEClass, TIMING_PATH_ITEM__DATE);
 		createEReference(timingPathItemEClass, TIMING_PATH_ITEM__BEHAVIOR_ITEM);
 
+		parameterEClass = createEClass(PARAMETER);
+		createEAttribute(parameterEClass, PARAMETER__DIR);
+		createEAttribute(parameterEClass, PARAMETER__POINTER);
+		createEAttribute(parameterEClass, PARAMETER__ORDER);
+		createEReference(parameterEClass, PARAMETER__REF);
+		createEAttribute(parameterEClass, PARAMETER__NAME);
+
+		parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
+
+		returnValueEClass = createEClass(RETURN_VALUE);
+		createEReference(returnValueEClass, RETURN_VALUE__REF);
+		createEAttribute(returnValueEClass, RETURN_VALUE__DIR);
+
+		returnValueReferenceEClass = createEClass(RETURN_VALUE_REFERENCE);
+
 		// Create enums
 		behaviorItemKindEEnum = createEEnum(BEHAVIOR_ITEM_KIND);
 		functionKindEEnum = createEEnum(FUNCTION_KIND);
+		generationModeEEnum = createEEnum(GENERATION_MODE);
+		parameterDirEEnum = createEEnum(PARAMETER_DIR);
 		temporalKindEEnum = createEEnum(TEMPORAL_KIND);
 		constraintOperatorEEnum = createEEnum(CONSTRAINT_OPERATOR);
 		spatialOperatorEEnum = createEEnum(SPATIAL_OPERATOR);
+		returnTypeEEnum = createEEnum(RETURN_TYPE);
 
 		// Create data types
 		orderValEDataType = createEDataType(ORDER_VAL);
@@ -1312,10 +1581,16 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		systemDescriptionEClass.getESuperTypes().add(thecorePackage.getVersionedElement());
 		inputEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
 		inputEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		inputEClass.getESuperTypes().add(this.getParameterReference());
+		globalEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
 		globalEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
 		globalEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		globalEClass.getESuperTypes().add(this.getParameterReference());
+		globalEClass.getESuperTypes().add(this.getReturnValueReference());
 		outputEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
 		outputEClass.getESuperTypes().add(thecorePackage.getNamedElement());
+		outputEClass.getESuperTypes().add(this.getParameterReference());
+		outputEClass.getESuperTypes().add(this.getReturnValueReference());
 		fileEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
 		codeEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
 		behaviorItemEClass.getESuperTypes().add(thecorePackage.getIdentifiedElement());
@@ -1336,6 +1611,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		spatialConstraintEClass.getESuperTypes().add(thecorePackage.getAnnotatedElement());
 		comSpatialConstraintEClass.getESuperTypes().add(this.getSpatialConstraint());
 		timingPathItemEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		parameterEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
+		returnValueEClass.getESuperTypes().add(thecorePackage.getIdentifiableElementReferencer());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(systemDescriptionEClass, SystemDescription.class, "SystemDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1350,15 +1627,18 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEReference(getSystemDescription_ChainSpatialConstraints(), this.getChainSpatialConstraint(), null, "chainSpatialConstraints", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_BlockSpatialConstraints(), this.getBlockSpatialConstraint(), null, "blockSpatialConstraints", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystemDescription_ComSpatialConstraints(), this.getComSpatialConstraint(), null, "comSpatialConstraints", null, 0, -1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystemDescription_Generation(), this.getGenerationMode(), "generation", "globalContext", 1, 1, SystemDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inputEClass, Input.class, "Input", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInput_Inner(), thecorePackage.getAString(), "inner", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInput_Type(), this.getTypeItem(), null, "type", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(globalEClass, Global.class, "Global", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGlobal_Type(), this.getTypeItem(), null, "type", null, 1, 1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputEClass, Output.class, "Output", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOutput_Inner(), thecorePackage.getAString(), "inner", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutput_Type(), this.getTypeItem(), null, "type", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFile_Path(), thecorePackage.getAString(), "path", null, 1, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1380,6 +1660,8 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEAttribute(getFunctionItem_Budget(), this.getNanoSec(), "budget", "0", 1, 1, FunctionItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFunctionItem_ExecTWLength(), this.getTimeUnit(), "execTWLength", null, 0, 1, FunctionItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFunctionItem_ExecTWRhythm(), this.getTimeUnit(), "execTWRhythm", null, 0, 1, FunctionItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunctionItem_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, FunctionItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunctionItem_ReturnValue(), this.getReturnValue(), null, "returnValue", null, 0, 1, FunctionItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeItemEClass, TypeItem.class, "TypeItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeItem_CopyFunction(), thecorePackage.getAString(), "copyFunction", null, 0, 1, TypeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1433,6 +1715,21 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEAttribute(getTimingPathItem_Date(), this.getTimeUnit(), "date", null, 1, 1, TimingPathItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimingPathItem_BehaviorItem(), this.getBehaviorItem(), null, "behaviorItem", null, 1, 1, TimingPathItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameter_Dir(), this.getParameterDir(), "dir", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Pointer(), theXMLTypePackage.getBoolean(), "pointer", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Order(), theXMLTypePackage.getInt(), "order", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_Ref(), this.getParameterReference(), null, "ref", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Name(), thecorePackage.getAString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(returnValueEClass, ReturnValue.class, "ReturnValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReturnValue_Ref(), this.getReturnValueReference(), null, "ref", null, 1, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReturnValue_Dir(), this.getReturnType(), "dir", null, 1, 1, ReturnValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(returnValueReferenceEClass, ReturnValueReference.class, "ReturnValueReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(behaviorItemKindEEnum, BehaviorItemKind.class, "BehaviorItemKind");
 		addEEnumLiteral(behaviorItemKindEEnum, BehaviorItemKind.INTERNAL);
@@ -1443,6 +1740,15 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		addEEnumLiteral(functionKindEEnum, FunctionKind.INIT);
 		addEEnumLiteral(functionKindEEnum, FunctionKind.CYCLE);
 		addEEnumLiteral(functionKindEEnum, FunctionKind.RESET);
+
+		initEEnum(generationModeEEnum, GenerationMode.class, "GenerationMode");
+		addEEnumLiteral(generationModeEEnum, GenerationMode.GLOBAL_CONTEXT);
+		addEEnumLiteral(generationModeEEnum, GenerationMode.SEPARATE_IO);
+
+		initEEnum(parameterDirEEnum, ParameterDir.class, "ParameterDir");
+		addEEnumLiteral(parameterDirEEnum, ParameterDir.INTERN);
+		addEEnumLiteral(parameterDirEEnum, ParameterDir.INPUT);
+		addEEnumLiteral(parameterDirEEnum, ParameterDir.OUTPUT);
 
 		initEEnum(temporalKindEEnum, TemporalKind.class, "TemporalKind");
 		addEEnumLiteral(temporalKindEEnum, TemporalKind.PERIODIC);
@@ -1455,6 +1761,10 @@ public class oasdPackageImpl extends EPackageImpl implements oasdPackage {
 		initEEnum(spatialOperatorEEnum, SpatialOperator.class, "SpatialOperator");
 		addEEnumLiteral(spatialOperatorEEnum, SpatialOperator.EXCLUDE);
 		addEEnumLiteral(spatialOperatorEEnum, SpatialOperator.INCLUDE);
+
+		initEEnum(returnTypeEEnum, ReturnType.class, "ReturnType");
+		addEEnumLiteral(returnTypeEEnum, ReturnType.INTERN);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.OUTPUT);
 
 		// Initialize data types
 		initEDataType(orderValEDataType, Integer.class, "OrderVal", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

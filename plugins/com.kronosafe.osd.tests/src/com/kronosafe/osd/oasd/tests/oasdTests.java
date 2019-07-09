@@ -53,6 +53,8 @@ public class oasdTests extends TestSuite {
 		suite.addTestSuite(ChainSpatialConstraintTest.class);
 		suite.addTestSuite(ComSpatialConstraintTest.class);
 		suite.addTestSuite(TimingPathItemTest.class);
+		suite.addTestSuite(ParameterTest.class);
+		suite.addTestSuite(ReturnValueTest.class);
 		return suite;
 	}
 

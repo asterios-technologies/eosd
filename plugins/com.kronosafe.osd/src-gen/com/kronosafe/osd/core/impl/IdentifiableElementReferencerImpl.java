@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -128,6 +129,18 @@ public abstract class IdentifiableElementReferencerImpl extends AnnotatedElement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @not generated
+	 */
+	@Override
+	public IdentifiedElement findItem(Integer id, EReference eReference, Resource eRessource) {
+		if(id == null || eReference == null || eRessource == null)
+			return null;
+		return findItem(id, eReference.getEReferenceType(), eRessource);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -141,6 +154,8 @@ public abstract class IdentifiableElementReferencerImpl extends AnnotatedElement
 				return findItemInResourceSet((Integer)arguments.get(0), (EClass)arguments.get(1));
 			case corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE:
 				return findItem((Integer)arguments.get(0), (EClass)arguments.get(1), (Resource)arguments.get(2));
+			case corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE:
+				return findItem((Integer)arguments.get(0), (EReference)arguments.get(1), (Resource)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

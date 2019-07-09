@@ -19,13 +19,14 @@ import com.kronosafe.osd.core.NamedElement;
  * </p>
  * <ul>
  *   <li>{@link com.kronosafe.osd.oasd.Output#getInner <em>Inner</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.Output#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see com.kronosafe.osd.oasd.oasdPackage#getOutput()
  * @model
  * @generated
  */
-public interface Output extends IdentifiedElement, NamedElement {
+public interface Output extends IdentifiedElement, NamedElement, ParameterReference, ReturnValueReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,5 +62,30 @@ public interface Output extends IdentifiedElement, NamedElement {
 	 * @generated
 	 */
 	void setInner(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The type of the output
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(TypeItem)
+	 * @see com.kronosafe.osd.oasd.oasdPackage#getOutput_Type()
+	 * @model resolveProxies="false"
+	 * @generated
+	 */
+	TypeItem getType();
+
+	/**
+	 * Sets the value of the '{@link com.kronosafe.osd.oasd.Output#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(TypeItem value);
 
 } // Output

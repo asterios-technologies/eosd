@@ -92,6 +92,7 @@ public class oasdSwitch<T> extends Switch<T> {
 				T result = caseInput(input);
 				if (result == null) result = caseIdentifiedElement(input);
 				if (result == null) result = caseNamedElement(input);
+				if (result == null) result = caseParameterReference(input);
 				if (result == null) result = caseIdentifiableElementReferencer(input);
 				if (result == null) result = caseAnnotatedElement(input);
 				if (result == null) result = defaultCase(theEObject);
@@ -100,8 +101,11 @@ public class oasdSwitch<T> extends Switch<T> {
 			case oasdPackage.GLOBAL: {
 				Global global = (Global)theEObject;
 				T result = caseGlobal(global);
-				if (result == null) result = caseIdentifiableElementReferencer(global);
+				if (result == null) result = caseIdentifiedElement(global);
 				if (result == null) result = caseNamedElement(global);
+				if (result == null) result = caseParameterReference(global);
+				if (result == null) result = caseReturnValueReference(global);
+				if (result == null) result = caseIdentifiableElementReferencer(global);
 				if (result == null) result = caseAnnotatedElement(global);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -111,6 +115,8 @@ public class oasdSwitch<T> extends Switch<T> {
 				T result = caseOutput(output);
 				if (result == null) result = caseIdentifiedElement(output);
 				if (result == null) result = caseNamedElement(output);
+				if (result == null) result = caseParameterReference(output);
+				if (result == null) result = caseReturnValueReference(output);
 				if (result == null) result = caseIdentifiableElementReferencer(output);
 				if (result == null) result = caseAnnotatedElement(output);
 				if (result == null) result = defaultCase(theEObject);
@@ -249,6 +255,34 @@ public class oasdSwitch<T> extends Switch<T> {
 				T result = caseTimingPathItem(timingPathItem);
 				if (result == null) result = caseIdentifiableElementReferencer(timingPathItem);
 				if (result == null) result = caseAnnotatedElement(timingPathItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case oasdPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseIdentifiableElementReferencer(parameter);
+				if (result == null) result = caseAnnotatedElement(parameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case oasdPackage.PARAMETER_REFERENCE: {
+				ParameterReference parameterReference = (ParameterReference)theEObject;
+				T result = caseParameterReference(parameterReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case oasdPackage.RETURN_VALUE: {
+				ReturnValue returnValue = (ReturnValue)theEObject;
+				T result = caseReturnValue(returnValue);
+				if (result == null) result = caseIdentifiableElementReferencer(returnValue);
+				if (result == null) result = caseAnnotatedElement(returnValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case oasdPackage.RETURN_VALUE_REFERENCE: {
+				ReturnValueReference returnValueReference = (ReturnValueReference)theEObject;
+				T result = caseReturnValueReference(returnValueReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -598,6 +632,66 @@ public class oasdSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingPathItem(TimingPathItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterReference(ParameterReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Return Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Return Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReturnValue(ReturnValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Return Value Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Return Value Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReturnValueReference(ReturnValueReference object) {
 		return null;
 	}
 

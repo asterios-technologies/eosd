@@ -6,6 +6,7 @@ package com.kronosafe.osd.oasd.provider;
 
 import com.kronosafe.osd.core.provider.NamedElementItemProvider;
 import com.kronosafe.osd.oasd.FunctionItem;
+import com.kronosafe.osd.oasd.oasdFactory;
 import com.kronosafe.osd.oasd.oasdPackage;
 
 import java.util.Collection;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -152,6 +154,37 @@ public class FunctionItemItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(oasdPackage.Literals.FUNCTION_ITEM__PARAMETERS);
+			childrenFeatures.add(oasdPackage.Literals.FUNCTION_ITEM__RETURN_VALUE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns FunctionItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,6 +228,10 @@ public class FunctionItemItemProvider extends NamedElementItemProvider {
 			case oasdPackage.FUNCTION_ITEM__EXEC_TW_RHYTHM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case oasdPackage.FUNCTION_ITEM__PARAMETERS:
+			case oasdPackage.FUNCTION_ITEM__RETURN_VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -209,6 +246,16 @@ public class FunctionItemItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(oasdPackage.Literals.FUNCTION_ITEM__PARAMETERS,
+				 oasdFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(oasdPackage.Literals.FUNCTION_ITEM__RETURN_VALUE,
+				 oasdFactory.eINSTANCE.createReturnValue()));
 	}
 
 	/**

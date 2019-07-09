@@ -53,6 +53,41 @@
         </eAnnotations>
       </eLiterals>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="GenerationMode">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The description of the functional generation mode."/>
+      </eAnnotations>
+      <eLiterals name="globalContext">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A global context generation mode."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="separateIO" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Function with parameters generation mode."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ParameterDir">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The function parameter direction reference enumeration."/>
+      </eAnnotations>
+      <eLiterals name="intern">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A reference to a Global."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="input" value="1" literal="input">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A reference to an Input."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="output" value="2" literal="output">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A reference to an output."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="TimeUnit" instanceClassName="java.lang.Integer"/>
     <eClassifiers xsi:type="ecore:EClass" name="SystemDescription" eSuperTypes="#//core/IdentifiableElementReferencer #//core/NamedElement #//core/VersionedElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
@@ -121,8 +156,14 @@
           <details key="documentation" value="The system owned com spatial constraints."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="generation" lowerBound="1"
+          eType="#//oasd/GenerationMode" defaultValueLiteral="globalContext">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The description of the functional generation mode, either with a global context approach or functions with parameters."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//core/IdentifiedElement #//core/NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//core/IdentifiedElement #//core/NamedElement #//oasd/ParameterReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An Input represents an input data of the block under consideration."/>
       </eAnnotations>
@@ -131,8 +172,14 @@
           <details key="documentation" value="The port name manipulated by the functional C function."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//oasd/TypeItem"
+          resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The type of the input"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Global" eSuperTypes="#//core/IdentifiableElementReferencer #//core/NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Global" eSuperTypes="#//core/IdentifiedElement #//core/IdentifiableElementReferencer #//core/NamedElement #//oasd/ParameterReference #//oasd/ReturnValueReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A Global represents a global data of the block under consideration. It is an element of the context of the C-functions that correspond to the block."/>
       </eAnnotations>
@@ -143,13 +190,19 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//core/IdentifiedElement #//core/NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//core/IdentifiedElement #//core/NamedElement #//oasd/ParameterReference #//oasd/ReturnValueReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An Output represents an output data of the block under consideration."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="inner" eType="#//core/AString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The port name manipulated by the functional C function."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//oasd/TypeItem"
+          resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The type of the output"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -246,6 +299,18 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="execTWRhythm" eType="#//oasd/TimeUnit">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value=" It is the rhythm on which the execution time windows is activated, i.e. the period of the execution time window start."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//oasd/Parameter" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The parameters of the function."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="#//oasd/ReturnValue"
+          containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The return value of the function."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -530,6 +595,80 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//core/IdentifiableElementReferencer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A function parameter in case of separate IO generation, i.e. functions are using parameters to exchange data and not global variables."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dir" lowerBound="1" eType="#//oasd/ParameterDir"
+          derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The parameter direction derivated from the input/output/global reference type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pointer" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="If true, the parameter is a pointer, i.e. at execution the assigned variable to this parameter is passed by reference. If false, the assigned variable is passed by value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The parameter position in the function prototype."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//oasd/ParameterReference"
+          resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The input/output/global that the parameter references."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//core/AString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The parameter name."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element that a parameter may reference."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReturnValue" eSuperTypes="#//core/IdentifiableElementReferencer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A function return value in case of separate IO generation, i.e. functions are using return value to exchange data and not global variables."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//oasd/ReturnValueReference">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The output/global that the function references as return value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dir" lowerBound="1" eType="#//oasd/ReturnType"
+          derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The parameter direction derivated from the output/global reference type."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReturnValueReference" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An element that a function may reference as a return value."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The function return value direction reference enumeration."/>
+      </eAnnotations>
+      <eLiterals name="intern">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A reference to a Global."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="output" value="2" literal="output">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A reference to an output."/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="oad" nsURI="http://www.krono-safe.com/oad" nsPrefix="">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -680,6 +819,11 @@
       <eOperations name="findItem" eType="#//core/IdentifiedElement">
         <eParameters name="id" eType="#//core/IdVal"/>
         <eParameters name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        <eParameters name="eRessource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EResource"/>
+      </eOperations>
+      <eOperations name="findItem" eType="#//core/IdentifiedElement">
+        <eParameters name="id" eType="#//core/IdVal"/>
+        <eParameters name="eReference" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
         <eParameters name="eRessource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EResource"/>
       </eOperations>
     </eClassifiers>

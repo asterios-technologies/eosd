@@ -3,6 +3,7 @@
 package com.kronosafe.osd.core;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -59,5 +60,13 @@ public interface IdentifiableElementReferencer extends AnnotatedElement {
 	 * @generated
 	 */
 	IdentifiedElement findItem(Integer id, EClass eClass, Resource eRessource);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model idDataType="com.kronosafe.osd.core.IdVal"
+	 * @generated
+	 */
+	IdentifiedElement findItem(Integer id, EReference eReference, Resource eRessource);
 
 } // IdentifiableElementReferencer

@@ -28,6 +28,7 @@ import com.kronosafe.osd.core.VersionedElement;
  *   <li>{@link com.kronosafe.osd.oasd.SystemDescription#getChainSpatialConstraints <em>Chain Spatial Constraints</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.SystemDescription#getBlockSpatialConstraints <em>Block Spatial Constraints</em>}</li>
  *   <li>{@link com.kronosafe.osd.oasd.SystemDescription#getComSpatialConstraints <em>Com Spatial Constraints</em>}</li>
+ *   <li>{@link com.kronosafe.osd.oasd.SystemDescription#getGeneration <em>Generation</em>}</li>
  * </ul>
  *
  * @see com.kronosafe.osd.oasd.oasdPackage#getSystemDescription()
@@ -279,5 +280,34 @@ public interface SystemDescription extends IdentifiableElementReferencer, NamedE
 	 * @generated
 	 */
 	EList<ComSpatialConstraint> getComSpatialConstraints();
+
+	/**
+	 * Returns the value of the '<em><b>Generation</b></em>' attribute.
+	 * The default value is <code>"globalContext"</code>.
+	 * The literals are from the enumeration {@link com.kronosafe.osd.oasd.GenerationMode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The description of the functional generation mode, either with a global context approach or functions with parameters.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Generation</em>' attribute.
+	 * @see com.kronosafe.osd.oasd.GenerationMode
+	 * @see #setGeneration(GenerationMode)
+	 * @see com.kronosafe.osd.oasd.oasdPackage#getSystemDescription_Generation()
+	 * @model default="globalContext" required="true"
+	 * @generated
+	 */
+	GenerationMode getGeneration();
+
+	/**
+	 * Sets the value of the '{@link com.kronosafe.osd.oasd.SystemDescription#getGeneration <em>Generation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Generation</em>' attribute.
+	 * @see com.kronosafe.osd.oasd.GenerationMode
+	 * @see #getGeneration()
+	 * @generated
+	 */
+	void setGeneration(GenerationMode value);
 
 } // SystemDescription

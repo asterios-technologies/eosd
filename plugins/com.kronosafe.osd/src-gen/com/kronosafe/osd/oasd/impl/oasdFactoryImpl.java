@@ -81,6 +81,8 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 			case oasdPackage.CHAIN_SPATIAL_CONSTRAINT: return createChainSpatialConstraint();
 			case oasdPackage.COM_SPATIAL_CONSTRAINT: return createComSpatialConstraint();
 			case oasdPackage.TIMING_PATH_ITEM: return createTimingPathItem();
+			case oasdPackage.PARAMETER: return createParameter();
+			case oasdPackage.RETURN_VALUE: return createReturnValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -98,12 +100,18 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 				return createBehaviorItemKindFromString(eDataType, initialValue);
 			case oasdPackage.FUNCTION_KIND:
 				return createFunctionKindFromString(eDataType, initialValue);
+			case oasdPackage.GENERATION_MODE:
+				return createGenerationModeFromString(eDataType, initialValue);
+			case oasdPackage.PARAMETER_DIR:
+				return createParameterDirFromString(eDataType, initialValue);
 			case oasdPackage.TEMPORAL_KIND:
 				return createTemporalKindFromString(eDataType, initialValue);
 			case oasdPackage.CONSTRAINT_OPERATOR:
 				return createConstraintOperatorFromString(eDataType, initialValue);
 			case oasdPackage.SPATIAL_OPERATOR:
 				return createSpatialOperatorFromString(eDataType, initialValue);
+			case oasdPackage.RETURN_TYPE:
+				return createReturnTypeFromString(eDataType, initialValue);
 			case oasdPackage.ORDER_VAL:
 				return createOrderValFromString(eDataType, initialValue);
 			case oasdPackage.TIME_UNIT:
@@ -127,12 +135,18 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 				return convertBehaviorItemKindToString(eDataType, instanceValue);
 			case oasdPackage.FUNCTION_KIND:
 				return convertFunctionKindToString(eDataType, instanceValue);
+			case oasdPackage.GENERATION_MODE:
+				return convertGenerationModeToString(eDataType, instanceValue);
+			case oasdPackage.PARAMETER_DIR:
+				return convertParameterDirToString(eDataType, instanceValue);
 			case oasdPackage.TEMPORAL_KIND:
 				return convertTemporalKindToString(eDataType, instanceValue);
 			case oasdPackage.CONSTRAINT_OPERATOR:
 				return convertConstraintOperatorToString(eDataType, instanceValue);
 			case oasdPackage.SPATIAL_OPERATOR:
 				return convertSpatialOperatorToString(eDataType, instanceValue);
+			case oasdPackage.RETURN_TYPE:
+				return convertReturnTypeToString(eDataType, instanceValue);
 			case oasdPackage.ORDER_VAL:
 				return convertOrderValToString(eDataType, instanceValue);
 			case oasdPackage.TIME_UNIT:
@@ -347,6 +361,28 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ReturnValue createReturnValue() {
+		ReturnValueImpl returnValue = new ReturnValueImpl();
+		return returnValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BehaviorItemKind createBehaviorItemKindFromString(EDataType eDataType, String initialValue) {
 		BehaviorItemKind result = BehaviorItemKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -379,6 +415,46 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	 * @generated
 	 */
 	public String convertFunctionKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenerationMode createGenerationModeFromString(EDataType eDataType, String initialValue) {
+		GenerationMode result = GenerationMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGenerationModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterDir createParameterDirFromString(EDataType eDataType, String initialValue) {
+		ParameterDir result = ParameterDir.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertParameterDirToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -439,6 +515,26 @@ public class oasdFactoryImpl extends EFactoryImpl implements oasdFactory {
 	 * @generated
 	 */
 	public String convertSpatialOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReturnType createReturnTypeFromString(EDataType eDataType, String initialValue) {
+		ReturnType result = ReturnType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertReturnTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

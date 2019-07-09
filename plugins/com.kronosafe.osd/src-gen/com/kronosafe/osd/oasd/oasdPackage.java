@@ -207,13 +207,22 @@ public interface oasdPackage extends EPackage {
 	int SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Generation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_DESCRIPTION__GENERATION = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>System Description</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_DESCRIPTION_FEATURE_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 13;
+	int SYSTEM_DESCRIPTION_FEATURE_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -250,6 +259,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYSTEM_DESCRIPTION___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_DESCRIPTION___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>System Description</em>' class.
@@ -307,13 +325,22 @@ public interface oasdPackage extends EPackage {
 	int INPUT__INNER = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__TYPE = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_FEATURE_COUNT = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+	int INPUT_FEATURE_COUNT = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -352,6 +379,15 @@ public interface oasdPackage extends EPackage {
 	int INPUT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,7 +413,16 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL__ANNOTATIONS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
+	int GLOBAL__ANNOTATIONS = corePackage.IDENTIFIED_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOBAL__ID = corePackage.IDENTIFIED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -386,7 +431,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL__NAME = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 0;
+	int GLOBAL__NAME = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -395,7 +440,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL__TYPE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 1;
+	int GLOBAL__TYPE = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Global</em>' class.
@@ -404,7 +449,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_FEATURE_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 2;
+	int GLOBAL_FEATURE_COUNT = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -413,7 +458,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL___FIND_ITEM__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS;
+	int GLOBAL___FIND_ITEM__INTEGER_ECLASS = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -422,7 +467,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE;
+	int GLOBAL___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE;
 
 	/**
 	 * The operation id for the '<em>Find Item In Resource Set</em>' operation.
@@ -431,7 +476,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS;
+	int GLOBAL___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -440,7 +485,16 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+	int GLOBAL___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GLOBAL___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Global</em>' class.
@@ -449,7 +503,7 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GLOBAL_OPERATION_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
+	int GLOBAL_OPERATION_COUNT = corePackage.IDENTIFIED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.OutputImpl <em>Output</em>}' class.
@@ -498,13 +552,22 @@ public interface oasdPackage extends EPackage {
 	int OUTPUT__INNER = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT__TYPE = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Output</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_FEATURE_COUNT = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 2;
+	int OUTPUT_FEATURE_COUNT = corePackage.IDENTIFIED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Find Item</em>' operation.
@@ -541,6 +604,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUTPUT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Output</em>' class.
@@ -678,6 +750,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Code</em>' class.
@@ -834,6 +915,15 @@ public interface oasdPackage extends EPackage {
 	int BEHAVIOR_ITEM___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_ITEM___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Behavior Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -907,13 +997,31 @@ public interface oasdPackage extends EPackage {
 	int FUNCTION_ITEM__EXEC_TW_RHYTHM = corePackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_ITEM__PARAMETERS = corePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_ITEM__RETURN_VALUE = corePackage.NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Function Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_ITEM_FEATURE_COUNT = corePackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int FUNCTION_ITEM_FEATURE_COUNT = corePackage.NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Function Item</em>' class.
@@ -1014,6 +1122,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_ITEM___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ITEM___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Type Item</em>' class.
@@ -1152,6 +1269,15 @@ public interface oasdPackage extends EPackage {
 	int COMMUNICATION_ITEM___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_ITEM___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The operation id for the '<em>Get Ports</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1250,6 +1376,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -1498,6 +1633,15 @@ public interface oasdPackage extends EPackage {
 	int FUNCTIONAL_CHAIN_ITEM___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTIONAL_CHAIN_ITEM___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Functional Chain Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1608,6 +1752,15 @@ public interface oasdPackage extends EPackage {
 	int SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIED_ELEMENT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Spatial Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1714,6 +1867,15 @@ public interface oasdPackage extends EPackage {
 	 * @ordered
 	 */
 	int BLOCK_SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK_SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
 
 	/**
 	 * The number of operations of the '<em>Block Spatial Constraint</em>' class.
@@ -1834,6 +1996,15 @@ public interface oasdPackage extends EPackage {
 	int CHAIN_SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Chain Spatial Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1952,6 +2123,15 @@ public interface oasdPackage extends EPackage {
 	int COM_SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE = SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = SPATIAL_CONSTRAINT___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Com Spatial Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2043,6 +2223,15 @@ public interface oasdPackage extends EPackage {
 	int TIMING_PATH_ITEM___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
 
 	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_PATH_ITEM___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
 	 * The number of operations of the '<em>Timing Path Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2052,6 +2241,289 @@ public interface oasdPackage extends EPackage {
 	int TIMING_PATH_ITEM_OPERATION_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.ParameterImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 19;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ANNOTATIONS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Dir</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DIR = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Pointer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__POINTER = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ORDER = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__REF = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__NAME = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___FIND_ITEM__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>Find Item In Resource Set</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.ParameterReferenceImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getParameterReference()
+	 * @generated
+	 */
+	int PARAMETER_REFERENCE = 20;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.ReturnValueImpl <em>Return Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.ReturnValueImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getReturnValue()
+	 * @generated
+	 */
+	int RETURN_VALUE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE__ANNOTATIONS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE__REF = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Dir</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE__DIR = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Return Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE_FEATURE_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE___FIND_ITEM__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ESTRUCTURALFEATURE;
+
+	/**
+	 * The operation id for the '<em>Find Item In Resource Set</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM_IN_RESOURCE_SET__INTEGER_ECLASS;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE___FIND_ITEM__INTEGER_ECLASS_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_ECLASS_RESOURCE;
+
+	/**
+	 * The operation id for the '<em>Find Item</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER___FIND_ITEM__INTEGER_EREFERENCE_RESOURCE;
+
+	/**
+	 * The number of operations of the '<em>Return Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE_OPERATION_COUNT = corePackage.IDENTIFIABLE_ELEMENT_REFERENCER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.impl.ReturnValueReferenceImpl <em>Return Value Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.impl.ReturnValueReferenceImpl
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getReturnValueReference()
+	 * @generated
+	 */
+	int RETURN_VALUE_REFERENCE = 22;
+
+	/**
+	 * The number of structural features of the '<em>Return Value Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE_REFERENCE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Return Value Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN_VALUE_REFERENCE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.BehaviorItemKind <em>Behavior Item Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2059,7 +2531,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getBehaviorItemKind()
 	 * @generated
 	 */
-	int BEHAVIOR_ITEM_KIND = 19;
+	int BEHAVIOR_ITEM_KIND = 23;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.FunctionKind <em>Function Kind</em>}' enum.
@@ -2069,7 +2541,27 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getFunctionKind()
 	 * @generated
 	 */
-	int FUNCTION_KIND = 20;
+	int FUNCTION_KIND = 24;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.GenerationMode <em>Generation Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.GenerationMode
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getGenerationMode()
+	 * @generated
+	 */
+	int GENERATION_MODE = 25;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.ParameterDir <em>Parameter Dir</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.ParameterDir
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getParameterDir()
+	 * @generated
+	 */
+	int PARAMETER_DIR = 26;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.TemporalKind <em>Temporal Kind</em>}' enum.
@@ -2079,7 +2571,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTemporalKind()
 	 * @generated
 	 */
-	int TEMPORAL_KIND = 21;
+	int TEMPORAL_KIND = 27;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.ConstraintOperator <em>Constraint Operator</em>}' enum.
@@ -2089,7 +2581,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getConstraintOperator()
 	 * @generated
 	 */
-	int CONSTRAINT_OPERATOR = 22;
+	int CONSTRAINT_OPERATOR = 28;
 
 	/**
 	 * The meta object id for the '{@link com.kronosafe.osd.oasd.SpatialOperator <em>Spatial Operator</em>}' enum.
@@ -2099,7 +2591,17 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getSpatialOperator()
 	 * @generated
 	 */
-	int SPATIAL_OPERATOR = 23;
+	int SPATIAL_OPERATOR = 29;
+
+	/**
+	 * The meta object id for the '{@link com.kronosafe.osd.oasd.ReturnType <em>Return Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.kronosafe.osd.oasd.ReturnType
+	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getReturnType()
+	 * @generated
+	 */
+	int RETURN_TYPE = 30;
 
 	/**
 	 * The meta object id for the '<em>Order Val</em>' data type.
@@ -2109,7 +2611,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getOrderVal()
 	 * @generated
 	 */
-	int ORDER_VAL = 24;
+	int ORDER_VAL = 31;
 
 	/**
 	 * The meta object id for the '<em>Time Unit</em>' data type.
@@ -2119,7 +2621,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 25;
+	int TIME_UNIT = 32;
 
 	/**
 	 * The meta object id for the '<em>Nano Sec</em>' data type.
@@ -2129,7 +2631,7 @@ public interface oasdPackage extends EPackage {
 	 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getNanoSec()
 	 * @generated
 	 */
-	int NANO_SEC = 26;
+	int NANO_SEC = 33;
 
 
 	/**
@@ -2264,6 +2766,17 @@ public interface oasdPackage extends EPackage {
 	EReference getSystemDescription_ComSpatialConstraints();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.kronosafe.osd.oasd.SystemDescription#getGeneration <em>Generation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Generation</em>'.
+	 * @see com.kronosafe.osd.oasd.SystemDescription#getGeneration()
+	 * @see #getSystemDescription()
+	 * @generated
+	 */
+	EAttribute getSystemDescription_Generation();
+
+	/**
 	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.Input <em>Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2283,6 +2796,17 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInput_Inner();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.kronosafe.osd.oasd.Input#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see com.kronosafe.osd.oasd.Input#getType()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EReference getInput_Type();
 
 	/**
 	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.Global <em>Global</em>}'.
@@ -2325,6 +2849,17 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOutput_Inner();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.kronosafe.osd.oasd.Output#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see com.kronosafe.osd.oasd.Output#getType()
+	 * @see #getOutput()
+	 * @generated
+	 */
+	EReference getOutput_Type();
 
 	/**
 	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.File <em>File</em>}'.
@@ -2508,6 +3043,28 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFunctionItem_ExecTWRhythm();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.kronosafe.osd.oasd.FunctionItem#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see com.kronosafe.osd.oasd.FunctionItem#getParameters()
+	 * @see #getFunctionItem()
+	 * @generated
+	 */
+	EReference getFunctionItem_Parameters();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.kronosafe.osd.oasd.FunctionItem#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Return Value</em>'.
+	 * @see com.kronosafe.osd.oasd.FunctionItem#getReturnValue()
+	 * @see #getFunctionItem()
+	 * @generated
+	 */
+	EReference getFunctionItem_ReturnValue();
 
 	/**
 	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.TypeItem <em>Type Item</em>}'.
@@ -2926,6 +3483,123 @@ public interface oasdPackage extends EPackage {
 	EReference getTimingPathItem_BehaviorItem();
 
 	/**
+	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see com.kronosafe.osd.oasd.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.kronosafe.osd.oasd.Parameter#getDir <em>Dir</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dir</em>'.
+	 * @see com.kronosafe.osd.oasd.Parameter#getDir()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Dir();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.kronosafe.osd.oasd.Parameter#isPointer <em>Pointer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pointer</em>'.
+	 * @see com.kronosafe.osd.oasd.Parameter#isPointer()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Pointer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.kronosafe.osd.oasd.Parameter#getOrder <em>Order</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Order</em>'.
+	 * @see com.kronosafe.osd.oasd.Parameter#getOrder()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Order();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.kronosafe.osd.oasd.Parameter#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see com.kronosafe.osd.oasd.Parameter#getRef()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_Ref();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.kronosafe.osd.oasd.Parameter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.kronosafe.osd.oasd.Parameter#getName()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Name();
+
+	/**
+	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Reference</em>'.
+	 * @see com.kronosafe.osd.oasd.ParameterReference
+	 * @generated
+	 */
+	EClass getParameterReference();
+
+	/**
+	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.ReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Return Value</em>'.
+	 * @see com.kronosafe.osd.oasd.ReturnValue
+	 * @generated
+	 */
+	EClass getReturnValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.kronosafe.osd.oasd.ReturnValue#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see com.kronosafe.osd.oasd.ReturnValue#getRef()
+	 * @see #getReturnValue()
+	 * @generated
+	 */
+	EReference getReturnValue_Ref();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.kronosafe.osd.oasd.ReturnValue#getDir <em>Dir</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dir</em>'.
+	 * @see com.kronosafe.osd.oasd.ReturnValue#getDir()
+	 * @see #getReturnValue()
+	 * @generated
+	 */
+	EAttribute getReturnValue_Dir();
+
+	/**
+	 * Returns the meta object for class '{@link com.kronosafe.osd.oasd.ReturnValueReference <em>Return Value Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Return Value Reference</em>'.
+	 * @see com.kronosafe.osd.oasd.ReturnValueReference
+	 * @generated
+	 */
+	EClass getReturnValueReference();
+
+	/**
 	 * Returns the meta object for enum '{@link com.kronosafe.osd.oasd.BehaviorItemKind <em>Behavior Item Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2944,6 +3618,26 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getFunctionKind();
+
+	/**
+	 * Returns the meta object for enum '{@link com.kronosafe.osd.oasd.GenerationMode <em>Generation Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Generation Mode</em>'.
+	 * @see com.kronosafe.osd.oasd.GenerationMode
+	 * @generated
+	 */
+	EEnum getGenerationMode();
+
+	/**
+	 * Returns the meta object for enum '{@link com.kronosafe.osd.oasd.ParameterDir <em>Parameter Dir</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Parameter Dir</em>'.
+	 * @see com.kronosafe.osd.oasd.ParameterDir
+	 * @generated
+	 */
+	EEnum getParameterDir();
 
 	/**
 	 * Returns the meta object for enum '{@link com.kronosafe.osd.oasd.TemporalKind <em>Temporal Kind</em>}'.
@@ -2974,6 +3668,16 @@ public interface oasdPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSpatialOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link com.kronosafe.osd.oasd.ReturnType <em>Return Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Return Type</em>'.
+	 * @see com.kronosafe.osd.oasd.ReturnType
+	 * @generated
+	 */
+	EEnum getReturnType();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Integer <em>Order Val</em>}'.
@@ -3136,6 +3840,14 @@ public interface oasdPackage extends EPackage {
 		EReference SYSTEM_DESCRIPTION__COM_SPATIAL_CONSTRAINTS = eINSTANCE.getSystemDescription_ComSpatialConstraints();
 
 		/**
+		 * The meta object literal for the '<em><b>Generation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYSTEM_DESCRIPTION__GENERATION = eINSTANCE.getSystemDescription_Generation();
+
+		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.InputImpl <em>Input</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3152,6 +3864,14 @@ public interface oasdPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INPUT__INNER = eINSTANCE.getInput_Inner();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT__TYPE = eINSTANCE.getInput_Type();
 
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.GlobalImpl <em>Global</em>}' class.
@@ -3188,6 +3908,14 @@ public interface oasdPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OUTPUT__INNER = eINSTANCE.getOutput_Inner();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT__TYPE = eINSTANCE.getOutput_Type();
 
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.FileImpl <em>File</em>}' class.
@@ -3332,6 +4060,22 @@ public interface oasdPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FUNCTION_ITEM__EXEC_TW_RHYTHM = eINSTANCE.getFunctionItem_ExecTWRhythm();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_ITEM__PARAMETERS = eINSTANCE.getFunctionItem_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_ITEM__RETURN_VALUE = eINSTANCE.getFunctionItem_ReturnValue();
 
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.TypeItemImpl <em>Type Item</em>}' class.
@@ -3668,6 +4412,102 @@ public interface oasdPackage extends EPackage {
 		EReference TIMING_PATH_ITEM__BEHAVIOR_ITEM = eINSTANCE.getTimingPathItem_BehaviorItem();
 
 		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.ParameterImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Dir</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__DIR = eINSTANCE.getParameter_Dir();
+
+		/**
+		 * The meta object literal for the '<em><b>Pointer</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__POINTER = eINSTANCE.getParameter_Pointer();
+
+		/**
+		 * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__ORDER = eINSTANCE.getParameter_Order();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__REF = eINSTANCE.getParameter_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.ParameterReferenceImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getParameterReference()
+		 * @generated
+		 */
+		EClass PARAMETER_REFERENCE = eINSTANCE.getParameterReference();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.ReturnValueImpl <em>Return Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.ReturnValueImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getReturnValue()
+		 * @generated
+		 */
+		EClass RETURN_VALUE = eINSTANCE.getReturnValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RETURN_VALUE__REF = eINSTANCE.getReturnValue_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Dir</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RETURN_VALUE__DIR = eINSTANCE.getReturnValue_Dir();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.impl.ReturnValueReferenceImpl <em>Return Value Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.impl.ReturnValueReferenceImpl
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getReturnValueReference()
+		 * @generated
+		 */
+		EClass RETURN_VALUE_REFERENCE = eINSTANCE.getReturnValueReference();
+
+		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.BehaviorItemKind <em>Behavior Item Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3686,6 +4526,26 @@ public interface oasdPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum FUNCTION_KIND = eINSTANCE.getFunctionKind();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.GenerationMode <em>Generation Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.GenerationMode
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getGenerationMode()
+		 * @generated
+		 */
+		EEnum GENERATION_MODE = eINSTANCE.getGenerationMode();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.ParameterDir <em>Parameter Dir</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.ParameterDir
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getParameterDir()
+		 * @generated
+		 */
+		EEnum PARAMETER_DIR = eINSTANCE.getParameterDir();
 
 		/**
 		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.TemporalKind <em>Temporal Kind</em>}' enum.
@@ -3716,6 +4576,16 @@ public interface oasdPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SPATIAL_OPERATOR = eINSTANCE.getSpatialOperator();
+
+		/**
+		 * The meta object literal for the '{@link com.kronosafe.osd.oasd.ReturnType <em>Return Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.kronosafe.osd.oasd.ReturnType
+		 * @see com.kronosafe.osd.oasd.impl.oasdPackageImpl#getReturnType()
+		 * @generated
+		 */
+		EEnum RETURN_TYPE = eINSTANCE.getReturnType();
 
 		/**
 		 * The meta object literal for the '<em>Order Val</em>' data type.

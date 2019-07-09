@@ -155,6 +155,22 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 				return createTimingPathItemAdapter();
 			}
 			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseParameterReference(ParameterReference object) {
+				return createParameterReferenceAdapter();
+			}
+			@Override
+			public Adapter caseReturnValue(ReturnValue object) {
+				return createReturnValueAdapter();
+			}
+			@Override
+			public Adapter caseReturnValueReference(ReturnValueReference object) {
+				return createReturnValueReferenceAdapter();
+			}
+			@Override
 			public Adapter caseAnnotatedElement(AnnotatedElement object) {
 				return createAnnotatedElementAdapter();
 			}
@@ -513,6 +529,62 @@ public class oasdAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimingPathItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.ParameterReference
+	 * @generated
+	 */
+	public Adapter createParameterReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.ReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.ReturnValue
+	 * @generated
+	 */
+	public Adapter createReturnValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.kronosafe.osd.oasd.ReturnValueReference <em>Return Value Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.kronosafe.osd.oasd.ReturnValueReference
+	 * @generated
+	 */
+	public Adapter createReturnValueReferenceAdapter() {
 		return null;
 	}
 

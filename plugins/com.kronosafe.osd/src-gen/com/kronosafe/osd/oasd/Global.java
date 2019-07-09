@@ -3,6 +3,7 @@
 package com.kronosafe.osd.oasd;
 
 import com.kronosafe.osd.core.IdentifiableElementReferencer;
+import com.kronosafe.osd.core.IdentifiedElement;
 import com.kronosafe.osd.core.NamedElement;
 
 /**
@@ -25,7 +26,7 @@ import com.kronosafe.osd.core.NamedElement;
  * @model
  * @generated
  */
-public interface Global extends IdentifiableElementReferencer, NamedElement {
+public interface Global extends IdentifiedElement, IdentifiableElementReferencer, NamedElement, ParameterReference, ReturnValueReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -494,6 +494,52 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.kronosafe.osd.oasd.ReturnValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReturnValueItemProvider returnValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.kronosafe.osd.oasd.ReturnValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReturnValueAdapter() {
+		if (returnValueItemProvider == null) {
+			returnValueItemProvider = new ReturnValueItemProvider(this);
+		}
+
+		return returnValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,6 +662,8 @@ public class oasdItemProviderAdapterFactory extends oasdAdapterFactory implement
 		if (chainSpatialConstraintItemProvider != null) chainSpatialConstraintItemProvider.dispose();
 		if (comSpatialConstraintItemProvider != null) comSpatialConstraintItemProvider.dispose();
 		if (timingPathItemItemProvider != null) timingPathItemItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (returnValueItemProvider != null) returnValueItemProvider.dispose();
 	}
 
 }
