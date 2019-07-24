@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="osd" nsURI="http://www.kronosafe.com/osd" nsPrefix="osd">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="osd" nsURI="http://www.krono-safe.com/osd" nsPrefix="osd">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="The Open System Description format is the format of the file that provides the system description. It allows describing the architecture of blocks of the system under study. Each block, named BehaviorItem, may have inputs and outputs data that are exchanged via communication channels, named CommunicationItem. A communication channel connects one output data of a block to one input data of a block. These data have types, named TypeItem, and are parts of the global data of the context of the C-functions that implement the given block. The implementation files of the blocks are also described as a list of files."/>
   </eAnnotations>
