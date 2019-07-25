@@ -17,6 +17,7 @@ ALLOWED:
 7 0 org.eclipse.rcptt.* Message:.*
 7 0 org.eclipse.ui.navigator.* Message:.*
 7 0 org.eclipse.ui.* Message:.*
+7 0 org.eclipse.epp.* Message:.*
 DENIED:
 7 0 .* Message:.*
 
