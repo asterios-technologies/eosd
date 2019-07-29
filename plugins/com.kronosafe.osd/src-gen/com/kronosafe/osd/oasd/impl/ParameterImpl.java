@@ -196,15 +196,7 @@ public class ParameterImpl extends IdentifiableElementReferencerImpl implements 
 			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.PARAMETER__DIR, oldDir, dir));
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @not generated
-	 */
-	public void basicSetDir(ParameterDir newDir) {
-		dir = newDir == null ? DIR_EDEFAULT : newDir;
-	}
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,16 +275,16 @@ public class ParameterImpl extends IdentifiableElementReferencerImpl implements 
 		ref = newRef;
 
 		if(newRef == null) {
-			basicSetDir(DIR_EDEFAULT);
+			setDir(DIR_EDEFAULT);
 		}
 		else if(ref.eClass() == oasdPackage.eINSTANCE.getOutput()) {
-			basicSetDir(ParameterDir.OUTPUT);
+			setDir(ParameterDir.OUTPUT);
 		}
 		else if (ref.eClass() == oasdPackage.eINSTANCE.getInput()) {
-			basicSetDir(ParameterDir.INPUT);
+			setDir(ParameterDir.INPUT);
 		}
 		else if (ref.eClass() == oasdPackage.eINSTANCE.getGlobal()) {
-			basicSetDir(ParameterDir.INTERN);
+			setDir(ParameterDir.INTERN);
 		}
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.PARAMETER__REF, oldRef, ref));
