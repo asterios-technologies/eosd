@@ -127,13 +127,13 @@ public class ReturnValueImpl extends IdentifiableElementReferencerImpl implement
 		ReturnValueReference oldRef = ref;
 		ref = newRef;
 		if(newRef == null) {
-			basicSetDir(DIR_EDEFAULT);
+			setDir(DIR_EDEFAULT);
 		}
 		else if(ref.eClass() == oasdPackage.eINSTANCE.getOutput()) {
-			basicSetDir(ReturnType.OUTPUT);
+			setDir(ReturnType.OUTPUT);
 		}
 		else if (ref.eClass() == oasdPackage.eINSTANCE.getGlobal()) {
-			basicSetDir(ReturnType.INTERN);
+			setDir(ReturnType.INTERN);
 		}		
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.RETURN_VALUE__REF, oldRef, ref));
@@ -162,15 +162,6 @@ public class ReturnValueImpl extends IdentifiableElementReferencerImpl implement
 			eNotify(new ENotificationImpl(this, Notification.SET, oasdPackage.RETURN_VALUE__DIR, oldDir, dir));
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @not generated
-	 */
-	public void basicSetDir(ReturnType newDir) {
-		dir = newDir == null ? DIR_EDEFAULT : newDir;
-	}	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
