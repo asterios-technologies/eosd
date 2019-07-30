@@ -1,0 +1,27 @@
+{
+    "projects": [{
+        "productVersion": "K19",
+        "configurations": [{
+            "target": "ksim",
+            "configuration": "default",
+            "preCompilationCmdLine": "",
+            "compilationOptionsAppended": [
+                ""
+            ],
+            "compilationOptionsRemoved": [
+                ""
+            ],
+            "compilationFilesAppended": [
+                ""
+            ],
+            "compilationFilesRemoved": [
+                ""
+            ],
+            "globalSymbolsAppended": [
+                "_printf",
+                ""
+            ],
+            "postCompilationCmdLine": ""
+        }]
+    }]
+}

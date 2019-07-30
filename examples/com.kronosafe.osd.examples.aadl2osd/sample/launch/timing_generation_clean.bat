@@ -1,0 +1,1 @@
+RMDIR /Q/S ..\gen-timing

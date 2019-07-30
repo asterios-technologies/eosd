@@ -100,7 +100,6 @@ rule SubprogramCall2BehaviorItem {
 		finit : oasd!FunctionItem(
 			name <- subPrgCalled.getFunctionCalledName()+'Init',
 			execTWRhythm <- s.getOwner().getOwner().getPeriod(),
-			execTWLength <- fcycle.execTWRhythm,
 			kind <- #init
 		),
 	 	tref : oad!BehaviorItemReference (
