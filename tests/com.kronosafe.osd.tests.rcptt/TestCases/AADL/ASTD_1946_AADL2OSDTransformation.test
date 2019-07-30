@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _vbouMP1LEeiecb80nKSZvA
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 12/12/18 9:24 AM
+Save-Time: 7/30/19 5:49 PM
 Testcase-Type: ecl
 Verifications: _zjs7YM8nEeSz9_HNAw245A
 
@@ -27,7 +27,7 @@ with [get-window "New Example"] {
     get-button Finish | click
 }
 with [get-view "Model Explorer" | get-tree] {
-    select "com.kronosafe.osd.examples.aadl2osd" | get-menu -path "Configure/Convert to ATL Project" | click
+    select "com.kronosafe.osd.examples.aadl2osd" | click
     select "com.kronosafe.osd.examples.aadl2osd/models/producer_consumer.oasd" | key-type Del
 }
 get-window "Delete Resources" | get-button OK | click
@@ -111,7 +111,7 @@ with [get-editor "producer_consumer.oasd" | get-tree] {
         -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ProducerFunction_ProducerFunction/Source" 
         | click
     get-item 
-        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ProducerFunction_ProducerFunction/Source/File producer_consumer.h" 
+        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ProducerFunction_ProducerFunction/Source/File producer.h" 
         | click
     get-item 
         -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ConsumerFunction_ConsumerFunction/Function Item consume" 
@@ -129,13 +129,13 @@ with [get-editor "producer_consumer.oasd" | get-tree] {
         -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ConsumerFunction_ConsumerFunction/Source" 
         | click
     get-item 
-        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ConsumerFunction_ConsumerFunction/Source/File producer_consumer.h" 
+        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Behavior Item ConsumerFunction_ConsumerFunction/Source/File consumer.h" 
         | click
     get-item 
-        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Code 0/File producer_consumer.c" 
+        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Code 0/File producer.c" 
         | click
     get-item 
-        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Code 1/File producer_consumer.c" 
+        -path "platform:\\/resource\\/com.kronosafe.osd.examples.aadl2osd\\/models\\/producer_consumer.oasd/System Description ProducerConsumerSystem/Code 1/File consumer.c" 
         | click
 }
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
