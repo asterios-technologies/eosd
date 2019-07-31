@@ -44,7 +44,7 @@ You have two options to obtain the eOSD feature
 
 ### Option 2: Download the eOSD featuregit
 
-- download the eOSD feature
+- download the eOSD feature from the releases in github
   - no need to unzip it
 
 ## How To use it

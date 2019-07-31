@@ -96,6 +96,8 @@ public class ReturnValueTest extends IdentifiableElementReferencerTest {
 	/**
 	 * Tests the '{@link com.kronosafe.osd.oasd.ReturnValue#getDir() <em>Dir</em>}' feature getter.
 	 * <!-- begin-user-doc -->
+	 * http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-2575
+	 * Test only the direction, other validation tests are managed in rcptt during PIT tests.
 	 * <!-- end-user-doc -->
 	 * @see com.kronosafe.osd.oasd.ReturnValue#getDir()
 	 * @not generated
@@ -128,6 +130,8 @@ public class ReturnValueTest extends IdentifiableElementReferencerTest {
 	/**
 	 * Tests the '{@link com.kronosafe.osd.oasd.ReturnValue#setDir(com.kronosafe.osd.oasd.ReturnType) <em>Dir</em>}' feature setter.
 	 * <!-- begin-user-doc -->
+	 * http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-2575
+	 * Test only the direction, other validation tests are managed in rcptt during PIT tests.
 	 * <!-- end-user-doc -->
 	 * @see com.kronosafe.osd.oasd.ReturnValue#setDir(com.kronosafe.osd.oasd.ReturnType)
 	 * @not generated

@@ -6,7 +6,7 @@ Element-Version: 2.0
 Id: _qvSPYKYNEeinLb3se9nAag
 Manually-Ordered: true
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 4/17/19 10:28 AM
+Save-Time: 7/31/19 5:09 PM
 
 ------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
 Content-Type: text/plain
@@ -25,7 +25,8 @@ _KMCuUPoaEeidNbfFeejbxQ	// kind: 'test' name: 'ASTD_1794_LoadedAndDumped_ASTD_17
 _jTOlQGCQEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_1796_execTimeUnitEdition' path: '../TestCases/TreeEditor/ASTD_1796_execTimeUnitEdition.test'
 _E6s2sGCHEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2569_Copy_Paste_ASTD_2572_Validation' path: '../TestCases/TreeEditor/ASTD_2569_Copy_Paste_ASTD_2572_Validation.test'
 _Mf2bcGCNEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2572_Validation_Error' path: '../TestCases/TreeEditor/ASTD_2572_Validation_Error.test'
-_e0gogGDjEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2573_OSD_Rule_Validation' path: '../TestCases/OSDConformance/ASTD_2573_OSD_Rule_Validation.test'
+_e0gogGDjEemtI4gwOJfK8Q	// kind: 'test' name: 'ASTD_2569_ASTD_2575_OSD_Rule_Validation' path: '../TestCases/OSDConformance/ASTD_2569_ASTD_2575_OSD_Rule_Validation.test'
+_zdCAwLOaEemJpt8Iba3_sw	// kind: 'test' name: 'ASTD_2569_ASTD_2575_OSD_Parameter_Rule_Validation' path: '../TestCases/OSDConformance/ASTD_2569_ASTD_2575_OSD_Parameter_Rule_Validation.test'
 _v5CFgKYPEeilzpuCEGWvPA	// kind: 'test' name: 'ASTD_1765_UninstallEOSDUpdateSite' path: '../TestCases/UpdateSite/ASTD_1765_UninstallEOSDUpdateSite.test'
 
 ------=_testcase-items-62c497da-4241-31f4-811a-6b453a3ecff8--
