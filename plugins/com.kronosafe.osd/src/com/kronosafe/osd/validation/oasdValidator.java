@@ -155,6 +155,19 @@ public class oasdValidator extends EObjectValidator {
 				}
 
 			}
+			
+			if (object.getRef() != null && object.getDir() != null) {
+				switch (object.getDir().getValue()) {
+				case ParameterDir.OUTPUT_VALUE:
+					if (object.isPointer() == false)
+						return warning("Output parameter shall be a reference not a value, pointer property shall be true for parameter "+ object.getName()
+						+ " in " + ((FunctionItem) object.eContainer()).getName(), object);
+					break;
+				default:
+					break;
+				}
+			}
+			
 			return super.caseParameter(object);
 		}
 

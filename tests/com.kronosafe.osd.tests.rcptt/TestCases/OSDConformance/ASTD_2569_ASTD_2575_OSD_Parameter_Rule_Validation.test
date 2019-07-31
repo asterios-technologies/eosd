@@ -1,0 +1,182 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _-JTrgPo1EeidNbfFeejbxQ
+Element-Name: ASTD_2569_ASTD_2575_OSD_Parameter_Rule_Validation
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _zdCAwLOaEemJpt8Iba3_sw
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 7/31/19 5:34 PM
+Testcase-Type: ecl
+Verifications: _zjs7YM8nEeSz9_HNAw245A
+
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa
+Content-Type: text/plain
+Entry-Name: .description
+
+http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-2569
+http://polarion.ks.int/polarion/#/project/ASTDESIGNER/workitem?id=ASTD-2575
+
+Note: direction of Parameter and ReferenceValue are managed in tests : \plugins\com.kronosafe.osd.tests\src\com\kronosafe\osd\oasd\tests\ParameterTest.java and \plugins\com.kronosafe.osd.tests\src\com\kronosafe\osd\oasd\tests\ReturnValueTest.java
+------=_.description-216f885c-d591-38ce-8ea2-e4f8cb4d6ffa--
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+with [get-view "Model Explorer" | get-tree] {
+    //select "project1 [eosd KDES-555]" | double-click
+    select project1 | double-click
+    select "project1/My.oasd"  | double-click
+    //select "project1 \\[eosd KDES-555\\]/My.oasd"| double-click
+}
+
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu 
+        -path "New Child/Behavior Item" | click
+}
+with [get-view Properties | get-tree] {
+    select Name | activate-cell-edit -column 1
+    get-editbox | set-text a
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | get-menu 
+        -path "New Child/Function Item" | click
+}
+with [get-view Properties | get-tree] {
+    select Kind | activate-cell-edit -column 1
+    get-combo | select cycle
+    apply-cell-edit
+}
+with [get-view Properties | get-tree] {
+    select Name | activate-cell-edit -column 1
+    get-editbox | set-text a
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | get-menu -path "New Child/Parameter" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | get-menu -path "New Child/Parameter" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | get-menu 
+        -path "New Child/Output" | click
+    get-item 
+        -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a/Parameter" 
+        | click
+}
+with [get-view Properties | get-tree] {
+    select Order | activate-cell-edit -column 1
+    apply-cell-edit -deactivate
+    select Pointer | activate-cell-edit -column 1
+    get-button | check
+    apply-cell-edit
+    select Ref | activate-cell-edit -column 1
+    get-combo | select Output
+    apply-cell-edit
+}
+get-editor "My.oasd" | get-tree | get-item 
+    -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+    | get-item -path Parameter -index 1 | click
+with [get-view Properties | get-tree] {
+    select Ref | activate-cell-edit -column 1
+    get-combo | select Output
+    apply-cell-edit
+    select Order | activate-cell-edit -column 1
+    with [get-editbox] {
+        set-text 1
+        key-type "NUMPAD_ENTER" "\\u000D"
+    }
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | get-menu -path Validate | click
+}
+get-window "Validation Problems" | get-button OK | click
+with [get-view Problems] {
+    click
+    get-tree 
+        | select "Warnings (1 item)/Output parameter shall be a reference not a value, pointer property shall be true for parameter null in a"
+}
+get-view Problems | get-tree 
+    | select "Warnings \\(1 item\\)/Output parameter shall be a reference not a value, pointer property shall be true for parameter null in a" 
+    | double-click
+with [get-view Properties] {
+    click
+    with [get-tree] {
+        select Pointer | activate-cell-edit -column 1
+        get-button | check
+        apply-cell-edit
+    }
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | click
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+        | get-menu -path "New Child/Parameter" | click
+}
+with [get-view Properties | get-tree] {
+    select Ref | activate-cell-edit -column 1
+    get-combo | select Output
+    apply-cell-edit
+    select Pointer | activate-cell-edit -column 1
+    get-button | check
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu -path Validate | click
+}
+get-window "Validation Problems" | get-button OK | click
+with [get-view Problems] {
+    click
+    get-tree | select [get-item -path "Warnings \\(2 items\\)" | get-item 
+        -path "Duplicate order detected for Parameter in a" -index 1] | double-click
+}
+get-editor "My.oasd" | get-tree | get-item 
+    -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Function Item a" 
+    | get-item -path Parameter -index 2 | click
+with [get-view Properties] {
+    click
+    with [get-tree] {
+        select Order | activate-cell-edit -column 1
+        get-editbox | set-text 2
+        apply-cell-edit
+    }
+}
+get-editor "My.oasd" | get-tree | get-item 
+    -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a/Output" | click
+with [get-view Properties | get-tree] {
+    select Name | activate-cell-edit -column 1
+    get-editbox | set-text a
+    apply-cell-edit
+}
+get-editor "My.oasd" | get-tree | get-item 
+    -path "platform:\\/resource\\/project1\\/My.oasd/System Description test/Behavior Item a" | click
+with [get-view Properties | get-tree] {
+    select Kind | activate-cell-edit -column 1
+    get-combo | select in
+    apply-cell-edit
+}
+with [get-editor "My.oasd" | get-tree] {
+    get-item -path "platform:\\/resource\\/project1\\/My.oasd/System Description test" | click
+    select "platform:\\/resource\\/project1\\/My.oasd/System Description test" | get-menu -path Validate | click
+}
+get-window "Validation Information" | get-button OK | click
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
