@@ -82,4 +82,5 @@ To install eOSD plugin on the Eclipse IDE:
 If you want to use the RCPTT IDE, select the tests as the workspace and import the project com.kronosafe.osd.tests.rcptt. Choose, the aut and then change the workspace to the desktop (aut -> right click -> configure).
 
 ## How to use the AADL2OSD Transformation
-- Just ask a launch from the run as/debug as menu (verify the path in the configuration)
+
+- Readme is provided in the example

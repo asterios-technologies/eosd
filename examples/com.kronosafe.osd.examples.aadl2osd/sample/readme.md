@@ -1,6 +1,6 @@
 This is a simplified example of AADL to Open System Description transformation demonstrated on a simple producer/consumer aadl example.
 
-### Pre-requisites
+# Pre-requisites
 
 The example dependencies are:
 
@@ -10,6 +10,10 @@ The example dependencies are:
 | `ATL 4.0.1`                               		| The ATL Transformation Language used for the AADL2OSD Transformation available as an Eclipse Update Site [ATL Releases P2 Repository](http://download.eclipse.org/mmt/atl/updates/releases) |
 | `EOSD 2.0.0`                               		| [The Open System Description Eclipse integration](https://github.com/krono-safe/eosd/releases) |
 | `ASTERIOS Designer K19.0.X (optional)`     		| The [ASTERIOS Designer](https://www.krono-safe.com/asterios-designer/) tool to generate the dynamic PsyC architecture  |
+
+# How to install the environment ?
+
+Download and extract the OSATE bundle, then install the eOSD and the ATL update sites from the Eclipse installation widget (`Help -> Install New Software -> Add`) in the OSATE bundle.
 
 # How to generate the OSD files ?
 
